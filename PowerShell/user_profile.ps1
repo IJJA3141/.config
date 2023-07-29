@@ -9,3 +9,4 @@ oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH/tiwahu.omp.json" | Invoke-E
 
 # Alias
 Set-Alias vcpkg "D:\Program Files\Vcpkg\vcpkg.exe"
+Set-Alias lsa ls --all
