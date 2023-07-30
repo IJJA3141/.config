@@ -8,6 +8,12 @@ local plugins = {
   },
   {
     "neovim/nvim-lspconfig",
+    dependencies = {
+      'jose-elias-alvarez/null-ls.nvim',
+      config = function ()
+        require 'NvChad.configs.null-ls'
+        end,
+    },
     config = function()
       require "plugins.configs.lspconfig"
       require "NvChad.configs.lspconfig"
