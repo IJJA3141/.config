@@ -33,6 +33,7 @@ local plugins = {
 	},
 	{
 		"andweeb/presence.nvim",
+		lazy = false,
 		config = function()
 			require("NvChad.configs.dicord")
 		end,
