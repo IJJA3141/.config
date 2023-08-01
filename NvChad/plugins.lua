@@ -31,6 +31,12 @@ local plugins = {
 		lazy = true,
 		ft = { "tex" },
 	},
+	{
+		"andweeb/presence.nvim",
+		config = function()
+			require("NvChad.configs.dicord")
+		end,
+	},
 }
 
 return plugins
