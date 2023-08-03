@@ -15,7 +15,7 @@ for _, lsp in pairs(servers) do
 end
 
 -- cpp
-lspconfig.setup({
+lspconfig.clangd.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 	cmd = {
