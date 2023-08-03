@@ -4,7 +4,7 @@ local capabilities = require("plugins.configs.lspconfig").capabilities
 local lspconfig = require("lspconfig")
 
 -- server list
-local servers = { "rust_analyzer", "clangd", "tsserver", "pyright", "texlab", "lua_ls" }
+local servers = { "rust_analyzer", "tsserver", "pyright", "texlab", "lua_ls" }
 
 -- base setup
 for _, lsp in pairs(servers) do
@@ -13,6 +13,16 @@ for _, lsp in pairs(servers) do
 		capabilities = capabilities,
 	})
 end
+
+-- cpp
+lspconfig.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+	cmd = {
+		"clangd",
+		"--offset-encoding=utf-16",
+	},
+})
 
 -- json
 local vscode_json_capabilities = vim.lsp.protocol.make_client_capabilities()

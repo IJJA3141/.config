@@ -7,7 +7,6 @@ local sources = {
 	formatting.prettier,
 	formatting.stylua,
 	formatting.clang_format,
-  formatting.ts_standard,
 
 	lint.shellcheck,
 }
