@@ -29,5 +29,5 @@ function Copy-Filtered { # from https://serverfault.com/questions/707085/copy-it
 }
 
 # Alias
-Set-Alias vcpkg 'D:\Program Files\Vcpkg\vcpkg.exe'
 Set-Alias lsa lsall
+Set-Alias cpf Copy-Filtered
