@@ -4,7 +4,13 @@ local capabilities = require("plugins.configs.lspconfig").capabilities
 local lspconfig = require("lspconfig")
 
 -- server list
-local servers = { "rust_analyzer", "tsserver", "pyright", "texlab", "lua_ls" }
+local servers = {
+	"rust_analyzer",
+	"tsserver",
+	"pyright",
+	"texlab",
+	"lua_ls",
+}
 
 -- base setup
 for _, lsp in pairs(servers) do
@@ -38,6 +44,14 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 lspconfig.html.setup({
 	capabilities = vscode_html_capabilities,
+})
+
+-- css
+local vscode_css_capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+lspconfig.cssls.setup({
+	capabilities = vscode_css_capabilities,
 })
 
 -- overflowing diagnostic fix
