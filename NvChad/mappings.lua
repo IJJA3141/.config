@@ -10,6 +10,7 @@ mappings.custom = {
 			end,
 			"toggle transparency",
 		},
+		["<leader>sh"] = { "<cmd> set list listchars=tab:>\\ ,trail:-,eol:$ <cr>", "show hidden characters" },
 	},
 	i = {
 		["<S-up>"] = { "<cmd> move -2 <cr>", "move up" },
