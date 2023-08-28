@@ -80,7 +80,7 @@ local plugins = {
 	{
 		"cdelledonne/vim-cmake",
 		lazy = false,
-	},
+	}
 }
 
 return plugins
