@@ -1,6 +1,6 @@
 # Oh my posh
 
-eval "$(oh-my-posh init bash --config $HOME/.poshthemes/tiwahu.omp.json)"
+eval "$(oh-my-posh init bash --config /.poshthemes/tiwahu.omp.json)"
 # Nice themes
 #
 # takuya
