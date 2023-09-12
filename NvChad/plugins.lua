@@ -78,9 +78,19 @@ local plugins = {
 		end,
 	},
 	{
-		"cdelledonne/vim-cmake",
+		"Civitasv/cmake-tools.nvim",
+		config = function()
+			require("NvChad.configs.cmake-tools")
+		end,
 		lazy = false,
-	}
+	},
+	{
+		"p00f/clangd_extensions.nvim",
+		config = function()
+			require("NvChad.configs.clangd-extensions")
+		end,
+		lazy = false,
+	},
 }
 
 return plugins
