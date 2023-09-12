@@ -36,9 +36,7 @@ require("clangd_extensions").setup({
             type = "🄣",
             declaration = "🄓",
             expression = "🄔",
-            statement = "
-
-;",
+            statement = ";",
             specifier = "🄢",
             ["template argument"] = "🆃",
         },
@@ -82,15 +80,3 @@ require("clangd_extensions").setup({
         border = "none",
     },
 })
-
-Features:
-Inlay hints
-
-image
-Usage
-
-Add this to your nvim-lspconfig / vim.lsp.start()'s on_attach:
-
-require("clangd_extensions.inlay_hints").setup_autocmd()
-require("clangd_extensions.inlay_hints").set_inlay_hints()
-
