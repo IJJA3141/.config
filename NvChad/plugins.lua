@@ -76,20 +76,21 @@ local plugins = {
 		config = function(_, _)
 			require("core.utils").load_mappings("dap")
 		end,
+		ft = { "cpp", "c", "hpp", "h" },
 	},
 	{
 		"Civitasv/cmake-tools.nvim",
 		config = function()
 			require("NvChad.configs.cmake-tools")
 		end,
-		lazy = false,
+		ft = { "cpp", "c", "hpp", "h" },
 	},
 	{
 		"p00f/clangd_extensions.nvim",
 		config = function()
 			require("NvChad.configs.clangd-extensions")
 		end,
-		lazy = false,
+		ft = { "cpp", "c", "hpp", "h" },
 	},
 }
 
