@@ -1,0 +1,5 @@
+# Source a file (multi-file configs)
+source = ~/.config/hypr/hyprland/windows.conf
+source = ~/.config/hypr/hyprland/exec.conf
+source = ~/.config/hypr/hyprland/rule.conf
+source = ~/.config/hypr/hyprland/bindings.conf
