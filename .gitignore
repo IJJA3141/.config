@@ -1,4 +1,17 @@
-lazy-lock.json
-nvim/
-kitty-themes/
+# Folders
+dconf/
 gh/
+gtk-3.0/
+kitty-themes/
+nvim/
+vlc/
+yay/
+
+# Files
+*.webm
+kitty-theme.conf
+current-theme.conf
+kitty-theme.conf.bak
+
+# Temp
+nvchad/

@@ -13,9 +13,9 @@ enable_audio_bell	false
 
 font_size		12
 
-# UI
-foreground		#ebdbb2
-background		#262626
+# BEGIN_KITTY_THEME
+# Gruvbox Light
+include current-theme.conf
+# END_KITTY_THEME
 
-selection_foreground	#2f2f2f
-selection_background	#d75f5f
+background_opacity 0.2
