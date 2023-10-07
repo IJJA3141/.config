@@ -11,7 +11,7 @@ yay/
 *.webm
 kitty-theme.conf
 current-theme.conf
-kitty-theme.conf.bak
+kitty.conf.bak
 
 # Temp
 nvchad/
