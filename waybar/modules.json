@@ -47,12 +47,25 @@
       "10": "0"
     }
   },
-  "custom/q": {
-    "format": "q",
+  "custom/Q": {
+    "format": "Q",
     "on-click": "bash echo Hi!"
   },
-  "custom/e": {
-    "format": "e",
+  "custom/E": {
+    "format": "E",
     "on-click": "bash echo Hi!"
+  },
+  "custom/battery": {
+    "format": " "
+  },
+  "backlight": {
+    "device": "amdgpu_bl1",
+    "format": "<span foreground=\"#A7C080\">{icon}</span> {percent}% ",
+    "format-icons": [
+      "",
+      ""
+    ],
+    "on-click": "",
+    "tooltip-format": "Brightness"
   }
 }

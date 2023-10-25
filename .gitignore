@@ -1,14 +1,17 @@
 # Folders
 dconf/
+figma-linux/
 gh/
 gtk-3.0/
 kitty-themes/
 nvim/
+pulse/
 vlc/
 yay/
 
 # Files
 *.webm
+*.mov
 kitty-theme.conf
 current-theme.conf
 kitty.conf.bak

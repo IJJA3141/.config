@@ -1,4 +1,4 @@
 #!/bin/bash
 
-swww img "$HOME/.config/Desktop/Wallpaper/Frame 113.png"
+swww img "$HOME/.config/hypr/wallpapers/Frame 113.png"
 kitten themes --reload-in=all Gruvbox Light

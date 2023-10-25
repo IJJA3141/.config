@@ -18,12 +18,27 @@
     // Load modules
     "include": ["~/.config/waybar/modules.json"],  
 
-    "modules-left": [],
-    "modules-center": ["group/workspaces"],
-    "modules-right": [],
+    "modules-left": ["group/ttt"],
+    // "modules-center": ["group/workspace"],
+    // "modules-right": ["backlight","group/battry"],
 
-    "group/workspaces":{
+    "group/workspace":{
       "orientation": "horizontal",
-      "modules": ["custom/q", "hyprland/workspaces", "custom/e"]
+      "modules": ["custom/Q", "hyprland/workspaces", "custom/E"]
+    },
+
+    "group/battry":{
+      "orientation": "horizontal",
+      "modules": ["custom/battery","battery"]
+    },
+
+    "group/ttt":{
+      "orientation": "horizontal",
+      "modules": ["group/test"]
+    },
+
+    "group/test":{
+      "orientation": "horizontal",
+      "modules": ["custom/battery", "battery"]
     }
 }
