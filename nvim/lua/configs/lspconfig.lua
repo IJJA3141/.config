@@ -7,5 +7,12 @@ local servers = {
 
 -- base setup
 for _, lsp in pairs(servers) do
-	lspconfig[lsp].setup {}
+	lspconfig[lsp].setup({})
 end
+
+lspconfig.clangd.setup({
+	cmd = {
+		"clangd",
+		"--offset-encoding=utf-16",
+	},
+})
