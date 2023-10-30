@@ -1,28 +1,46 @@
 local mappings = {}
 
-mappings.n = {}
-mappings.i = {
-	["<C-j>"] = "<Down>",
-	["<C-k>"] = "<Up>",
+mappings.n = {
+	-- switch between windows
+	["<C-h>"] = { "<C-w>h", "Window left" },
+	["<C-l>"] = { "<C-w>l", "Window right" },
+	["<C-j>"] = { "<C-w>j", "Window down" },
+	["<C-k>"] = { "<C-w>k", "Window up" },
 
-	["<C-h>"] = "<Left>",
-	["<C-h>"] = "<Left>",
-	["<C-L>"] = "<Right>",
+	-- move line up and down
+	["<A-k>"] = { "<cmd> move +1 <cr>", "Move line up" },
+	["<A-j>"] = { "<cmd> move -2 <cr>", "Move line down" },
+
+	-- oil
+	["<leader>e"] = { "<cmd> Oil --float <cr>", "Oil on water" },
+
+	-- no neck pain
+	["<leader>nn"] = { "<cmd> NoNeckPain <cr>", "No neck pain" },
+
+	-- telescope
+	["<leader>tf"] = { "<cmd> Telescope fd <cr>", "Telescope finder" },
+	["<leader>tg"] = { "<cmd> Telescope live_grep <cr>", "Telescope finder" },
 }
+
+mappings.i = {
+	-- move in insert mode
+	["<C-j>"] = { "<Down>", "Down" },
+	["<C-k>"] = { "<Up>", "Up" },
+	["<C-h>"] = { "<Left>", "Left" },
+	["<C-L>"] = { "<Right>", "Right" },
+
+	-- move line up and down
+	["<A-k>"] = { "<cmd> move +1 <cr>", "Move line up" },
+	["<A-j>"] = { "<cmd> move -2 <cr>", "Move line down" },
+}
+
 mappings.v = {}
 
 for mode, binds in pairs(mappings) do
 	for keys, func in pairs(binds) do
-		vim.keymap.set(mode, keys, func)
+		vim.keymap.set(mode, keys, func[1], { desc = func[2] })
 	end
 end
-
--- Global mappings.
--- See `:help vim.diagnostic.*` for documentation on any of the below functions
-vim.keymap.set("n", "<space>e", vim.diagnostic.open_float)
-vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
-vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
-vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist)
 
 -- Use LspAttach autocommand to only map the following keys
 -- after the language server attaches to the current buffer
@@ -54,4 +72,3 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		end, opts)
 	end,
 })
-

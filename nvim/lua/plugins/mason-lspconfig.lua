@@ -1,10 +1,12 @@
 return {
+	"williamboman/mason-lspconfig.nvim",
+	opts = {
+		ensure_installed = {
+			--Lua
+			"lua_ls",
 
-"williamboman/mason-lspconfig.nvim",
-opts = {	ensure_installed = {
---Lua
-
---Cpp
-"clangd",
-},},
+			--Cpp
+			"clangd",
+		},
+	},
 }
