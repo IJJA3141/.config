@@ -8,8 +8,8 @@ mappings.n = {
 	["<C-k>"] = { "<C-w>k", "Window up" },
 
 	-- move line up and down
-	["<A-k>"] = { "<cmd> move +1 <cr>", "Move line up" },
-	["<A-j>"] = { "<cmd> move -2 <cr>", "Move line down" },
+	["<A-j>"] = { "<cmd> move +1 <cr>", "Move line down" },
+	["<A-k>"] = { "<cmd> move -2 <cr>", "Move line up" },
 
 	-- oil
 	["<leader>e"] = { "<cmd> Oil --float <cr>", "Oil on water" },
@@ -30,8 +30,8 @@ mappings.i = {
 	["<C-L>"] = { "<Right>", "Right" },
 
 	-- move line up and down
-	["<A-k>"] = { "<cmd> move +1 <cr>", "Move line up" },
-	["<A-j>"] = { "<cmd> move -2 <cr>", "Move line down" },
+	["<A-k>"] = { "<cmd> move -2 <cr>", "Move line up" },
+	["<A-j>"] = { "<cmd> move +1 <cr>", "Move line down" },
 }
 
 mappings.v = {}
@@ -53,22 +53,40 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		-- Buffer local mappings.
 		-- See `:help vim.lsp.*` for documentation on any of the below functions
 		local opts = { buffer = ev.buf }
-		vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
-		vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-		vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-		vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
-		vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
-		vim.keymap.set("n", "<space>wa", vim.lsp.buf.add_workspace_folder, opts)
-		vim.keymap.set("n", "<space>wr", vim.lsp.buf.remove_workspace_folder, opts)
-		vim.keymap.set("n", "<space>wl", function()
-			print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-		end, opts)
-		vim.keymap.set("n", "<space>D", vim.lsp.buf.type_definition, opts)
-		vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, opts)
-		vim.keymap.set({ "n", "v" }, "<space>ca", vim.lsp.buf.code_action, opts)
-		vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
-		vim.keymap.set("n", "<space>f", function()
-			vim.lsp.buf.format({ async = true })
-		end, opts)
+
+		local lspmappings = {}
+		lspmappings.n = {
+			["<leader>gD"] = { vim.lsp.buf.declaration, "Lsp declaration" },
+			["<leader>gd"] = { vim.lsp.buf.definition, "Lsp definition" },
+			["<leader>K"] = { vim.lsp.buf.hover, "Lsp hover" },
+			["<leader>gi"] = { vim.lsp.buf.implementation, "Lsp implementatoin" },
+			["<leader><C-k>"] = { vim.lsp.buf.signature_help, "Lsp signature help" },
+			["<leader>wa"] = { vim.lsp.buf.add_workspace_folder, "Lsp add workspace folder" },
+			["<leader>wr"] = { vim.lsp.buf.remove_workspace_folder, "Lsp remove workspace folder" },
+			["<leader>wl"] = {
+				function()
+					print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+				end,
+				"Lsp list workspace  folders",
+			},
+
+			["<leader>D"] = { vim.lsp.buf.type_definition, "Lsp type definition" },
+			["<leader>rn"] = { vim.lsp.buf.rename, "Lsp rename" },
+			["<leader>ca"] = { vim.lsp.buf.code_action, "Lsp code action" },
+			["<leader>gr"] = { vim.lsp.buf.references, "Lsp references" },
+			["<leader>f"] = {
+				function()
+					vim.lsp.buf.format({ async = true })
+				end,
+				"Lsp format",
+			},
+		}
+
+		for mode, binds in pairs(lspmappings) do
+			for keys, func in pairs(binds) do
+				opts.desc = func[2]
+				vim.keymap.set(mode, keys, func[1], opts)
+			end
+		end
 	end,
 })

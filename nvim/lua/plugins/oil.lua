@@ -88,7 +88,7 @@ return {
 		float = {
 			-- Padding around the floating window
 			padding = 5,
-			max_width =70,
+			max_width = 70,
 			max_height = 0,
 			border = "rounded",
 			win_options = {
@@ -125,7 +125,7 @@ return {
 		},
 		-- Configuration for the floating progress window
 		progress = {
-			max_width = 0.9, 
+			max_width = 0.9,
 			min_width = { 40, 0.4 },
 			width = nil,
 			max_height = { 10, 0.9 },

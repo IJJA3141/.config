@@ -12,6 +12,7 @@ return {
 			["gs"] = { name = "+surround" },
 			["]"] = { name = "+next" },
 			["["] = { name = "+prev" },
+			["t"] = { name = "Telescope" },
 			["<leader><tab>"] = { name = "+tabs" },
 			["<leader>b"] = { name = "+buffer" },
 			["<leader>c"] = { name = "+code" },
