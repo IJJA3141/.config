@@ -18,9 +18,9 @@
     // Load modules
     "include": ["~/.config/waybar/modules.json"],  
 
-    "modules-left": ["group/ttt"],
-    // "modules-center": ["group/workspace"],
-    // "modules-right": ["backlight","group/battry"],
+    "modules-left": ["group/ttt", "hyprland/window"],
+    "modules-center": ["group/workspace"],
+    "modules-right": ["backlight", "clock"],
 
     "group/workspace":{
       "orientation": "horizontal",

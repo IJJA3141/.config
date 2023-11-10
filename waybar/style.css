@@ -19,6 +19,7 @@ window#waybar {
 }
 
 #window,
+#clock,
 #backlight,
 #workspace,
 #ttt {

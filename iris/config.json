@@ -1,0 +1,41 @@
+{
+  "layer_top": false,
+  "fullscreen": true,
+  "maximized": true,
+  "width": 2400,
+  "height": 1500,
+  "layer_margin_top": -20,
+
+  "rows": [
+    {
+      "name": "r1",
+      "label": "l1",
+      "modules": [
+        { "name": "n1", "label": "l1", "icon": "i1", "script": "s1" },
+        { "name": "n2", "label": "l2", "icon": "i2", "script": "s2" },
+        { "name": "n3", "label": "l3", "icon": "i3", "script": "s3" },
+        {
+          "name": "real_name",
+          "label": "proper test !",
+          "icon": "~/.config/iris/wallhaven-rrpp6m_2800x1800.png",
+          "script": "~/.config/hypr/scripts/light.bash"
+        }
+      ]
+    },
+    {
+      "name": "r1",
+      "label": "l1",
+      "modules": [
+        { "name": "n1", "label": "l1", "icon": "i1", "script": "s1" },
+        { "name": "n2", "label": "l2", "icon": "i2", "script": "s2" },
+        { "name": "n3", "label": "l3", "icon": "i3", "script": "s3" },
+        {
+          "name": "real_name",
+          "label": "proper test !",
+          "icon": "~/.config/iris/wallhaven-rrpp6m_2800x1800.png",
+          "script": "~/.config/hypr/scripts/light.bash"
+        }
+      ]
+    }
+  ]
+}
