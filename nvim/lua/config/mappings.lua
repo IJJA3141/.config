@@ -20,6 +20,10 @@ mappings.n = {
 	-- telescope
 	["<leader>tf"] = { "<cmd> Telescope fd <cr>", "Telescope finder" },
 	["<leader>tg"] = { "<cmd> Telescope live_grep <cr>", "Telescope finder" },
+
+	-- split
+	["<leader>sv"] = { "<cmd> vsplit <cr>", "Vertical split" },
+	["<leader>sh"] = { "<cmd> split <cr>", "Horizontal split" },
 }
 
 mappings.i = {
