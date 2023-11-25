@@ -1,9 +1,0 @@
-2023/11/19-19:41:40.389 40a Reusing MANIFEST /home/alexe/.config/discord/Local Storage/leveldb/MANIFEST-000001
-2023/11/19-19:41:40.390 40a Recovering log #3
-2023/11/19-19:41:40.390 40a Reusing old log /home/alexe/.config/discord/Local Storage/leveldb/000003.log 
-2023/11/19-19:44:53.154 409 Level-0 table #5: started
-2023/11/19-19:44:53.179 409 Level-0 table #5: 711986 bytes OK
-2023/11/19-19:44:53.181 409 Delete type=0 #3
-2023/11/19-19:45:53.143 409 Level-0 table #7: started
-2023/11/19-19:45:53.198 409 Level-0 table #7: 2003425 bytes OK
-2023/11/19-19:45:53.201 409 Delete type=0 #4
