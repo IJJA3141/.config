@@ -1,0 +1,18 @@
+2023-11-19T18:41:42.544Z 0: 
+
+----------------------------------------------
+2023-11-19T18:41:42.684Z 1: Discord starting: {"releaseChannel":"stable","version":"0.0.35"}, modulepath: /home/alexe/.config/discord/0.0.35/modules
+2023-11-19T18:41:42.755Z 2: ✅ webContents.created web1 ""
+2023-11-19T18:41:42.783Z 3: ✅ window.created win1 "discord"
+2023-11-19T18:41:45.736Z 4: ✅ webContents.did-finish-load web1
+2023-11-19T18:41:53.055Z 5: ✅ webContents.created web2 ""
+2023-11-19T18:41:53.064Z 6: ✅ window.created win2 "Discord"
+2023-11-19T18:41:55.659Z 7: ✅ webContents.did-finish-load web2
+2023-11-19T18:41:55.759Z 8: window.close win1
+2023-11-19T18:41:55.800Z 9: webContents.destroyed web1
+2023-11-19T18:41:55.818Z 10: window.closed win1
+2023-11-19T18:43:56.802Z 11: window.close win2
+2023-11-19T18:44:45.426Z 0: 
+
+----------------------------------------------
+2023-11-19T18:44:45.442Z 1: Discord starting: {"releaseChannel":"stable","version":"0.0.35"}, modulepath: /home/alexe/.config/discord/0.0.35/modules
