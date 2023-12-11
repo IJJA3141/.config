@@ -21,11 +21,12 @@ handle() {
 		;;
 	esac
 }
+echo "(box :class \"workspaces\" (box :class \"active_workspace\" \"\") (box :class \"unused_workspace\" \"\") (box :class \"unused_workspace\" \"\") (box :class \"unused_workspace\" \"\") (box :class \"unused_workspace\" \"\"))"
+
+sleep 15
 
 for i in 2 3 4 5 1; do
-	hyprctl dispatch movetoworkspace $i
+	hyprctl dispatch movetoworkspace $i > /dev/null
 done
-
-echo '(box :class "workspaces" (box :class \"active_workspace\" \"\") (box :class \"unused_workspace\" \"\") (box :class \"unused_workspace\" \"\") (box :class \"unused_workspace\" \"\") (box :class \"unused_workspace\" \"\"))'
 
 socat -U - "UNIX-CONNECT:/tmp/hypr/${HYPRLAND_INSTANCE_SIGNATURE}/.socket2.sock" | while read -r line; do handle "$line"; done
