@@ -1,4 +1,5 @@
 (defvar k "(box 'US')")
+(defvar foo false)
 
 (defwidget clock []
   (label :text dateval)
@@ -32,20 +33,20 @@
   (literal :content pkg)
   (literal :content wifi)
   (clock)
-  (literal :content battery)
+  (revealer :class "one" :reveal foo (literal :class "two" :content battery))
   (literal :content k)
 	)
 
 	)
 )
 
-(deflisten notifs :initial ""
-  `python ~/.config/hypr/scripts/notification.py`)
+(deflisten notifs "python scripts/notification.py")
 
 (defwindow notifications
            :monitor 0
-           :geometry (geometry :x "20px"
-                               :y "20px"
+           :geometry (geometry :x "10px"
+                               :y "10px"
                                :anchor "top right")
            :stacking "overlay"
-           (literal :content notifs))
+           (literal :content notifs)
+)
