@@ -1,0 +1,19 @@
+=========================
+Fcitx 5.1.5 -- Get Signal No.: 6
+Date: try "date -d @1702312041" if you are using GNU date ***
+ProcessID: 17134
+/usr/bin/fcitx5(+0x1031c)[0x5592cc6dc31c]
+/usr/lib/libc.so.6(+0x3e710)[0x7fc90b25c710]
+/usr/lib/libc.so.6(+0x8e83c)[0x7fc90b2ac83c]
+/usr/lib/libc.so.6(raise+0x18)[0x7fc90b25c668]
+/usr/lib/libc.so.6(abort+0xd7)[0x7fc90b2444b8]
+/usr/lib/libQt5Core.so.5(_Z9qt_assertPKcS0_i+0x0)[0x7fc9080a00c2]
+/usr/lib/libQt5Gui.so.5(_ZN22QGuiApplicationPrivate25createPlatformIntegrationEv+0x1472)[0x7fc90873f402]
+/usr/lib/libQt5Gui.so.5(_ZN22QGuiApplicationPrivate21createEventDispatcherEv+0x39)[0x7fc90873fa99]
+/usr/lib/libQt5Core.so.5(_ZN23QCoreApplicationPrivate4initEv+0x605)[0x7fc90829bc05]
+/usr/lib/libQt5Gui.so.5(_ZN22QGuiApplicationPrivate4initEv+0x36)[0x7fc90873fb46]
+/usr/lib/libQt5Widgets.so.5(_ZN19QApplicationPrivate4initEv+0xe)[0x7fc908f75b9e]
+/usr/lib/fcitx5/fcitx5imemojipicker.so(_Z8gui_mainiPPc+0x179)[0x7fc9096b11f9]
+/usr/lib/libstdc++.so.6(+0xe1943)[0x7fc90b4e1943]
+/usr/lib/libc.so.6(+0x8c9eb)[0x7fc90b2aa9eb]
+/usr/lib/libc.so.6(+0x1107cc)[0x7fc90b32e7cc]

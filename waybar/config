@@ -19,7 +19,7 @@
     "include": ["~/.config/waybar/modules.json"],  
 
     "modules-left": ["group/ttt", "hyprland/window"],
-    "modules-center": ["group/workspace"],
+    "modules-center": ["group/workspace", "keyboard-state"],
     "modules-right": ["backlight", "clock"],
 
     "group/workspace":{

@@ -1,5 +1,6 @@
 return {
 	-- Gruvbox
+	-- Official
 	{
 		"ellisonleao/gruvbox.nvim",
 		lazy = true,
@@ -28,6 +29,9 @@ return {
 			dim_inactive = false,
 			transparent_mode = false,
 		},
+	},
+	{
+		"luisiacc/gruvbox-baby",
 	},
 
 	-- Catppuccin

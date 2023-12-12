@@ -21,7 +21,7 @@ capabilities.textDocument.completion.completionItem = {
 }
 
 -- server list
-local servers = { "cmake", "cssls", "yamlls", "jsonls" }
+local servers = { "cmake", "cssls", "yamlls", "jsonls", "pylsp" }
 
 -- default
 for _, server in ipairs(servers) do
