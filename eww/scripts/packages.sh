@@ -1,3 +1,3 @@
 #!/bin/sh
 
-echo "(box $(checkupdates | wc -l))"
+echo "(pkg :maj $(checkupdates | wc -l))"

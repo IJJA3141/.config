@@ -1,52 +1,76 @@
-(defvar k "(box 'US')")
-(defvar foo false)
+(defpoll wifi :interval "1s" "scripts/wifi.sh")
 
-(defwidget clock []
-  (label :text dateval)
+(defvar show_sound true)
+(deflisten sound_listener "scripts/sound.sh")
+(defwidget sound [level muted icon]
+  (box 
+    (button :onclick "eww update show_sound=${!show_sound}"
+      {show_sound ? icon : level}
+    )
+    (box :visible show_sound 
+      (progress :value level)
+    )
+   )
 )
 
-(defpoll pkg :interval "1m" "scripts/packages.sh")
-(defpoll wifi :interval "1s" "scripts/wifi.sh")
-(defpoll dateval :interval "1s" `date +%H:%M`)
+(defvar show_pkg true)
+(deflisten pkg_listener "scripts/packages.sh")
+(defwidget pkg [maj]
+  (box 
+    (button :onclick "eww update show_pkg=${!show_pkg}"
+      {show_pkg ? "" : maj}
+    )
+    (box :visible show_pkg
+      maj 
+    )
+  )
+)
 
-(deflisten sound "scripts/sound.sh")
-(deflisten workspaces "scripts/workspaces.sh")
-(deflisten layout "scripts/layout.sh")
-(deflisten battery "scripts/battery.sh")
+(defvar current_keyboard `(keyboard :language "english" :lg "A")`)
+(defvar show_keyboard true)
+(defwidget keyboard [language lg]
+  (box 
+    (button :onclick "eww update show_keyboard=${!show_keyboard}"
+      {show_keyboard ? "󰌌" : lg}
+    )
+    (box :visible show_keyboard
+      language 
+    )
+  )
+)
+
+(defvar show_battery true)
+(deflisten battery_listener "scripts/battery.sh")
+(defwidget battery [color charging level icon]
+  (box 
+    (button :onclick "eww update show_battery=${!show_battery}"
+      {show_battery ? icon : level}
+    )
+    (box :visible show_battery 
+      (progress :value level)
+    )
+   )
+)
 
 (defwindow bar
 	:monitor 0
 	:windowtype "dock"
-	:geometry (geometry 
+	:exclusive true	
+
+  :geometry (geometry 
 			        :width "100%"
 		        	:height "4%"
 		        	:anchor "top center"
 			      )
 
-	:exclusive true	
 
 	(box :class "main-container"
-	
-	(box :class "workspaces" :halign "center" 
-  (literal :content workspaces)
-  (literal :content sound)
-  (literal :content pkg)
-  (literal :content wifi)
-  (clock)
-  (revealer :class "one" :reveal foo (literal :class "two" :content battery))
-  (literal :content k)
+	  (box :class "workspaces" :halign "center"
+      (literal :content current_keyboard)
+      (literal :content battery_listener) 
+      (literal :content wifi)
+      (literal :content pkg_listener)
+      (literal :content sound_listener)
+    )
 	)
-
-	)
-)
-
-(deflisten notifs "python scripts/notification.py")
-
-(defwindow notifications
-           :monitor 0
-           :geometry (geometry :x "10px"
-                               :y "10px"
-                               :anchor "top right")
-           :stacking "overlay"
-           (literal :content notifs)
 )

@@ -1,37 +1,30 @@
 #!/bin/sh
 
-if [ "$(pactl get-sink-mute 0)" = "Mute:yes" ]; then
-	echo "(box :class \"muted\" \"muted\")"
-else
-	volume=$(pulsemixer --get-volume | sed -n -e 's/\( .*\)// p')
 
-	if [ "$volume" -gt 80 ]; then
-		echo "(box :class \"high\" \"$volume%\")"
-	elif [ "$volume" -gt 60 ]; then
-		echo "(box :class \"mid\" \"$volume%\")"
-	elif [ "$volume" -gt 40 ]; then
-		echo "(box :class \"low\" \"$volume%\")"
+
+
+
+
+handle() {
+	if [ "$(pactl get-sink-mute 0)" = "Mute:yes" ]; then
+		echo '(sound :muted true :level 0 :icon "󰸈")'
 	else
-		echo "(box :class \"wisper\" \"$volume%\")"
-	fi
-fi
+		volume=$(pulsemixer --get-volume | sed -n -e 's/\( .*\)// p')
 
-pactl subscribe | while read -r x event y type num; do
-	if [ "$event" = "'change'" ] && [ "$type" = "sink" ]; then
-		if [ "$(pactl get-sink-mute 0)" = "Mute: yes" ]; then
-			echo "(box :class \"muted\" \"muted\")"
+		if [ "$volume" -gt 80 ]; then
+			echo '(sound :level '$volume' :muted false :icon "󰕾")'
+		elif [ "$volume" -gt 60 ]; then
+			echo '(sound :level '$volume' :muted false :icon "󰖀")'
+		elif [ "$volume" -gt 40 ]; then
+			echo '(sound :level '$volume' :muted false :icon "󰕿")'
 		else
-			volume=$(pulsemixer --get-volume | sed -n -e 's/\( .*\)// p')
-
-			if [ "$volume" -gt 80 ]; then
-				echo "(box :class \"high\" \"$volume%\")"
-			elif [ "$volume" -gt 60 ]; then
-				echo "(box :class \"mid\" \"$volume%\")"
-			elif [ "$volume" -gt 40 ]; then
-				echo "(box :class \"low\" \"$volume%\")"
-			else
-				echo "(box :class \"wisper\" \"$volume%\")"
-			fi
+			echo '(sound :level '$volume' :muted false :icon "󰕿")'
 		fi
 	fi
+}
+
+handle
+
+pactl subscribe | while read -r x event y type num; do
+	handle
 done

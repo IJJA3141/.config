@@ -5,15 +5,32 @@ while true; do
 	state=$(cat /sys/class/power_supply/BAT0/status)
 	file=/tmp/battery
 
-	echo "(box :class \"battery\" \"$level\")"
+	if [ -f "$file" ]; then
+		if [ "$state" = "Charging" ]; then
+			rm /tmp/battery
+			echo '(battery :color "yellow" :charging true :icon "󰂄" :level '$level')'
 
-	if [ -f "$file" ] && { [ "$level" -gt 30 ] || [ "$state" = "Charging" ]; }; then
-		rm /tmp/battery
+		elif [ "$level" -gt 30 ]; then
+			rm /tmp/battery
+			echo '(battery :color "red" :charging false :icon "󰁹" :level '$level')'
+
+		else
+			echo '(battery :color "green" :charging false :icon "󰁼" :level '$level')'
+		fi
 
 	else
-		touch /tmp/battery
-		notify-send "tset"
+		if [ "$state" = "Charging" ]; then
+			echo '(battery :color "yellow" :charging true :icon "󰂄" :level '$level')'
 
+		elif [ "$level" -gt 30 ]; then
+			touch /tmp/battery
+			#notify-send "tset"
+
+			echo '(battery :color "red" :charging false :icon "󰁹" :level '$level')'
+
+		else
+			echo '(battery :color "green" :charging false :icon "󰁼" :level '$level')'
+		fi
 	fi
 
 	sleep 10

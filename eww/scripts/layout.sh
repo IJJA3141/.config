@@ -1,4 +1,5 @@
 #!/bin/sh
+#(defvar languages '[["US","english"],["JP","日本語"],["FR","français"]]')
 
 im=$(fcitx5-remote -n)
 
@@ -13,9 +14,9 @@ fi
 im2=$(fcitx5-remote -n)
 
 if [ "$im2" = "mozc" ]; then
-	eww update 'k=(box "JP")'
+	eww update current_keyboard='(keyboard :language "日本語" :lg "あ")'
 elif [ "$im2" = "keyboard-us" ]; then
-	eww update 'k=(box "US")'
+	eww update current_keyboard='(keyboard :language "english" :lg "A")'
 else
-	eww update 'k=(box "FR")'
+	eww update current_keyboard='(keyboard :language "français" :lg "Ç")'
 fi
