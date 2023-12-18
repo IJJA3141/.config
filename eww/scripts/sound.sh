@@ -1,30 +1,23 @@
 #!/bin/sh
 
+if [ "$1" = "up" ]; then
+	pactl set-sink-volume 0 +1%
+elif [ "$1" = "down" ]; then
+	pactl set-sink-volume 0 -1%
+elif [ "$1" = "mute" ]; then
+	pactl set-sink-mute 0 toggle
+fi
 
+volume=$(pulsemixer --get-volume | sed -n -e 's/\( .*\)// p')
 
-
-
-
-handle() {
-	if [ "$(pactl get-sink-mute 0)" = "Mute:yes" ]; then
-		echo '(sound :muted true :level 0 :icon "󰸈")'
-	else
-		volume=$(pulsemixer --get-volume | sed -n -e 's/\( .*\)// p')
-
-		if [ "$volume" -gt 80 ]; then
-			echo '(sound :level '$volume' :muted false :icon "󰕾")'
-		elif [ "$volume" -gt 60 ]; then
-			echo '(sound :level '$volume' :muted false :icon "󰖀")'
-		elif [ "$volume" -gt 40 ]; then
-			echo '(sound :level '$volume' :muted false :icon "󰕿")'
-		else
-			echo '(sound :level '$volume' :muted false :icon "󰕿")'
-		fi
-	fi
-}
-
-handle
-
-pactl subscribe | while read -r x event y type num; do
-	handle
-done
+if [ "$(pactl get-sink-mute 0)" = "Mute: yes" ]; then
+	eww update sound_listener="(sound :volume ${volume} :icon '󰸈')"
+else
+	if [ "$volume" -gt 66 ]; then
+		eww update sound_listener="(sound :volume ${volume} :icon '󰕾')"
+  elif [ "$volume" -gt 33 ]; then
+		eww update sound_listener="(sound :volume ${volume} :icon '󰖀')"
+  else
+		eww update sound_listener="(sound :volume ${volume} :icon '󰕿')"
+  fi
+fi

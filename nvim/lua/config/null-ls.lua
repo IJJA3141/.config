@@ -9,6 +9,7 @@ local sources = {
   formatting.prettierd,
   formatting.stylua,
   formatting.shfmt,
+  formatting.beautysh,
 
   lint.shellcheck,
 }

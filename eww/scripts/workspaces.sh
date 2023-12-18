@@ -23,7 +23,7 @@ handle() {
 }
 echo "(box :class \"workspaces\" (box :class \"active_workspace\" \"\") (box :class \"unused_workspace\" \"\") (box :class \"unused_workspace\" \"\") (box :class \"unused_workspace\" \"\") (box :class \"unused_workspace\" \"\"))"
 
-sleep 15
+sleep 10
 
 for i in 2 3 4 5 1; do
 	hyprctl dispatch movetoworkspace $i > /dev/null

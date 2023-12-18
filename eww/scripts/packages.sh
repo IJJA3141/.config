@@ -1,3 +1,3 @@
 #!/bin/sh
 
-echo "(pkg :maj $(checkupdates | wc -l))"
+echo "(package :count '$(checkupdates | wc -l)')"

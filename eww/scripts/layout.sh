@@ -14,9 +14,9 @@ fi
 im2=$(fcitx5-remote -n)
 
 if [ "$im2" = "mozc" ]; then
-	eww update current_keyboard='(keyboard :language "日本語" :lg "あ")'
+	eww update keyboard_listener='(keyboard :language "日本語")'
 elif [ "$im2" = "keyboard-us" ]; then
-	eww update current_keyboard='(keyboard :language "english" :lg "A")'
+	eww update keyboard_listener='(keyboard :language "english")'
 else
-	eww update current_keyboard='(keyboard :language "français" :lg "Ç")'
+	eww update keyboard_listener='(keyboard :language "français")'
 fi

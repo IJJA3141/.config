@@ -1,55 +1,45 @@
-(defpoll wifi :interval "1s" "scripts/wifi.sh")
+(deflisten workspace_listener "scripts/workspaces.sh")
 
-(defvar show_sound true)
-(deflisten sound_listener "scripts/sound.sh")
-(defwidget sound [level muted icon]
-  (box 
-    (button :onclick "eww update show_sound=${!show_sound}"
-      {show_sound ? icon : level}
-    )
-    (box :visible show_sound 
-      (progress :value level)
-    )
-   )
-)
+(defpoll wifi_listener :interval "30s" "scripts/wifi.sh")
 
-(defvar show_pkg true)
-(deflisten pkg_listener "scripts/packages.sh")
-(defwidget pkg [maj]
-  (box 
-    (button :onclick "eww update show_pkg=${!show_pkg}"
-      {show_pkg ? "" : maj}
-    )
-    (box :visible show_pkg
-      maj 
-    )
+(defpoll package_listener :interval "1m" "scripts/packages.sh")
+(defwidget package [count]
+  (box
+    (label :text "")
+    (label :text count)
   )
 )
 
-(defvar current_keyboard `(keyboard :language "english" :lg "A")`)
-(defvar show_keyboard true)
-(defwidget keyboard [language lg]
-  (box 
-    (button :onclick "eww update show_keyboard=${!show_keyboard}"
-      {show_keyboard ? "󰌌" : lg}
-    )
-    (box :visible show_keyboard
-      language 
-    )
-  )
-)
-
-(defvar show_battery true)
 (deflisten battery_listener "scripts/battery.sh")
-(defwidget battery [color charging level icon]
+(defwidget battery [level icon]
+  (box
+    (label :text icon)
+    (label :text level)
+  )
+)
+
+(defvar keyboard_listener "(keyboard :language 'english')")
+(defwidget keyboard [language]
+  (box
+    (label :text "󰌌")
+    (label :text language)
+  )
+)
+
+(defvar brightness_listener "")
+(defwidget brightness [level]
   (box 
-    (button :onclick "eww update show_battery=${!show_battery}"
-      {show_battery ? icon : level}
-    )
-    (box :visible show_battery 
-      (progress :value level)
-    )
-   )
+    (circular-progress :value level)
+    (label :text level)
+  )
+)
+
+(defvar sound_listener "")
+(defwidget sound [volume icon]
+  (box 
+    (label :text icon)
+    (label :text volume)
+  )
 )
 
 (defwindow bar
@@ -63,14 +53,19 @@
 		        	:anchor "top center"
 			      )
 
-
 	(box :class "main-container"
+	  (box :class "workspaces" :halign "start"
+      (literal :content keyboard_listener)
+    )
 	  (box :class "workspaces" :halign "center"
-      (literal :content current_keyboard)
-      (literal :content battery_listener) 
-      (literal :content wifi)
-      (literal :content pkg_listener)
+      (literal :content workspace_listener)
+    )
+	  (box :class "workspaces" :halign "end"
+      (literal :content brightness_listener)
       (literal :content sound_listener)
+      (literal :content battery_listener)
+      (literal :content package_listener)
+      (literal :content wifi_listener)
     )
 	)
 )
