@@ -8,8 +8,8 @@ local sources = {
   formatting.prettier,
   formatting.prettierd,
   formatting.stylua,
-  formatting.shfmt,
   formatting.beautysh,
+  --formatting.shfmt,
 
   lint.shellcheck,
 }

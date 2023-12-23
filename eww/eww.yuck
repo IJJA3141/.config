@@ -10,6 +10,13 @@
   )
 )
 
+(defpoll TIME :interval "1m" `date +\"%H:%M\"`)
+(defwidget clock []
+  (box
+    (label :text TIME)
+  )
+)
+
 (deflisten battery_listener "scripts/battery.sh")
 (defwidget battery [level icon]
   (box
@@ -56,6 +63,7 @@
 	(box :class "main-container"
 	  (box :class "workspaces" :halign "start"
       (literal :content keyboard_listener)
+      (clock) 
     )
 	  (box :class "workspaces" :halign "center"
       (literal :content workspace_listener)
@@ -68,4 +76,31 @@
       (literal :content wifi_listener)
     )
 	)
+)
+
+(deflisten notifications_listener :initial "" "python ~/.config/eww/scripts/notification.py")
+(defwidget notification [icon summary body]
+  (box :class "notif"
+    (box :orientation 'horizontal' :space-evenly false
+      (image :image-width 80 :image-height 80 :path icon)
+      (box :orientation 'vertical'
+        (label :width 100 :wrap true :text summary)
+        (label :width 100 :wrap true :text body)
+      )
+    )
+  )
+)
+
+(defwindow notifications 
+  :monitor 0
+  :stacking "overlay"
+  :geometry (geometry 
+              :x "20px"
+              :y "20px"
+              :width "2px"
+              :height "2px"
+              :anchor "top right"
+  )
+
+  (literal :content notifications_listener)
 )

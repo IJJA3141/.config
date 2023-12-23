@@ -17,8 +17,7 @@ opt.mouse = "a"
 opt.number = true
 opt.relativenumber = false
 opt.spelllang = { "en", "fr" }
-vim.opt.termguicolors = true
---vim.cmd.colorscheme("tokyonight")
+opt.termguicolors = true
 
 require("config.mappings")
 require("config.lazy")

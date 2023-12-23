@@ -6,7 +6,7 @@
   },
   "scratchpads": {
     "term": {
-      "command": "kitty --title scratchpad",
+      "command": "kitty --title scratchpad ",
       "margin": 50,
       "unfocus": "hide",
       "animation": "fromTop"

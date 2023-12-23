@@ -32,7 +32,13 @@ def add_object(notif):
 
 
 def print_state():
-    print("(box 'test')", flush=True)
+    string = ""
+    for item in notifications:
+        string = string + \
+            f"""(notification :icon '{item.icon or ''}' :summary '{item.summary or ''}' :body '{item.body or ''}')"""
+
+    string = string.replace('\n', ' ')
+    print(fr"""(box :orientation 'vertical' {string or ''})""", flush=True)
 
 
 class NotificationServer(dbus.service.Object):
