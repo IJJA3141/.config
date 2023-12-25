@@ -10,6 +10,7 @@ export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
 
 export EDITOR="nvim"
 export VISUAL="nvim"
+export BROWSER="firefox-developer-edition"
 
 export HISTFILE="$ZDOTDIR/.zhistory"    # History filepath
 export HISTSIZE=10000                   # Maximum events for internal history

@@ -1,3 +1,7 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                                          bar                                            ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 (deflisten workspace_listener "scripts/workspaces.sh")
 
 (defpoll wifi_listener :interval "30s" "scripts/wifi.sh")
@@ -10,7 +14,7 @@
   )
 )
 
-(defpoll TIME :interval "1m" `date +\"%H:%M\"`)
+(defpoll TIME :interval "1s" `date +\"%H:%M:%S\"`)
 (defwidget clock []
   (box
     (label :text TIME)
@@ -77,6 +81,13 @@
     )
 	)
 )
+
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                                  notification deamon                                     ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (deflisten notifications_listener :initial "" "python ~/.config/eww/scripts/notification.py")
 (defwidget notification [icon summary body]
