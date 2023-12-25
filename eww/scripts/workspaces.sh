@@ -8,11 +8,11 @@ handle() {
 
 		for i in 1 2 3 4 5; do
 			if [ $i -eq "${1: -1}" ]; then
-				str="${str} (box :class \"active_workspace\" \"\")"
+				str="${str} (box :class \"workspace-active\" \"\")"
 			elif [ "$(hyprctl workspaces -j | jq '.[] | select(.id=='$i').windows')" -gt 0 ]; then
-				str="${str} (box :class \"used_workspace\" \"\")"
+				str="${str} (box :class \"workspace-used\" \"\")"
       else
-        str="${str} (box :class \"unused_workspace\" \"\")"
+        str="${str} (box :class \"workspace-unused\" \"\")"
       fi
 		done
 
