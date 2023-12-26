@@ -72,3 +72,80 @@ Log file created at: 2023-12-12 18:11:47 742 140425755850880
 2023-12-12 18:48:35 742 140425755850880 unix/fcitx5/fcitx_key_event_handler.cc(112) LOG(ERROR) Translate failed
 2023-12-12 18:48:38 742 140425755850880 unix/fcitx5/fcitx_key_event_handler.cc(112) LOG(ERROR) Translate failed
 2023-12-12 19:25:54 742 140425755850880 ipc/unix_ipc.cc(290) LOG(WARNING) connect failed: Connection refused
+Log file created at: 2023-12-26 14:54:34 796 140043495172224
+2023-12-26 14:54:34 796 140043495172224 ipc/unix_ipc.cc(290) LOG(WARNING) connect failed: Connection refused
+2023-12-26 14:54:34 796 140043495172224 ipc/unix_ipc.cc(290) LOG(WARNING) connect failed: Connection refused
+2023-12-26 14:54:34 796 140043495172224 client/client.cc(565) LOG(ERROR) Connection failure to session
+2023-12-26 14:54:34 796 140043495172224 ipc/unix_ipc.cc(290) LOG(WARNING) connect failed: Connection refused
+2023-12-26 14:54:34 796 140043495172224 ipc/unix_ipc.cc(290) LOG(WARNING) connect failed: Connection refused
+2023-12-26 14:54:34 796 140043495172224 client/client.cc(565) LOG(ERROR) Connection failure to session
+2023-12-26 15:26:37 796 140043495172224 unix/fcitx5/fcitx_key_event_handler.cc(112) LOG(ERROR) Translate failed
+2023-12-26 15:26:38 796 140043495172224 unix/fcitx5/fcitx_key_event_handler.cc(112) LOG(ERROR) Translate failed
+2023-12-26 15:26:39 796 140043495172224 unix/fcitx5/fcitx_key_event_handler.cc(112) LOG(ERROR) Translate failed
+2023-12-26 15:26:44 796 140043495172224 unix/fcitx5/fcitx_key_event_handler.cc(112) LOG(ERROR) Translate failed
+2023-12-26 15:27:00 796 140043495172224 unix/fcitx5/fcitx_key_event_handler.cc(112) LOG(ERROR) Translate failed
+2023-12-26 15:27:01 796 140043495172224 unix/fcitx5/fcitx_key_event_handler.cc(112) LOG(ERROR) Translate failed
+2023-12-26 15:27:02 796 140043495172224 unix/fcitx5/fcitx_key_event_handler.cc(112) LOG(ERROR) Translate failed
+2023-12-26 15:27:03 796 140043495172224 unix/fcitx5/fcitx_key_event_handler.cc(112) LOG(ERROR) Translate failed
+2023-12-26 15:27:29 796 140043495172224 unix/fcitx5/fcitx_key_event_handler.cc(112) LOG(ERROR) Translate failed
+2023-12-26 15:27:30 796 140043495172224 unix/fcitx5/fcitx_key_event_handler.cc(112) LOG(ERROR) Translate failed
+2023-12-26 15:27:31 796 140043495172224 unix/fcitx5/fcitx_key_event_handler.cc(112) LOG(ERROR) Translate failed
+2023-12-26 15:27:32 796 140043495172224 unix/fcitx5/fcitx_key_event_handler.cc(112) LOG(ERROR) Translate failed
+2023-12-26 15:27:32 796 140043495172224 unix/fcitx5/fcitx_key_event_handler.cc(112) LOG(ERROR) Translate failed
+2023-12-26 15:27:33 796 140043495172224 unix/fcitx5/fcitx_key_event_handler.cc(112) LOG(ERROR) Translate failed
+2023-12-26 15:27:33 796 140043495172224 unix/fcitx5/fcitx_key_event_handler.cc(112) LOG(ERROR) Translate failed
+2023-12-26 15:27:34 796 140043495172224 unix/fcitx5/fcitx_key_event_handler.cc(112) LOG(ERROR) Translate failed
+2023-12-26 15:27:35 796 140043495172224 unix/fcitx5/fcitx_key_event_handler.cc(112) LOG(ERROR) Translate failed
+2023-12-26 15:27:35 796 140043495172224 unix/fcitx5/fcitx_key_event_handler.cc(112) LOG(ERROR) Translate failed
+2023-12-26 15:28:41 796 140043495172224 unix/fcitx5/fcitx_key_event_handler.cc(112) LOG(ERROR) Translate failed
+2023-12-26 15:28:43 796 140043495172224 unix/fcitx5/fcitx_key_event_handler.cc(112) LOG(ERROR) Translate failed
+2023-12-26 15:35:32 796 140043495172224 ipc/unix_ipc.cc(290) LOG(WARNING) connect failed: Connection refused
+2023-12-26 15:35:32 796 140043495172224 ipc/unix_ipc.cc(290) LOG(WARNING) connect failed: Connection refused
+2023-12-26 15:35:32 796 140043495172224 client/client.cc(645) LOG(ERROR) Connection failure to session
+2023-12-26 15:35:32 796 140043495172224 ipc/unix_ipc.cc(290) LOG(WARNING) connect failed: Connection refused
+2023-12-26 15:35:32 796 140043495172224 ipc/unix_ipc.cc(290) LOG(WARNING) connect failed: Connection refused
+2023-12-26 15:35:32 796 140043495172224 client/client.cc(645) LOG(ERROR) Connection failure to session
+2023-12-26 15:35:32 796 140043495172224 ipc/unix_ipc.cc(290) LOG(WARNING) connect failed: Connection refused
+2023-12-26 15:35:32 796 140043495172224 ipc/unix_ipc.cc(290) LOG(WARNING) connect failed: Connection refused
+2023-12-26 15:35:32 796 140043495172224 client/client.cc(645) LOG(ERROR) Connection failure to session
+2023-12-26 15:35:32 796 140043495172224 client/client.cc(472) LOG(ERROR) DeleteSession failed
+2023-12-26 15:35:32 796 140043495172224 ipc/unix_ipc.cc(290) LOG(WARNING) connect failed: Connection refused
+2023-12-26 15:35:32 796 140043495172224 ipc/unix_ipc.cc(290) LOG(WARNING) connect failed: Connection refused
+2023-12-26 15:35:32 796 140043495172224 client/client.cc(645) LOG(ERROR) Connection failure to session
+2023-12-26 15:35:32 796 140043495172224 ipc/unix_ipc.cc(290) LOG(WARNING) connect failed: Connection refused
+2023-12-26 15:35:32 796 140043495172224 ipc/unix_ipc.cc(290) LOG(WARNING) connect failed: Connection refused
+2023-12-26 15:35:32 796 140043495172224 client/client.cc(645) LOG(ERROR) Connection failure to session
+2023-12-26 15:35:32 796 140043495172224 client/client.cc(472) LOG(ERROR) DeleteSession failed
+2023-12-26 15:35:32 796 140043495172224 ipc/unix_ipc.cc(290) LOG(WARNING) connect failed: Connection refused
+2023-12-26 15:35:32 796 140043495172224 ipc/unix_ipc.cc(290) LOG(WARNING) connect failed: Connection refused
+2023-12-26 15:35:32 796 140043495172224 client/client.cc(645) LOG(ERROR) Connection failure to session
+2023-12-26 15:35:32 796 140043495172224 ipc/unix_ipc.cc(290) LOG(WARNING) connect failed: Connection refused
+2023-12-26 15:35:32 796 140043495172224 ipc/unix_ipc.cc(290) LOG(WARNING) connect failed: Connection refused
+2023-12-26 15:35:32 796 140043495172224 client/client.cc(645) LOG(ERROR) Connection failure to session
+2023-12-26 15:35:32 796 140043495172224 client/client.cc(472) LOG(ERROR) DeleteSession failed
+2023-12-26 15:35:32 796 140043495172224 ipc/unix_ipc.cc(290) LOG(WARNING) connect failed: Connection refused
+2023-12-26 15:35:32 796 140043495172224 ipc/unix_ipc.cc(290) LOG(WARNING) connect failed: Connection refused
+2023-12-26 15:35:32 796 140043495172224 client/client.cc(645) LOG(ERROR) Connection failure to session
+2023-12-26 15:35:32 796 140043495172224 ipc/unix_ipc.cc(290) LOG(WARNING) connect failed: Connection refused
+2023-12-26 15:35:32 796 140043495172224 ipc/unix_ipc.cc(290) LOG(WARNING) connect failed: Connection refused
+2023-12-26 15:35:32 796 140043495172224 client/client.cc(645) LOG(ERROR) Connection failure to session
+2023-12-26 15:35:32 796 140043495172224 client/client.cc(472) LOG(ERROR) DeleteSession failed
+2023-12-26 15:35:32 796 140043495172224 ipc/unix_ipc.cc(290) LOG(WARNING) connect failed: Connection refused
+2023-12-26 15:35:32 796 140043495172224 ipc/unix_ipc.cc(290) LOG(WARNING) connect failed: Connection refused
+2023-12-26 15:35:32 796 140043495172224 client/client.cc(645) LOG(ERROR) Connection failure to session
+2023-12-26 15:35:32 796 140043495172224 ipc/unix_ipc.cc(290) LOG(WARNING) connect failed: Connection refused
+2023-12-26 15:35:32 796 140043495172224 ipc/unix_ipc.cc(290) LOG(WARNING) connect failed: Connection refused
+2023-12-26 15:35:32 796 140043495172224 client/client.cc(645) LOG(ERROR) Connection failure to session
+2023-12-26 15:35:32 796 140043495172224 client/client.cc(472) LOG(ERROR) DeleteSession failed
+2023-12-26 15:35:32 796 140043495172224 ipc/unix_ipc.cc(290) LOG(WARNING) connect failed: Connection refused
+2023-12-26 15:35:32 796 140043495172224 ipc/unix_ipc.cc(290) LOG(WARNING) connect failed: Connection refused
+2023-12-26 15:35:32 796 140043495172224 client/client.cc(645) LOG(ERROR) Connection failure to session
+2023-12-26 15:35:32 796 140043495172224 ipc/unix_ipc.cc(290) LOG(WARNING) connect failed: Connection refused
+2023-12-26 15:35:32 796 140043495172224 ipc/unix_ipc.cc(290) LOG(WARNING) connect failed: Connection refused
+2023-12-26 15:35:32 796 140043495172224 client/client.cc(645) LOG(ERROR) Connection failure to session
+2023-12-26 15:35:32 796 140043495172224 client/client.cc(472) LOG(ERROR) DeleteSession failed
+2023-12-26 15:35:32 796 140043495172224 ipc/unix_ipc.cc(290) LOG(WARNING) connect failed: Connection refused
+2023-12-26 15:35:32 796 140043495172224 ipc/unix_ipc.cc(290) LOG(WARNING) connect failed: Connection refused
+2023-12-26 15:35:32 796 140043495172224 client/client.cc(645) LOG(ERROR) Connection failure to session
+2023-12-26 15:35:32 796 140043495172224 ipc/unix_ipc.cc(290) LOG(WARNING) connect failed: Connection refused
+2023-12-26 15:35:32 796 140043495172224 ipc/unix_ipc.cc(290) LOG(WARNING) connect failed: Connection refused
