@@ -1,43 +1,66 @@
-$bg: #282828;
+// gruvbox
 $bg0_h: #1d2021;
-$fg: #ebdbb2;
+$bg0_s: #32302f;
+$bg0: #282828;
+$bg1: #3c3836;
+$bg2: #504945;
+$bg3: #665c54;
+$bg4: #7c6f64;
+$fg0: #fbf1c7;
+$fg1: #ebdbb2;
+$fg2: #d5c4a1;
+$fg3: #bdae93;
+$fg4: #a89984;
+
 $shadow: rgba(#000000, 0.3);
-$border_col: rgba(#cccccc, 0.18);
-$best_so_far: rgba(255, 255, 255, 0.1);
 
 .bar {
   background-color: transparent;
+  font-size: 20px;
+  color: $fg3;
 }
 
 .main-container {
-  background-color: rgba($bg0_h, 0.5);
+  background-color: rgba($bg0, 0.5);
   border-radius: 10px;
-  font-size: 22px;
 }
 
-.space {
-  background-color: $bg;
-  border-radius: 10px;
-  color: $fg;
-  padding: 10px;
+.container {
   box-shadow: 2px 2px 2px $shadow;
+  background-color: $bg0_h;
+  border-radius: 10px;
+  padding: 10px;
 }
 
 // workspaces
 .workspaces {
+  padding-right: 20px;
+  padding-left: 20px;
   min-width: 200px;
 }
 
-.workspace-active {
-  margin: 0;
-  color: #cc241d;
-}
+.workspace-active {}
 
 .workspace-used {
+  color: $bg2;
+}
+
+.workspace-unused {}
+
+// keyboard
+.keyboard-container {
+}
+
+.keyboard-icon {
+  background-color: $fg3;
+  border-radius: 4px;
+  color: $bg2;
+  padding: 0;
   margin: 0;
 }
 
-.workspace-unused {
+.keyboard-language {
+  padding: 0;
   margin: 0;
 }
 
@@ -46,11 +69,11 @@ $best_so_far: rgba(255, 255, 255, 0.1);
 }
 
 .notif {
-  background-color: $bg;
+  background-color: $bg1;
   border-radius: 10px;
-  color: $fg;
+  color: $fg1;
   margin-bottom: 10px;
-  border: 1px solid $border_col;
+  border: 1px solid $bg2;
   padding: 6px 20px 4px 20px;
   font-size: 22px;
   box-shadow: 2px 2px 2px $shadow;
