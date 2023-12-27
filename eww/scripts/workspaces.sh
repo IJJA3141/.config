@@ -21,11 +21,17 @@ case $1 in workspace*)
             ;;
     esac
 }
-echo "(box :class \"workspaces\" (box :class \"workspace-active\" \" \") (box :class \"unused_workspace\" \" \") (box :class \"unused_workspace\" \" \") (box :class \"unused_workspace\" \" \") (box :class \"unused_workspace\" \" \"))"
+
+echo "(box :class \"workspaces\"\
+(box :class \"unused_workspace\" \" \")\
+(box :class \"unused_workspace\" \" \")\
+(box :class \"workspace-active\" \" \")\
+(box :class \"unused_workspace\" \" \")\
+(box :class \"unused_workspace\" \" \"))"
 
 sleep 10
 
-for i in 2 3 4 5 1; do
+for i in 4 5 1 2 3; do
     hyprctl dispatch movetoworkspace $i > /dev/null
 done
 

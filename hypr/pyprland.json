@@ -7,8 +7,8 @@
   "scratchpads": {
     "term": {
       "command": "kitty --title scratchpad ",
-      "margin": 80,
-      "size": "10% 10%",
+      "margin": 100,
+      "size": "1600px 900px",
       "unfocus": "hide",
       "animation": "fromTop"
     }

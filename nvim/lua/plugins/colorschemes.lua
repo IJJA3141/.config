@@ -27,11 +27,8 @@ return {
 			palette_overrides = {},
 			overrides = {},
 			dim_inactive = false,
-			transparent_mode = false,
+			transparent_mode = true,
 		},
-	},
-	{
-		"luisiacc/gruvbox-baby",
 	},
 
 	-- Catppuccin
