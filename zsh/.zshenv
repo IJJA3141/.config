@@ -13,5 +13,3 @@ export VISUAL="nvim"
 export BROWSER="firefox-developer-edition"
 
 export HISTFILE="$ZDOTDIR/.zhistory"    # History filepath
-export HISTSIZE=10000                   # Maximum events for internal history
-export SAVEHIST=10000 

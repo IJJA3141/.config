@@ -1,5 +1,7 @@
 # cd
 setopt autocd
+setopt extendedglob
+unsetopt beep
 
 ### Basic auto/tab complete:
 autoload -U compinit
