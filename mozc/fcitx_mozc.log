@@ -149,3 +149,157 @@ Log file created at: 2023-12-26 14:54:34 796 140043495172224
 2023-12-26 15:35:32 796 140043495172224 client/client.cc(645) LOG(ERROR) Connection failure to session
 2023-12-26 15:35:32 796 140043495172224 ipc/unix_ipc.cc(290) LOG(WARNING) connect failed: Connection refused
 2023-12-26 15:35:32 796 140043495172224 ipc/unix_ipc.cc(290) LOG(WARNING) connect failed: Connection refused
+Log file created at: 2024-01-01 20:05:57 762 140441360824448
+2024-01-01 20:05:57 762 140441360824448 ipc/unix_ipc.cc(290) LOG(WARNING) connect failed: Connection refused
+2024-01-01 20:05:57 762 140441360824448 ipc/unix_ipc.cc(290) LOG(WARNING) connect failed: Connection refused
+2024-01-01 20:05:57 762 140441360824448 client/client.cc(565) LOG(ERROR) Connection failure to session
+2024-01-01 20:05:57 762 140441360824448 ipc/unix_ipc.cc(290) LOG(WARNING) connect failed: Connection refused
+2024-01-01 20:05:57 762 140441360824448 ipc/unix_ipc.cc(290) LOG(WARNING) connect failed: Connection refused
+2024-01-01 20:05:57 762 140441360824448 client/client.cc(565) LOG(ERROR) Connection failure to session
+2024-01-01 20:05:57 762 140441360824448 unix/fcitx5/fcitx_key_event_handler.cc(112) LOG(ERROR) Translate failed
+2024-01-01 20:05:59 762 140441360824448 unix/fcitx5/fcitx_key_event_handler.cc(112) LOG(ERROR) Translate failed
+2024-01-01 20:06:03 762 140441360824448 unix/fcitx5/fcitx_key_event_handler.cc(112) LOG(ERROR) Translate failed
+2024-01-01 20:06:03 762 140441360824448 unix/fcitx5/fcitx_key_event_handler.cc(112) LOG(ERROR) Translate failed
+2024-01-01 20:06:13 762 140441360824448 unix/fcitx5/fcitx_key_event_handler.cc(112) LOG(ERROR) Translate failed
+2024-01-01 20:36:29 762 140441360824448 unix/fcitx5/fcitx_key_event_handler.cc(112) LOG(ERROR) Translate failed
+2024-01-01 20:36:30 762 140441360824448 unix/fcitx5/fcitx_key_event_handler.cc(112) LOG(ERROR) Translate failed
+2024-01-01 20:36:31 762 140441360824448 unix/fcitx5/fcitx_key_event_handler.cc(112) LOG(ERROR) Translate failed
+2024-01-01 20:36:31 762 140441360824448 unix/fcitx5/fcitx_key_event_handler.cc(112) LOG(ERROR) Translate failed
+2024-01-01 20:36:32 762 140441360824448 unix/fcitx5/fcitx_key_event_handler.cc(112) LOG(ERROR) Translate failed
+2024-01-01 20:36:32 762 140441360824448 unix/fcitx5/fcitx_key_event_handler.cc(112) LOG(ERROR) Translate failed
+2024-01-01 20:36:34 762 140441360824448 unix/fcitx5/fcitx_key_event_handler.cc(112) LOG(ERROR) Translate failed
+2024-01-01 20:36:35 762 140441360824448 unix/fcitx5/fcitx_key_event_handler.cc(112) LOG(ERROR) Translate failed
+2024-01-01 20:36:35 762 140441360824448 unix/fcitx5/fcitx_key_event_handler.cc(112) LOG(ERROR) Translate failed
+2024-01-01 20:36:35 762 140441360824448 unix/fcitx5/fcitx_key_event_handler.cc(112) LOG(ERROR) Translate failed
+2024-01-01 20:46:32 762 140441360824448 unix/fcitx5/fcitx_key_event_handler.cc(112) LOG(ERROR) Translate failed
+2024-01-01 20:46:32 762 140441360824448 unix/fcitx5/fcitx_key_event_handler.cc(112) LOG(ERROR) Translate failed
+2024-01-01 20:46:33 762 140441360824448 unix/fcitx5/fcitx_key_event_handler.cc(112) LOG(ERROR) Translate failed
+2024-01-01 20:46:34 762 140441360824448 unix/fcitx5/fcitx_key_event_handler.cc(112) LOG(ERROR) Translate failed
+2024-01-01 20:46:34 762 140441360824448 unix/fcitx5/fcitx_key_event_handler.cc(112) LOG(ERROR) Translate failed
+2024-01-01 20:46:34 762 140441360824448 unix/fcitx5/fcitx_key_event_handler.cc(112) LOG(ERROR) Translate failed
+2024-01-01 20:46:35 762 140441360824448 unix/fcitx5/fcitx_key_event_handler.cc(112) LOG(ERROR) Translate failed
+2024-01-01 20:46:37 762 140441360824448 unix/fcitx5/fcitx_key_event_handler.cc(112) LOG(ERROR) Translate failed
+2024-01-01 20:47:16 762 140441360824448 unix/fcitx5/fcitx_key_event_handler.cc(112) LOG(ERROR) Translate failed
+2024-01-01 20:47:17 762 140441360824448 unix/fcitx5/fcitx_key_event_handler.cc(112) LOG(ERROR) Translate failed
+2024-01-01 20:47:18 762 140441360824448 unix/fcitx5/fcitx_key_event_handler.cc(112) LOG(ERROR) Translate failed
+2024-01-01 20:47:18 762 140441360824448 unix/fcitx5/fcitx_key_event_handler.cc(112) LOG(ERROR) Translate failed
+2024-01-01 20:47:19 762 140441360824448 unix/fcitx5/fcitx_key_event_handler.cc(112) LOG(ERROR) Translate failed
+2024-01-01 20:47:19 762 140441360824448 unix/fcitx5/fcitx_key_event_handler.cc(112) LOG(ERROR) Translate failed
+2024-01-01 20:47:23 762 140441360824448 unix/fcitx5/fcitx_key_event_handler.cc(112) LOG(ERROR) Translate failed
+2024-01-01 20:47:23 762 140441360824448 unix/fcitx5/fcitx_key_event_handler.cc(112) LOG(ERROR) Translate failed
+2024-01-01 20:47:24 762 140441360824448 unix/fcitx5/fcitx_key_event_handler.cc(112) LOG(ERROR) Translate failed
+2024-01-01 20:47:24 762 140441360824448 unix/fcitx5/fcitx_key_event_handler.cc(112) LOG(ERROR) Translate failed
+2024-01-01 20:48:08 762 140441360824448 unix/fcitx5/fcitx_key_event_handler.cc(112) LOG(ERROR) Translate failed
+2024-01-01 20:48:09 762 140441360824448 unix/fcitx5/fcitx_key_event_handler.cc(112) LOG(ERROR) Translate failed
+2024-01-01 20:48:34 762 140441360824448 unix/fcitx5/fcitx_key_event_handler.cc(112) LOG(ERROR) Translate failed
+2024-01-01 20:48:34 762 140441360824448 unix/fcitx5/fcitx_key_event_handler.cc(112) LOG(ERROR) Translate failed
+2024-01-01 20:48:35 762 140441360824448 unix/fcitx5/fcitx_key_event_handler.cc(112) LOG(ERROR) Translate failed
+2024-01-01 20:48:35 762 140441360824448 unix/fcitx5/fcitx_key_event_handler.cc(112) LOG(ERROR) Translate failed
+2024-01-01 20:48:39 762 140441360824448 unix/fcitx5/fcitx_key_event_handler.cc(112) LOG(ERROR) Translate failed
+2024-01-01 20:48:40 762 140441360824448 unix/fcitx5/fcitx_key_event_handler.cc(112) LOG(ERROR) Translate failed
+2024-01-01 20:48:40 762 140441360824448 unix/fcitx5/fcitx_key_event_handler.cc(112) LOG(ERROR) Translate failed
+2024-01-01 20:48:41 762 140441360824448 unix/fcitx5/fcitx_key_event_handler.cc(112) LOG(ERROR) Translate failed
+2024-01-01 20:48:42 762 140441360824448 unix/fcitx5/fcitx_key_event_handler.cc(112) LOG(ERROR) Translate failed
+2024-01-01 20:48:43 762 140441360824448 unix/fcitx5/fcitx_key_event_handler.cc(112) LOG(ERROR) Translate failed
+2024-01-01 20:48:49 762 140441360824448 unix/fcitx5/fcitx_key_event_handler.cc(112) LOG(ERROR) Translate failed
+2024-01-01 20:48:49 762 140441360824448 unix/fcitx5/fcitx_key_event_handler.cc(112) LOG(ERROR) Translate failed
+2024-01-01 20:48:50 762 140441360824448 unix/fcitx5/fcitx_key_event_handler.cc(112) LOG(ERROR) Translate failed
+2024-01-01 20:48:51 762 140441360824448 unix/fcitx5/fcitx_key_event_handler.cc(112) LOG(ERROR) Translate failed
+2024-01-01 20:48:57 762 140441360824448 unix/fcitx5/fcitx_key_event_handler.cc(112) LOG(ERROR) Translate failed
+2024-01-01 20:48:57 762 140441360824448 unix/fcitx5/fcitx_key_event_handler.cc(112) LOG(ERROR) Translate failed
+2024-01-01 20:48:58 762 140441360824448 unix/fcitx5/fcitx_key_event_handler.cc(112) LOG(ERROR) Translate failed
+2024-01-01 20:48:58 762 140441360824448 unix/fcitx5/fcitx_key_event_handler.cc(112) LOG(ERROR) Translate failed
+2024-01-01 20:49:12 762 140441360824448 unix/fcitx5/fcitx_key_event_handler.cc(112) LOG(ERROR) Translate failed
+2024-01-01 20:49:12 762 140441360824448 unix/fcitx5/fcitx_key_event_handler.cc(112) LOG(ERROR) Translate failed
+2024-01-01 20:49:13 762 140441360824448 unix/fcitx5/fcitx_key_event_handler.cc(112) LOG(ERROR) Translate failed
+2024-01-01 20:49:14 762 140441360824448 unix/fcitx5/fcitx_key_event_handler.cc(112) LOG(ERROR) Translate failed
+2024-01-01 21:12:25 762 140441360824448 unix/fcitx5/fcitx_key_event_handler.cc(112) LOG(ERROR) Translate failed
+2024-01-01 21:12:26 762 140441360824448 unix/fcitx5/fcitx_key_event_handler.cc(112) LOG(ERROR) Translate failed
+2024-01-01 21:56:19 762 140441360824448 ipc/unix_ipc.cc(290) LOG(WARNING) connect failed: Connection refused
+2024-01-01 21:56:19 762 140441360824448 ipc/unix_ipc.cc(290) LOG(WARNING) connect failed: Connection refused
+2024-01-01 21:56:19 762 140441360824448 client/client.cc(645) LOG(ERROR) Connection failure to session
+2024-01-01 21:56:19 762 140441360824448 ipc/unix_ipc.cc(290) LOG(WARNING) connect failed: Connection refused
+2024-01-01 21:56:19 762 140441360824448 ipc/unix_ipc.cc(290) LOG(WARNING) connect failed: Connection refused
+2024-01-01 21:56:19 762 140441360824448 client/client.cc(645) LOG(ERROR) Connection failure to session
+2024-01-01 21:56:19 762 140441360824448 ipc/unix_ipc.cc(290) LOG(WARNING) connect failed: Connection refused
+2024-01-01 21:56:19 762 140441360824448 ipc/unix_ipc.cc(290) LOG(WARNING) connect failed: Connection refused
+2024-01-01 21:56:19 762 140441360824448 client/client.cc(645) LOG(ERROR) Connection failure to session
+2024-01-01 21:56:19 762 140441360824448 client/client.cc(472) LOG(ERROR) DeleteSession failed
+2024-01-01 21:56:19 762 140441360824448 ipc/unix_ipc.cc(290) LOG(WARNING) connect failed: Connection refused
+2024-01-01 21:56:19 762 140441360824448 ipc/unix_ipc.cc(290) LOG(WARNING) connect failed: Connection refused
+2024-01-01 21:56:19 762 140441360824448 client/client.cc(645) LOG(ERROR) Connection failure to session
+2024-01-01 21:56:19 762 140441360824448 ipc/unix_ipc.cc(290) LOG(WARNING) connect failed: Connection refused
+2024-01-01 21:56:19 762 140441360824448 ipc/unix_ipc.cc(290) LOG(WARNING) connect failed: Connection refused
+2024-01-01 21:56:19 762 140441360824448 client/client.cc(645) LOG(ERROR) Connection failure to session
+2024-01-01 21:56:19 762 140441360824448 client/client.cc(472) LOG(ERROR) DeleteSession failed
+2024-01-01 21:56:19 762 140441360824448 ipc/unix_ipc.cc(290) LOG(WARNING) connect failed: Connection refused
+2024-01-01 21:56:19 762 140441360824448 ipc/unix_ipc.cc(290) LOG(WARNING) connect failed: Connection refused
+2024-01-01 21:56:19 762 140441360824448 client/client.cc(645) LOG(ERROR) Connection failure to session
+2024-01-01 21:56:19 762 140441360824448 ipc/unix_ipc.cc(290) LOG(WARNING) connect failed: Connection refused
+2024-01-01 21:56:19 762 140441360824448 ipc/unix_ipc.cc(290) LOG(WARNING) connect failed: Connection refused
+2024-01-01 21:56:19 762 140441360824448 client/client.cc(645) LOG(ERROR) Connection failure to session
+2024-01-01 21:56:19 762 140441360824448 client/client.cc(472) LOG(ERROR) DeleteSession failed
+2024-01-01 21:56:19 762 140441360824448 ipc/unix_ipc.cc(290) LOG(WARNING) connect failed: Connection refused
+2024-01-01 21:56:19 762 140441360824448 ipc/unix_ipc.cc(290) LOG(WARNING) connect failed: Connection refused
+2024-01-01 21:56:19 762 140441360824448 client/client.cc(645) LOG(ERROR) Connection failure to session
+2024-01-01 21:56:19 762 140441360824448 ipc/unix_ipc.cc(290) LOG(WARNING) connect failed: Connection refused
+2024-01-01 21:56:19 762 140441360824448 ipc/unix_ipc.cc(290) LOG(WARNING) connect failed: Connection refused
+2024-01-01 21:56:19 762 140441360824448 client/client.cc(645) LOG(ERROR) Connection failure to session
+2024-01-01 21:56:19 762 140441360824448 client/client.cc(472) LOG(ERROR) DeleteSession failed
+2024-01-01 21:56:19 762 140441360824448 ipc/unix_ipc.cc(290) LOG(WARNING) connect failed: Connection refused
+2024-01-01 21:56:19 762 140441360824448 ipc/unix_ipc.cc(290) LOG(WARNING) connect failed: Connection refused
+2024-01-01 21:56:19 762 140441360824448 client/client.cc(645) LOG(ERROR) Connection failure to session
+2024-01-01 21:56:19 762 140441360824448 ipc/unix_ipc.cc(290) LOG(WARNING) connect failed: Connection refused
+2024-01-01 21:56:19 762 140441360824448 ipc/unix_ipc.cc(290) LOG(WARNING) connect failed: Connection refused
+2024-01-01 21:56:19 762 140441360824448 client/client.cc(645) LOG(ERROR) Connection failure to session
+2024-01-01 21:56:19 762 140441360824448 client/client.cc(472) LOG(ERROR) DeleteSession failed
+2024-01-01 21:56:19 762 140441360824448 ipc/unix_ipc.cc(290) LOG(WARNING) connect failed: Connection refused
+2024-01-01 21:56:19 762 140441360824448 ipc/unix_ipc.cc(290) LOG(WARNING) connect failed: Connection refused
+2024-01-01 21:56:19 762 140441360824448 client/client.cc(645) LOG(ERROR) Connection failure to session
+2024-01-01 21:56:19 762 140441360824448 ipc/unix_ipc.cc(290) LOG(WARNING) connect failed: Connection refused
+2024-01-01 21:56:19 762 140441360824448 ipc/unix_ipc.cc(290) LOG(WARNING) connect failed: Connection refused
+2024-01-01 21:56:19 762 140441360824448 client/client.cc(645) LOG(ERROR) Connection failure to session
+2024-01-01 21:56:19 762 140441360824448 client/client.cc(472) LOG(ERROR) DeleteSession failed
+2024-01-01 21:56:19 762 140441360824448 ipc/unix_ipc.cc(290) LOG(WARNING) connect failed: Connection refused
+2024-01-01 21:56:19 762 140441360824448 ipc/unix_ipc.cc(290) LOG(WARNING) connect failed: Connection refused
+2024-01-01 21:56:19 762 140441360824448 client/client.cc(645) LOG(ERROR) Connection failure to session
+2024-01-01 21:56:19 762 140441360824448 ipc/unix_ipc.cc(290) LOG(WARNING) connect failed: Connection refused
+2024-01-01 21:56:19 762 140441360824448 ipc/unix_ipc.cc(290) LOG(WARNING) connect failed: Connection refused
+2024-01-01 21:56:19 762 140441360824448 client/client.cc(645) LOG(ERROR) Connection failure to session
+2024-01-01 21:56:19 762 140441360824448 client/client.cc(472) LOG(ERROR) DeleteSession failed
+2024-01-01 21:56:19 762 140441360824448 ipc/unix_ipc.cc(290) LOG(WARNING) connect failed: Connection refused
+2024-01-01 21:56:19 762 140441360824448 ipc/unix_ipc.cc(290) LOG(WARNING) connect failed: Connection refused
+2024-01-01 21:56:19 762 140441360824448 client/client.cc(645) LOG(ERROR) Connection failure to session
+2024-01-01 21:56:19 762 140441360824448 ipc/unix_ipc.cc(290) LOG(WARNING) connect failed: Connection refused
+2024-01-01 21:56:19 762 140441360824448 ipc/unix_ipc.cc(290) LOG(WARNING) connect failed: Connection refused
+2024-01-01 21:56:19 762 140441360824448 client/client.cc(645) LOG(ERROR) Connection failure to session
+2024-01-01 21:56:19 762 140441360824448 client/client.cc(472) LOG(ERROR) DeleteSession failed
+2024-01-01 21:56:19 762 140441360824448 ipc/unix_ipc.cc(290) LOG(WARNING) connect failed: Connection refused
+2024-01-01 21:56:19 762 140441360824448 ipc/unix_ipc.cc(290) LOG(WARNING) connect failed: Connection refused
+2024-01-01 21:56:19 762 140441360824448 client/client.cc(645) LOG(ERROR) Connection failure to session
+2024-01-01 21:56:19 762 140441360824448 ipc/unix_ipc.cc(290) LOG(WARNING) connect failed: Connection refused
+2024-01-01 21:56:19 762 140441360824448 ipc/unix_ipc.cc(290) LOG(WARNING) connect failed: Connection refused
+2024-01-01 21:56:19 762 140441360824448 client/client.cc(645) LOG(ERROR) Connection failure to session
+2024-01-01 21:56:19 762 140441360824448 client/client.cc(472) LOG(ERROR) DeleteSession failed
+2024-01-01 21:56:19 762 140441360824448 ipc/unix_ipc.cc(290) LOG(WARNING) connect failed: Connection refused
+2024-01-01 21:56:19 762 140441360824448 ipc/unix_ipc.cc(290) LOG(WARNING) connect failed: Connection refused
+2024-01-01 21:56:19 762 140441360824448 client/client.cc(645) LOG(ERROR) Connection failure to session
+2024-01-01 21:56:19 762 140441360824448 ipc/unix_ipc.cc(290) LOG(WARNING) connect failed: Connection refused
+2024-01-01 21:56:19 762 140441360824448 ipc/unix_ipc.cc(290) LOG(WARNING) connect failed: Connection refused
+2024-01-01 21:56:19 762 140441360824448 client/client.cc(645) LOG(ERROR) Connection failure to session
+2024-01-01 21:56:19 762 140441360824448 client/client.cc(472) LOG(ERROR) DeleteSession failed
+2024-01-01 21:56:19 762 140441360824448 ipc/unix_ipc.cc(290) LOG(WARNING) connect failed: Connection refused
+2024-01-01 21:56:19 762 140441360824448 ipc/unix_ipc.cc(290) LOG(WARNING) connect failed: Connection refused
+2024-01-01 21:56:19 762 140441360824448 client/client.cc(645) LOG(ERROR) Connection failure to session
+2024-01-01 21:56:19 762 140441360824448 ipc/unix_ipc.cc(290) LOG(WARNING) connect failed: Connection refused
+2024-01-01 21:56:19 762 140441360824448 ipc/unix_ipc.cc(290) LOG(WARNING) connect failed: Connection refused
+2024-01-01 21:56:19 762 140441360824448 client/client.cc(645) LOG(ERROR) Connection failure to session
+2024-01-01 21:56:19 762 140441360824448 client/client.cc(472) LOG(ERROR) DeleteSession failed
+2024-01-01 21:56:19 762 140441360824448 ipc/unix_ipc.cc(290) LOG(WARNING) connect failed: Connection refused
+2024-01-01 21:56:19 762 140441360824448 ipc/unix_ipc.cc(290) LOG(WARNING) connect failed: Connection refused
+2024-01-01 21:56:19 762 140441360824448 client/client.cc(645) LOG(ERROR) Connection failure to session
+2024-01-01 21:56:19 762 140441360824448 ipc/unix_ipc.cc(290) LOG(WARNING) connect failed: Connection refused
+2024-01-01 21:56:19 762 140441360824448 ipc/unix_ipc.cc(290) LOG(WARNING) connect failed: Connection refused
+2024-01-01 21:56:19 762 140441360824448 client/client.cc(645) LOG(ERROR) Connection failure to session
+2024-01-01 21:56:19 762 140441360824448 client/client.cc(472) LOG(ERROR) DeleteSession failed
+2024-01-01 21:56:19 762 140441360824448 ipc/unix_ipc.cc(290) LOG(WARNING) connect failed: Connection refused

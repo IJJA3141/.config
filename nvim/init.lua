@@ -19,7 +19,7 @@ opt.relativenumber = false
 opt.spelllang = { "en", "fr" }
 opt.termguicolors = true
 
-require("config.mappings")
+require("core.mappings")
 require("config.lazy")
 
 vim.opt.clipboard = 'unnamedplus'
