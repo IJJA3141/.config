@@ -1,3 +1,5 @@
+export ZDOTDIR="/home/alexe/.config/zsh"
+
 typeset -U PATH path 
 
 export GTK_IM_MODULE=fcitx

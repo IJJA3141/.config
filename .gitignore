@@ -1,20 +1,22 @@
-# Folders
-dconf/
-figma-linux/
-gh/
-gtk-3.0/
-kitty-themes/
-pulse/
-vlc/
-yay/
-Kitware/
-dawn/
-mpv/
-discord/
+# Blacklist
+/*
+
+# Whitelist
+!eww/
+!firefox/
+!fcitx5/
+!hypr/
+!kitty/
+!neofetch/
+!nvim/
+!scripts/
+!zsh/
+!読みたん/
+
+!iris/
 
 # Files
 *.webm
 *.mov
-kitty-theme.conf
-current-theme.conf
-kitty.conf.bak
+!.gitignore
+!README.md
