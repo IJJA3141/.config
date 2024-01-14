@@ -15,8 +15,13 @@
 
 !iris/
 
-# Files
-*.webm
-*.mov
 !.gitignore
 !README.md
+
+# Files
+*.dir_colors
+*.zcompdump
+*.zhistory
+*.zlogin
+*.webm
+*.mov
