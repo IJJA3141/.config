@@ -40,3 +40,4 @@ zsh-syntax-highlighting
 # App
 mathematica --> avahi
 discord
+kitty
