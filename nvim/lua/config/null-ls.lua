@@ -7,6 +7,7 @@ local sources = {
   formatting.clang_format,
   formatting.prettier,
   formatting.prettierd,
+  formatting.black,
   formatting.stylua,
   formatting.beautysh,
   --formatting.shfmt,

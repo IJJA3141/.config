@@ -1,3 +1,9 @@
+## To do
+rework notification
+firefox css
+discord css 
+iris
+
 ## Dependencies (sujétions)
 # Hypr stuff
 hyprlang
@@ -23,6 +29,10 @@ brightnessctl
 neofetch
 jq
 yay
+pacman-contrib
+
+nodejs
+npm
 
 # Git
 github-cli
@@ -41,3 +51,8 @@ zsh-syntax-highlighting
 mathematica --> avahi
 discord
 kitty
+lynx
+conky
+
+# ?
+python-pip
