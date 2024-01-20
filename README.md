@@ -19,6 +19,8 @@ neovim
 fcitx5
 fcitx5-mozc
 noto-fonts-cjk
+ttf-firacode-nerd
+ttf-fantasque-nerd
 
 # Core
 bluez
@@ -30,7 +32,7 @@ neofetch
 jq
 yay
 pacman-contrib
-
+gruvbox-icon-theme
 nodejs
 npm
 

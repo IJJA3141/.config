@@ -7,6 +7,7 @@ from gi.repository import GLib
 import threading
 import time
 
+time.sleep(6)
 
 class Notification:
     def __init__(self, app_name, app_icon, body):

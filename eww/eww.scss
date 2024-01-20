@@ -14,6 +14,11 @@ $fg4: #a89984;
 
 $shadow: rgba(#000000, 0.3);
 
+*{
+  font-size: 20px;
+  font-family: firacode;
+}
+
 // Bar
 .bar {
   background-color: transparent;
@@ -80,10 +85,12 @@ $shadow: rgba(#000000, 0.3);
 
 .notif {
   all: unset;
-  background-color: red;
+  background-color: $bg0_h;
     margin: 0px 3px;
-    color: red;
+    color: blue;
   min-width: 350px;
   min-height: 200px;
   margin: 5px;
+  color: $fg3;
+
 }
