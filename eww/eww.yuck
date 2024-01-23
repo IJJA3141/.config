@@ -36,7 +36,7 @@
            :text "󰥻 " 
            :height 30 
            :width 30
-            :halign "start"
+           :halign "start"
     )
 
     (label :class "keyboard-language" 
@@ -106,9 +106,9 @@
 
 (deflisten notifications_listener :initial "" "python ~/.config/eww/scripts/notification.py")
 (defwidget notification [icon name body]
-  (button :class 'notif' 
+  (button :class 'notif'
     (box :orientation 'horizontal' :space-evenly false
-      (image :path icon)
+      (image :path icon :image-width 100 :image-height 100)
       (box :orientation 'vertical'
         (label :wrap true :text name)
         (label :wrap true :text body)

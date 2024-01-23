@@ -7,7 +7,8 @@ from gi.repository import GLib
 import threading
 import time
 
-time.sleep(6)
+time.sleep(3)
+
 
 class Notification:
     def __init__(self, app_name, app_icon, body):
@@ -22,6 +23,9 @@ notifications = []
 def remove_object(notif, timeout):
     if timeout == -1:
         timeout = 5
+    elif timeout > 120:
+        timeout /= 1000
+
     time.sleep(timeout)
     notifications.remove(notif)
     print_state()

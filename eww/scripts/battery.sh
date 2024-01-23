@@ -35,12 +35,16 @@ while true; do
         rm /tmp/battery
     fi
 
-    if [ "$level" -lt 38 ] && ! [ -f file ] && ! [ "$state" = "Charging" ]; then
-        notify-send "test"
-        touch /tmp/battery
+    if [ "$level" -lt 30 ] && ! [ -f $file ] && ! [ "$state" = "Charging" ]; then
+        notify-send "-a Battery Battery Battery low ! only ${level}% left."
+        touch $file
+    fi
+
+    if [ "$state" != 100 ]; then
+        state=" ${state}"
     fi
 
     echo "(battery :icon '${icon}' :level '${level}')"
 
-    sleep 20 
+    sleep 20
 done

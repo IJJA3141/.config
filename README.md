@@ -14,6 +14,7 @@ eww
 # Editors
 vi
 neovim
+python-pynvim
 
 # Input
 fcitx5
@@ -21,6 +22,8 @@ fcitx5-mozc
 noto-fonts-cjk
 ttf-firacode-nerd
 ttf-fantasque-nerd
+extra/noto-fonts-emoji
+hyprshot
 
 # Core
 bluez
@@ -55,6 +58,12 @@ discord
 kitty
 lynx
 conky
+spotify 
+figma-linux 
 
 # ?
 python-pip
+wget
+ripgrep
+fd
+luarocks
