@@ -9,6 +9,10 @@ oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH/tiwahu.omp.json" | Invoke-E
 
 # Function
 function lsall { Get-ChildItem $args -Force }
+function vim {param ([string] $File)
+ if ($File) {wsl nvim ($File -replace '\\', '/')}
+ else {wsl nvim}
+}
 function Copy-Filtered { # from https://serverfault.com/questions/707085/copy-item-with-multiple-filter
     param (
         [string] $Source,
@@ -31,3 +35,4 @@ function Copy-Filtered { # from https://serverfault.com/questions/707085/copy-it
 # Alias
 Set-Alias lsa lsall
 Set-Alias cpf Copy-Filtered
+Set-Alias nvim vim
