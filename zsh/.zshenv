@@ -15,3 +15,10 @@ export VISUAL="nvim"
 export BROWSER="firefox-developer-edition"
 
 export HISTFILE="$ZDOTDIR/.zhistory"    # History filepath
+
+#windows stuff
+export C="/mnt/c"
+export D="/mnt/d"
+export E="/mnt/e"
+export HC="/mnt/c/Users/alexe/"
+export HE="/mnt/e/Users/alexe/"
