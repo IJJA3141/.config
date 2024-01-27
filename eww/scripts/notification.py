@@ -34,8 +34,7 @@ def remove_object(notif, timeout):
 def add_object(notif, timeout):
     notifications.insert(0, notif)
     print_state()
-    timer_thread = threading.Thread(
-        target=remove_object, args=(notif, timeout))
+    timer_thread = threading.Thread(target=remove_object, args=(notif, timeout))
     timer_thread.start()
 
 
@@ -46,8 +45,8 @@ def print_state():
             string
             + f"""(notification :icon '{item.app_icon or ''}' :name '{item.app_name or ''}' :body '{item.body or ''}')"""
         )
-
     if string:
+        string = string.replace("\n", "")
         print(
             rf"""(box :orientation 'vertical' :class 'notifications-box' {string or ''})""",
             flush=True,
@@ -64,8 +63,7 @@ class NotificationServer(dbus.service.Object):
         bus_name = dbus.service.BusName(
             "org.freedesktop.Notifications", bus=dbus.SessionBus()
         )
-        dbus.service.Object.__init__(
-            self, bus_name, "/org/freedesktop/Notifications")
+        dbus.service.Object.__init__(self, bus_name, "/org/freedesktop/Notifications")
 
     @dbus.service.method(
         "org.freedesktop.Notifications", in_signature="susssasa{ss}i", out_signature="u"

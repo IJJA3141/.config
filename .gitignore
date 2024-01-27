@@ -25,3 +25,4 @@
 *.zlogin
 *.webm
 *.mov
+nvim/lazy-lock.json
