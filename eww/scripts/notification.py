@@ -65,18 +65,42 @@ class NotificationServer(dbus.service.Object):
         )
         dbus.service.Object.__init__(self, bus_name, "/org/freedesktop/Notifications")
 
+    @dbus.service.method("org.freedesktop.Notifications", out_signature="as")
+    def GetCapabilities(self):
+        return ("actions", "body", "body-hyprlinks", "icon-static")
+
     @dbus.service.method(
-        "org.freedesktop.Notifications", in_signature="susssasa{ss}i", out_signature="u"
+        "org.freedesktop.Notifications", in_signature="susssasa{sv}i", out_signature="u"
     )
     def Notify(
-        self, app_name, replaces_id, app_icon, summary, body, actions, hints, timeout
+        self,
+        app_name,
+        replaces_id,
+        app_icon,
+        summary,
+        body,
+        actions,
+        hints,
+        timeout,
     ):
         add_object(Notification(app_name, app_icon, body), timeout)
         return 0
 
+    @dbus.service.method("org.freedesktop.Notifications", in_signature="u")
+    def CloseNotification(self, notification_id):
+        return
+
     @dbus.service.method("org.freedesktop.Notifications", out_signature="ssss")
     def GetServerInformation(self):
-        return ("Custom Notification Server", "ExampleNS", "1.0", "1.2")
+        return ("Notification Server", "IJJA3141", "1.0", "1.2")
+
+    @dbus.service.signal("org.freedesktop.notifications", signature="uu")
+    def NotificationClosed(self, notification_id, reason):
+        return
+
+    @dbus.service.signal("org.freedesktop.notifications", signature="us")
+    def ActionInvoked(self, notification_id, action_key):
+        return
 
 
 DBusGMainLoop(set_as_default=True)
