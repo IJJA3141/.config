@@ -25,6 +25,9 @@ mappings.n = {
 	["<leader>sv"] = { "<cmd> vsplit <cr>", "Vertical split" },
 	["<leader>sh"] = { "<cmd> split <cr>", "Horizontal split" },
 
+	-- markdown
+	["<leader>om"] = { "<cmd> MarkdownPreview <cr>", "Open Markdown" },
+
 	-- transparentie
 	["<leader>tt"] = {
 		function()

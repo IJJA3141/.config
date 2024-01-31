@@ -22,5 +22,13 @@ opt.termguicolors = true
 require("core.mappings")
 require("config.lazy")
 
-vim.opt.clipboard = 'unnamedplus'
+vim.opt.clipboard = "unnamedplus"
 vim.cmd.colorscheme("gruvbox")
+
+vim.cmd([[
+function OpenMarkdownPreview (url)
+execute "silent ! firefox-developer-edition --new-window " . a:url
+endfunction
+let g:mkdp_browserfunc = 'OpenMarkdownPreview'
+]])
+

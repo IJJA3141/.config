@@ -3,8 +3,8 @@ return {
 	-- Official
 	{
 		"ellisonleao/gruvbox.nvim",
-		lazy = true,
 		name = "gruvbox",
+    lazy = true,
 		opts = {
 			terminal_colors = true, -- add neovim terminal colors
 			undercurl = true,
@@ -35,7 +35,7 @@ return {
 	{
 		"catppuccin/nvim",
 		name = "catppuccin",
-		lazy = false,
+    lazy = true,
 		opts = {
 			flavour = "mocha", -- latte, frappe, macchiato, mocha
 			background = { -- :h background
@@ -87,8 +87,8 @@ return {
 	-- Tokyonight
 	{
 		"folke/tokyonight.nvim",
-		lazy = false,
 		name = "tokyonight",
+    lazy = true,
 		opts = {
 			-- your configuration comes here
 			-- or leave it empty to use the default settings
