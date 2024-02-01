@@ -105,13 +105,15 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (deflisten notifications_listener :initial "" "python ~/.config/eww/scripts/notification.py")
-(defwidget notification [icon name body]
-  (button :class 'notif'
+(defwidget notification [id app_name summary body icon]
+  (button :class 'notif' :onclick "notify-send ' ' -a 'rm-msg' -r ${id}"
     (box :orientation 'horizontal' :space-evenly false
       (image :path icon :image-width 100 :image-height 100)
       (box :orientation 'vertical'
-        (label :wrap true :text name)
+        (label :wrap true :text app_name)
+        (label :wrap true :text summary)
         (label :wrap true :text body)
+        (label :wrap true :text id)
       )
     )
   )
