@@ -10,7 +10,7 @@ oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH/tiwahu.omp.json" | Invoke-E
 # Function
 function lsall { Get-ChildItem $args -Force }
 function vim {param ([string] $File)
- if ($File) {wsl nvim ($File -replace '\\', '/')}
+ if ($File) {wsl nvim ($File -replace '\\', '/'  -replace 'C:', '/mnt/c' -replace 'E:', '/mnt/e')}
  else {wsl nvim}
 }
 function Copy-Filtered { # from https://serverfault.com/questions/707085/copy-item-with-multiple-filter
