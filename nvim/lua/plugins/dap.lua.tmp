@@ -1,0 +1,60 @@
+return {
+  {
+    "rcarriga/nvim-dap-ui",
+    dependencies = {
+      "mfussenegger/nvim-dap",
+    },
+    --ft = { "cpp", "hpp", "cmake" },
+    config = function()
+      require("dapui").setup()
+    end,
+  },
+  {
+    "jay-babu/mason-nvim-dap.nvim",
+    --ft = { "cpp", "hpp", "cmake" },
+    dependencies = {
+      "williamboman/mason.nvim",
+      "mfussenegger/nvim-dap",
+    },
+    opts = {
+      -- A list of adapters to install if they're not already installed.
+      -- This setting has no relation with the `automatic_installation` setting.
+      ensure_installed = { "stylua", "cppdbg" },
+
+      -- NOTE: this is left here for future porting in case needed
+      -- Whether adapters that are set up (via dap) should be automatically installed if they're not already installed.
+      -- This setting has no relation with the `ensure_installed` setting.
+      -- Can either be:
+      --   - false: Daps are not automatically installed.
+      --   - true: All adapters set up via dap are automatically installed.
+      --   - { exclude: string[] }: All adapters set up via mason-nvim-dap, except the ones provided in the list, are automatically installed.
+      --       Example: automatic_installation = { exclude = { "python", "delve" } }
+      automatic_installation = true,
+
+      -- See below on usage
+      handlers = {},
+    },
+  },
+  {
+    "mfussenegger/nvim-dap",
+    --ft = { "cpp", "hpp", "cmake" },
+    config = function()
+      require("dap").adapters.gdb = {
+        type = "executable",
+        command = "gdb",
+        args = { "-i", "dap" },
+      }
+      require("dap").configurations.c = {
+        {
+          name = "Launch",
+          type = "gdb",
+          request = "launch",
+          program = function()
+            return vim.fn.input("/usr/bin/gdb", vim.fn.getcwd() .. "/", "file")
+          end,
+          cwd = "${workspaceFolder}",
+        },
+      }
+    end,
+  },
+}
