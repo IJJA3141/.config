@@ -3,13 +3,17 @@
 
 # Whitelist
 !eww/
-!firefox/
 !fcitx5/
+!firefox/
 !hypr/
 !kitty/
 !neofetch/
 !nvim/
+!rofi/
 !scripts/
+
+!wezterm/
+
 !zsh/
 !読みたん/
 
