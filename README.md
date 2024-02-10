@@ -67,3 +67,10 @@ wget
 ripgrep
 fd
 luarocks
+cmake
+auto-cpufreq
+powertop
+drawio-desktop
+acpi
+acpid
+gdb

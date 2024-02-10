@@ -35,8 +35,17 @@ while true; do
         rm /tmp/battery
     fi
 
-    if [ "$level" -lt 30 ] && ! [ -f $file ] && ! [ "$state" = "Charging" ]; then
-        notify-send "-a Battery Battery Battery low ! only ${level}% left."
+    if [ "$level" -lt 6 ]; then
+        notify-send "fuck you"
+        notify-send "3..."
+        sleep 1
+        notify-send "2..."
+        sleep 1
+        notify-send "1..."
+        sleep 1
+        systemctl hibernate
+    elif [ "$level" -lt 30 ] && ! [ -f $file ] && ! [ "$state" = "Charging" ]; then
+        notify-send "Battery Battery low ! only ${level}% left."
         touch $file
     fi
 

@@ -4,7 +4,7 @@
 
 (deflisten workspace_listener "scripts/workspaces.sh")
 
-(defpoll wifi_listener :interval "30s" "scripts/wifi.sh")
+(defpoll wifi_listener :interval "10s" "scripts/wifi.sh")
 
 (defpoll package_listener :interval "1m" "scripts/packages.sh")
 (defwidget package [count]
