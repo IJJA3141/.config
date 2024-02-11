@@ -74,3 +74,6 @@ drawio-desktop
 acpi
 acpid
 gdb
+
+# Del
+bazel clang go gpm libical scdoc vim-runtime wezterm-shell-integration wezterm-terminfo
