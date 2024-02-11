@@ -93,11 +93,19 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
     local lspmappings = {}
     lspmappings.n = {
+      -- Moves
       ["<leader>gD"] = { vim.lsp.buf.declaration, "Lsp declaration" },
       ["<leader>gd"] = { vim.lsp.buf.definition, "Lsp definition" },
-      ["<leader>K"] = { vim.lsp.buf.hover, "Lsp hover" },
       ["<leader>gi"] = { vim.lsp.buf.implementation, "Lsp implementatoin" },
-      ["<leader><C-k>"] = { vim.lsp.buf.signature_help, "Lsp signature help" },
+      ["<leader>gr"] = { vim.lsp.buf.references, "Lsp references" },
+
+      -- Info
+      ["<leader>lh"] = { vim.lsp.buf.hover, "Lsp hover" },
+      ["<leader>le"] = { "<cmd>lua vim.diagnostic.open_float(nil, { focus = false }) <cr>" },
+      ["<leader>ls"] = { vim.lsp.buf.signature_help, "Lsp signature help" },
+      ["<leader>lt"] = { vim.lsp.buf.type_definition, "Lsp type definition" },
+
+      -- Harpoon ?
       ["<leader>wa"] = { vim.lsp.buf.add_workspace_folder, "Lsp add workspace folder" },
       ["<leader>wr"] = { vim.lsp.buf.remove_workspace_folder, "Lsp remove workspace folder" },
       ["<leader>wl"] = {
@@ -107,11 +115,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
         "Lsp list workspace  folders",
       },
 
-      ["<leader>D"] = { vim.lsp.buf.type_definition, "Lsp type definition" },
-      ["<leader>rn"] = { vim.lsp.buf.rename, "Lsp rename" },
-      ["<leader>ca"] = { vim.lsp.buf.code_action, "Lsp code action" },
-      ["<leader>gr"] = { vim.lsp.buf.references, "Lsp references" },
-      ["<leader>f"] = {
+      -- Actions
+      ["<leader>la"] = { vim.lsp.buf.code_action, "Lsp code action" },
+      ["<leader>lr"] = { vim.lsp.buf.rename, "Lsp rename" },
+      ["<leader>lf"] = {
         function()
           vim.lsp.buf.format({ async = true })
         end,

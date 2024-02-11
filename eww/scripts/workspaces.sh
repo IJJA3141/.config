@@ -29,7 +29,7 @@ echo "(box :class \"workspaces\"\
 (box :class \"unused_workspace\" \" \")\
 (box :class \"unused_workspace\" \" \"))"
 
-sleep 9
+sleep 11
 
 for i in 4 5 1 2 3; do
     hyprctl dispatch movetoworkspace $i > /dev/null

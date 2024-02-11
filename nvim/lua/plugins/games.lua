@@ -14,7 +14,6 @@ return {
 			"MunifTanjim/nui.nvim",
 
 			-- optional
-			"nvim-treesitter/nvim-treesitter",
 			"nvim-tree/nvim-web-devicons",
 		},
 		lazy = leet_arg ~= vim.fn.argv()[1],
