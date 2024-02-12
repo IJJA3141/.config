@@ -10,7 +10,7 @@ return {
         highlight = {
           enable = true,
           use_languagetree = true,
-          disable = { "cpp" },
+          disable = { "cpp", "sh", 'shell' },
         },
 
         ensure_installed = {

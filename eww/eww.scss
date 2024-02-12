@@ -19,8 +19,14 @@ $shadow: rgba(#000000, 0.3);
   font-family: firacode;
 }
 
-// Bar
-.bar {
+// Bars
+.bar_long {
+  background-color: transparent;
+  font-size: 20px;
+  color: $fg3;
+}
+
+.bar_short {
   background-color: transparent;
   font-size: 20px;
   color: $fg3;

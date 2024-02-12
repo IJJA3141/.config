@@ -29,10 +29,4 @@ echo "(box :class \"workspaces\"\
 (box :class \"unused_workspace\" \" \")\
 (box :class \"unused_workspace\" \" \"))"
 
-sleep 11
-
-for i in 4 5 1 2 3; do
-    hyprctl dispatch movetoworkspace $i > /dev/null
-done
-
 socat -U - "UNIX-CONNECT:/tmp/hypr/${HYPRLAND_INSTANCE_SIGNATURE}/.socket2.sock" | while read -r line; do handle "$line"; done

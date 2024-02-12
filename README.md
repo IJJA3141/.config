@@ -13,6 +13,7 @@ hyprlang
 xdg-desktop-portal-hyprland
 pyprland
 eww
+hyprland-monitor-attached
 
 # Editors
 

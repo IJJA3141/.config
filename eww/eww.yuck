@@ -67,14 +67,14 @@
   )
 )
 
-(defwindow bar
+(defwindow bar_long
 	:monitor 0
 	:windowtype "dock"
 	:exclusive true	
   :namespace "eww-bar"
   :geometry (geometry 
               :y "10px"
-			        :width 2860
+              :width 2860
 		        	:anchor "top center"
 			      )
 
@@ -97,6 +97,35 @@
 	)
 )
 
+(defwindow bar_short :class bar
+	:monitor 0
+	:windowtype "dock"
+	:exclusive true	
+  :namespace "eww-bar"
+  :geometry (geometry 
+              :y "10px"
+              :width 2540
+		        	:anchor "top center"
+			      )
+
+	(box :class "main-container"
+	  (box :class "container" :halign "start"
+      (literal :content keyboard_listener)
+      (clock)
+    )
+	  (box :class "container" :halign "center"
+      (literal :content workspace_listener)
+    )
+	  (box :class "container" :halign "end"
+      (literal :content brightness_listener)
+      (literal :content bluetooth_listener)
+      (literal :content sound_listener)
+      (literal :content battery_listener)
+      (literal :content package_listener)
+      (literal :content wifi_listener)
+    )
+	)
+)
 
 
 
