@@ -5,3 +5,5 @@ source ~/.config/zsh/history.zsh
 source ~/.config/zsh/style.zsh
 source ~/.config/zsh/alias.zsh
 source ~/.config/zsh/keybinds.zsh
+
+cd #windows
