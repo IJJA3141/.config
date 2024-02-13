@@ -5,25 +5,7 @@
 :root {
   --navbarWidth: 550px;
   --animationSpeed: 0.5s;
-
-  --tab-min-height: 0px;
-  --inline-tab-padding: 0px;
-  --tab-border-radius: 0px;
-  --tab-shadow-max-size: 0px;
-  --tab-block-margin: 0px;
-  --toolbarbutton-outer-padding: 0px;
 }
-
-/* Hide buttons */
-/*
-#back-button[disabled="true"] {
-  display: none !important;
-}
-
-#forward-button[disabled="true"] {
-  display: none !important;
-}
-*/
 
 #back-button {
   display: none !important;
@@ -41,16 +23,20 @@
   display: none !important;
 }
 
-.titlebar-buttonbox-container {
+#TabsToolbar>.titlebar-buttonbox-container {
   display: none !important;
 }
 
-.titlebar-spacer {
+#TabsToolbar>.titlebar-spacer {
   display: none !important;
 }
 
 #TabsToolbar {
   margin-right: var(--navbarWidth) !important;
+}
+
+.tab-close-button {
+  display: none !important;
 }
 
 #nav-bar {
@@ -66,55 +52,38 @@
   height: 40px !important;
 }
 
-#titlebar {
-  height: 40px !important;
-}
-
-/* Simplifying interface */
-
-#nav-bar {
-  background: none !important;
-  box-shadow: none !important;
-}
-
-#navigator-toolbox {
-  border: none !important;
-}
-
-.titlebar-spacer {
+#PersonalToolbar {
   display: none !important;
 }
 
-#urlbar-background {
-  border: none !important;
+:root {
+  --tab-min-height: 0px !important;
+  --inline-tab-padding: 0px !important;
+  --tab-border-radius: 0px !important;
+  --tab-shadow-max-size: 0px !important;
+  --tab-block-margin: 0px !important;
 }
 
-#urlbar:not(:hover):not([breakout][breakout-extend]) > #urlbar-background {
-  box-shadow: none !important;
-  background: none !important;
+:root {
+  --toolbar-start-end-padding: 0px !important;
 }
 
-#identity-box {
-  display: none !important;
+#fxa-toolbar-menu-button #bookmarks-menu-button #unified-extensions-button #PanelUI-menu-button {
+  padding: 0 !important;
 }
 
-.tab-close-button {
-  display: none !important;
+toolbar#nav-bar {
+  padding-bottom: 4px !important;
 }
 
-toolbarbutton {
-  width: 36px !important;
-  height: 36px !important;
-
-  margin: 2px 2px 2px 2px !important;
-}
-
-.tab-background {
-  margin: 0 !important;
+.tab-line {
+  height: 0px !important;
 }
 
 .tabbrowser-tab {
-  height: 32px !important;
+  margin-right: 0px !important;
+}
 
-  margin: 3px 0px 3px 0px !important;
+#navigator-toolbox {
+  height: 40px !important;
 }

@@ -593,8 +593,7 @@ toolbaritem {
   color: var(--bf-urlbar-focused-color) !important;
 }
 
-#urlbar-background {
-  border-radius: var(--bf-urlbar-radius) !important;
+#urlbar-background { border-radius: var(--bf-urlbar-radius) !important;
   border: none !important;
 }
 
