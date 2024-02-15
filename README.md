@@ -89,6 +89,9 @@ gdb
 go
 zathura --> zathura-pdf-mupdf
 nsxiv
+smassh
+lolcat
+ascii-image-converter
 
 # Del
 
