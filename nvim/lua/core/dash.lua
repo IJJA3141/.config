@@ -1,6 +1,7 @@
 local M = {}
 local valid = {}
 local parsed = {}
+local colored = {}
 
 -- 守永 和奏
 M.Wakana_Morinaga = [[
@@ -9,7 +10,7 @@ M.Wakana_Morinaga = [[
 ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢀⣤⡈⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
 ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠄⣿⣥⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
 ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⠁⠈⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
-\x1B[35m⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⣤⣶⣿⠛⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⡿⡿⠿⡿⠿⡿⢿⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⣤⣶⣿⠛⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⡿⡿⠿⡿⠿⡿⢿⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
 ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⣿⣿⣿⣿⣿⣿⣿⣿⢿⢻⣫⣫⣵⣪⣞⣞⢮⣳⣳⡳⣢⣢⣠⡀⠤⣉⠙⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
 ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⣤⣼⣿⣿⢿⢛⡭⢖⣟⢯⢷⢷⡿⣷⣷⣽⢵⣳⡳⣝⣗⢗⡵⡯⣻⡲⣄⢂⢹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
 ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⣋⡵⡚⡵⡕⢟⢮⢯⡫⣗⡽⣝⡮⡯⣗⢷⣫⢗⢷⢽⢝⢽⣕⢯⢾⢝⡦⣖⡬⣉⠛⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
@@ -128,19 +129,7 @@ M.Minami_Ikoma = [[
 ⣿⠇⠆⡀⠅⠂⠠⠈⠄⢼⣿⣿⡇⡇⠐⡈⠄⠄⠄⢁⠐⠠⠐⡀⠡⠐⢐⠈⢠⣿⣿⣿⣿⣿⣿⣾⣽⡶⣝⡷⣝⢜⣵⣾⣿⣿⡿⣫⣾⣿⣿⣿⣿⣏⢀⠂⠌⢐⠀⡂⢐⠀⡂⢁⠂⡐⠠⠠⠀⠂⠌⠠⠁⠌⠠⠠⠑⢈⠠⠠⠁⠄⠸⣝⢷⡘⣵⣳⢽⣿⣿⣿⣿⣿⣽⣽⢮⣺⣿⢽⡷⣿⣿⣿⣗⣽⣿⣿⣿⣿⣿⣿⣿⢿⣻⡷⣽⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣳⣟⡯
 ]]
 
-M.nvim = [[
-
-
-
-███╗  ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗
-████╗ ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║
-██╔██╗██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║
-██║╚████║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║
-██║ ╚███║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║
-╚═╝  ╚══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝
-
-]]
-
+-- add colorless
 for _, logo in pairs(M) do
 	table.insert(parsed, vim.split(logo, "\n"))
 end
@@ -154,8 +143,69 @@ for _, logo in pairs(parsed) do
 	end
 end
 
-if #valid == 0 then
-	table.insert(valid, vim.split(M.nvim, "\n"))
+-- add colorfull
+--[[
+colored.Elsa_Dorothy = { "~/.config/nvim/lua/core/asset/Elsa_Dorothy" }
+
+for _, logo in pairs(colored) do
+	if
+		#logo <= vim.api.nvim_win_get_height(0)
+		and #logo[4]:gsub("[\128-\191]", "") <= vim.api.nvim_win_get_width(0) - 2
+	then
+		table.insert(valid, logo)
+	end
 end
 
-return valid[math.random(1, #valid)]
+if #valid == 0 then
+	table.insert(valid, vim.split(M.Wakana_Morinaga, "\n"))
+end--]]
+
+--valid[math.random(1, #valid)]
+
+require("dashboard").setup({
+	theme = "doom",
+	hide = {
+		-- enabling this messes up the actual laststatus setting after loading a file
+		statusline = false,
+	},
+
+	config = {
+		--header = require("core.dash"),
+		center = {
+			{ action = "Oil", desc = "Oil", icon = "󰉓  ", key = "e" },
+			{
+				action = "Telescope find_files",
+				desc = "Find file",
+				icon = "  ",
+				key = "f",
+			},
+			{
+				action = "Telescope oldfiles",
+				desc = "Recent files",
+				icon = "  ",
+				key = "r",
+			},
+			{
+				action = "Telescope live_grep",
+				desc = "Find text",
+				icon = "  ",
+				key = "g",
+			},
+			{ action = "Lazy", desc = "Lazy", icon = "󰒲  ", key = "l" },
+			{ action = "e $MYVIMRC", desc = "Config", icon = "  ", key = "c" },
+			{ action = "qa", desc = "Quit", icon = "  ", key = "q" },
+		},
+		footer = function()
+			return {
+				"",
+			}
+		end,
+	},
+
+	preview = {
+		command = "cat", -- preview command
+		file_path = "~/.config/nvim/lua/core/asset/Elsa_Dorothy", -- preview file path
+		file_height = 27,
+		file_width = 80,
+	},
+})
