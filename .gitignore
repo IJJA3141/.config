@@ -2,6 +2,7 @@
 /*
 
 # Whitelist
+!asset/
 !eww/
 !fcitx5/
 !firefox/

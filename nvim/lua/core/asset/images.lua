@@ -141,6 +141,9 @@ M.Minami_Ikoma = {
 ]],
 }
 
+-- 藤宮 千鳥
+--- Fujimiya Chidori
+
 -- Esla Dorothy
 M.Esla_Dorothy = {
   height = 10,
