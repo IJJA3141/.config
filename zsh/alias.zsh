@@ -7,7 +7,16 @@ function fl ()
     done
 }
 
+function lc ()
+{
+    l=$(sed -e 's/\x1b\[[0-9;]*m//g' $1 | wc -l)
+    c=$(sed -e 's/\x1b\[[0-9;]*m//g' $1 | wc -L)
+
+    echo "line: ${l}\ncolomn: ${c}"
+}
+
 alias lsa="ls -vahl --color=auto --group-directories-first"
 alias ls="ls --color=auto"
 alias gr="git rm . --cached -rf >> /dev/null && git add . >> /dev/null && git ls-files"
 alias gl=fl
+alias lc=lc

@@ -146,8 +146,8 @@ M.Minami_Ikoma = {
 
 -- Esla Dorothy
 M.Esla_Dorothy = {
-  height = 10,
-  width = 10,
+  height = 30,
+  width = 30,
   is_url = true,
   content = "~/.config/nvim/lua/core/asset/Elsa_Dorothy",
 }

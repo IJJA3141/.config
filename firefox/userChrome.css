@@ -23,11 +23,11 @@
   display: none !important;
 }
 
-#TabsToolbar>.titlebar-buttonbox-container {
+#TabsToolbar > .titlebar-buttonbox-container {
   display: none !important;
 }
 
-#TabsToolbar>.titlebar-spacer {
+#TabsToolbar > .titlebar-spacer {
   display: none !important;
 }
 
@@ -107,16 +107,21 @@ toolbar#nav-bar {
   margin: 0px !important;
 }
 
-#tabbrowser-tabs>* {
-  height: calc(40px / 1.5) !important;
-  margin: 0px !important;
-}
-
-#nav-bar>.toolbarbutton-1 {
+#nav-bar > .toolbarbutton-1 {
   height: 30px !important;
   padding: 0px !important;
 }
 
-#fxa-toolbar-menu-button>.toolbarbutton-badge-stack {
+#fxa-toolbar-menu-button > .toolbarbutton-badge-stack {
   padding: 0 !important;
+}
+
+.tab-background .tab-content .tab-label-container {
+  height: calc(40px / 1.5) !important;
+  margin: 0px !important;
+}
+
+#TabsToolbar-customization-target #alltabs-button #titlebar {
+  height: calc(40px / 1.5) !important;
+  margin: 0px !important;
 }
