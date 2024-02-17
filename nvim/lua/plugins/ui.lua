@@ -6,7 +6,6 @@ return {
 			vim.opt.laststatus = 0
 		end,
 		config = function()
-			print("test1")
 			require("core.dash")
 		end,
 	},
