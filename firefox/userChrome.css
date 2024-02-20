@@ -125,3 +125,20 @@ toolbar#nav-bar {
   height: calc(40px / 1.5) !important;
   margin: 0px !important;
 }
+
+/*
+#panel-1-1
+  #tabbrowser-tabpanels
+  #tabbrowser-tabpanels
+  #tabbrowser-tabpanels
+  > .browserContainer
+  .browserContainer
+  > .browserStack {
+  background-color: transparent !important;
+  border-radius: calc(60px / 1.5) !important;
+}
+
+.browserStack > browser {
+  border-radius: calc(60px / 1.5) !important;
+}
+ */

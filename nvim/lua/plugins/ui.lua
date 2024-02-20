@@ -1,7 +1,8 @@
 return {
 	{ -- Dashboard
-		"nvimdev/dashboard-nvim",
+		"IJJA3141/dashboard-nvim",
 		event = "VimEnter",
+    lazy = true,
 		init = function()
 			vim.opt.laststatus = 0
 		end,
