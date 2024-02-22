@@ -69,7 +69,7 @@ discord
 kitty
 lynx
 conky
-spotify
+spicetify-cli
 figma-linux
 
 # ?
@@ -92,6 +92,7 @@ nsxiv
 smassh
 lolcat
 ascii-image-converter
+browsh
 
 # Del
 

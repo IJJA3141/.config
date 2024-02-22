@@ -23,11 +23,11 @@
   display: none !important;
 }
 
-#TabsToolbar > .titlebar-buttonbox-container {
+#TabsToolbar>.titlebar-buttonbox-container {
   display: none !important;
 }
 
-#TabsToolbar > .titlebar-spacer {
+#TabsToolbar>.titlebar-spacer {
   display: none !important;
 }
 
@@ -107,12 +107,12 @@ toolbar#nav-bar {
   margin: 0px !important;
 }
 
-#nav-bar > .toolbarbutton-1 {
+#nav-bar>.toolbarbutton-1 {
   height: 30px !important;
   padding: 0px !important;
 }
 
-#fxa-toolbar-menu-button > .toolbarbutton-badge-stack {
+#fxa-toolbar-menu-button>.toolbarbutton-badge-stack {
   padding: 0 !important;
 }
 
@@ -141,4 +141,14 @@ toolbar#nav-bar {
 .browserStack > browser {
   border-radius: calc(60px / 1.5) !important;
 }
+#tabbrowser-arrowscrollbox {}
  */
+
+
+/*  Tab  */
+
+.tabbrowser-tab .tab-stack .tab-background .tab-content .tab-icon-stack .tab-label-container .tab-label {
+  margin: 0 !important;
+  padding: 0 !important;
+  background-color: red !important;
+}
