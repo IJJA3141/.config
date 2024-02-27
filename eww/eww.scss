@@ -14,22 +14,20 @@ $fg4: #a89984;
 
 $shadow: rgba(#000000, 0.3);
 
-*{
-  font-size: 20px;
-  font-family: firacode;
+// font-size + 2 + 2 * padding
+
+* {
+  font-family: feather;
+  //font-family: Relaxed Typing Mono JP;
 }
 
 // Bars
 .bar_long {
   background-color: transparent;
-  font-size: 20px;
-  color: $fg3;
 }
 
 .bar_short {
   background-color: transparent;
-  font-size: 20px;
-  color: $fg3;
 }
 
 .main-container {
@@ -38,10 +36,9 @@ $shadow: rgba(#000000, 0.3);
 }
 
 .container {
-  box-shadow: 2px 2px 2px $shadow;
   background-color: $bg0_h;
   border-radius: 10px;
-  padding: 10px;
+  color: $fg4;
 }
 
 // workspaces
@@ -49,36 +46,20 @@ $shadow: rgba(#000000, 0.3);
   padding-right: 20px;
   padding-left: 20px;
   min-width: 200px;
+  font-size: 20px;
 }
 
-.workspace-active {}
+.workspace-active {
+  color: $fg4;
+}
 
 .workspace-used {
   color: $bg2;
 }
 
-.workspace-unused {}
-
-.keyboard-container {
-  background-color: $bg2;
-  border-radius: 5px;
-}
-
-.keyboard-icon {
-  background-color: $fg3;
-  border-radius: 5px;
-  color: $bg2;
-}
-
-.keyboard-language {
-  color: $fg0;
-  margin-right: 10px;
-  margin-left: -20px;
-}
-
 // Notifications
 .notifications {
- background-color: transparent ;
+  background-color: transparent;
   border-radius: 10px;
 }
 
@@ -92,8 +73,8 @@ $shadow: rgba(#000000, 0.3);
 .notif {
   all: unset;
   background-color: $bg0_h;
-    margin: 0px 3px;
-    color: blue;
+  margin: 0px 3px;
+  color: blue;
   min-width: 350px;
   min-height: 200px;
   margin: 5px;

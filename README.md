@@ -30,6 +30,7 @@ ttf-firacode-nerd
 ttf-fantasque-nerd
 extra/noto-fonts-emoji
 hyprshot
+ttf-icomoon-feather
 
 # Core
 
@@ -93,7 +94,16 @@ smassh
 lolcat
 ascii-image-converter
 browsh
+mpv
+mpvpaper
+hyprlock-git
+sddm
+playerctl
 
 # Del
 
 bazel clang go gpm libical scdoc vim-runtime wezterm-shell-integration wezterm-terminfo
+
+# Font
+
+https://github.com/mshioda/relaxed-typing-mono-jp?tab=readme-ov-file

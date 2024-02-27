@@ -9,15 +9,22 @@
 (defpoll package_listener :interval "1m" "scripts/packages.sh")
 (defwidget package [count]
   (box
-    (label :text " ")
+    (label :text "")
     (label :text count)
   )
 )
 
 (defpoll TIME :interval "1s" `date +\"%H:%M:%S\"`)
 (defwidget clock []
+  (label :text TIME :class "clock")
+)
+
+(deflisten spotify_listener "scripts/spotify.py")
+(defwidget spotify [music artist-album]
   (box
-    (label :text TIME)
+    (label :text "")
+    (label :limit-width 7 :text music)
+    (label :limit-width 7 :text artist-album)
   )
 )
 
@@ -29,18 +36,11 @@
   )
 )
 
-(defvar keyboard_listener "(keyboard :language 'english')")
-(defwidget keyboard [language]
-  (box :class "keyboard-container" :width 130 
-    (label :class "keyboard-icon" 
-           :text "󰥻 " 
-           :height 30 
-           :width 30
-           :halign "start"
-    )
-
-    (label :class "keyboard-language" 
-           :text language)
+(defvar keyboard_listener "(keyboard :language 'english' :size 20 )")
+(defwidget keyboard [language size]
+  (box :class "keyboard-container"
+    (label :class "keyboard-icon" :text "󰥻")
+    (label :class "keyboard-language" :text language :style 'font-size: ${size}px;')
   )
 )
 
@@ -54,7 +54,7 @@
 (defvar brightness_listener "")
 (defwidget brightness [level]
   (box 
-    (circular-progress :value level)
+    (label :class "brightness-icon" :text "")
     (label :text level)
   )
 )
@@ -73,32 +73,33 @@
 	:exclusive true	
   :namespace "eww-bar"
   :geometry (geometry 
-              :y "10px"
+              :y 10
               :width 2860
-              :height "40px"
+              :height 45
 		        	:anchor "top center"
 			      )
 
 	(box :class "main-container"
  	 (box :class "container" :halign "start"
-      (literal :content keyboard_listener)
-      (clock)
+      ;;(clock)
+      ;;(literal :content keyboard_listener)
+      ;;(literal :content spotify_listener)
     )
  	 (box :class "container" :halign "center"
-      (literal :content workspace_listener)
-    )
+      (literal :content workspace_listener );;:valign "center" :halign "center")
+   )
  	 (box :class "container" :halign "end"
-      (literal :content brightness_listener)
-      (literal :content bluetooth_listener)
-      (literal :content sound_listener)
-      (literal :content battery_listener)
-      (literal :content package_listener)
-      (literal :content wifi_listener)
+      ;;(literal :content brightness_listener)
+      ;;(literal :content sound_listener)
+      ;;(literal :content battery_listener)
+      ;;(literal :content wifi_listener)
+      ;;(literal :content bluetooth_listener)
+      ;;(literal :content package_listener)
     )
 	)
 )
 
-(defwindow bar_short :class bar
+(defwindow bar_short
 	:monitor 0
 	:windowtype "dock"
 	:exclusive true	

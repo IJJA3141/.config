@@ -4,19 +4,19 @@
 im=$(fcitx5-remote -n)
 
 if [ "$im" = "mozc" ]; then
-	fcitx5-remote -s keyboard-ch-fr
+    fcitx5-remote -s keyboard-ch-fr
 elif [ "$im" = "keyboard-us" ]; then
-	fcitx5-remote -s mozc
+    fcitx5-remote -s mozc
 else
-	fcitx5-remote -s keyboard-us
+    fcitx5-remote -s keyboard-us
 fi
 
 im2=$(fcitx5-remote -n)
 
 if [ "$im2" = "mozc" ]; then
-	eww update keyboard_listener='(keyboard :language "日本語")'
+    eww update keyboard_listener='(keyboard :language "日本語" :size 16)'
 elif [ "$im2" = "keyboard-us" ]; then
-	eww update keyboard_listener='(keyboard :language "english")'
+    eww update keyboard_listener='(keyboard :language "english" :size 18)'
 else
-	eww update keyboard_listener='(keyboard :language "français")'
+    eww update keyboard_listener='(keyboard :language "français" :size 18)'
 fi

@@ -1,5 +1,7 @@
 #!/bin/sh
 
+bluetoothctl power off >> /dev/null
+
 if bluetoothctl show | grep -q 'Powered: yes';  then
     if [ "$1" != "locked" ]; then
         bluetoothctl power off >> /dev/null

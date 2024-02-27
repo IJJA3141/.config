@@ -1,11 +1,31 @@
 #!/bin/pythoh
 
+import gi
+
+gi.require_version("Gtk", "3.0")
+gi.require_version("GdkPixbuf", "2.0")
 from dbus.mainloop.glib import DBusGMainLoop
-from gi.repository import GLib
+from gi.repository import GdkPixbuf, GLib
 import dbus.service
 import threading
+import shutil
 import dbus
 import time
+import os
+
+
+def save_img_byte(px_args, save_path):
+    GdkPixbuf.Pixbuf.new_from_bytes(
+        width=px_args[0],
+        height=px_args[1],
+        has_alpha=px_args[3],
+        data=GLib.Bytes(px_args[6]),
+        colorspace=GdkPixbuf.Colorspace.RGB,
+        rowstride=px_args[2],
+        bits_per_sample=px_args[4],
+    ).savev(save_path, "png")
+
+    return
 
 
 def wait(notification_server, timeout, notification_id):
@@ -33,6 +53,10 @@ class NotificationServer(dbus.service.Object):
         self.notifications = {}
         self.default_timeout = 10000
         self.id = 0
+
+        if os.path.exists("/tmp/notification-server"):
+            shutil.rmtree("/tmp/notification-server")
+        os.mkdir("/tmp/notification-server")
 
     # Signals
     @dbus.service.signal("org.freedesktop.notifications", signature="uu")
@@ -71,6 +95,15 @@ class NotificationServer(dbus.service.Object):
         hints,
         timeout,
     ):
+        print("name", app_name)
+        print("id", replaces_id)
+        print("icon", app_icon)
+        print("summary", summary)
+        print("body", body)
+        print("actions", actions)
+        print("hints", hints)
+        print("timeout", timeout)
+
         if app_name == "rm-msg":
             if replaces_id:
                 self.ActionInvoked(replaces_id, "activate")
@@ -82,6 +115,14 @@ class NotificationServer(dbus.service.Object):
 
         self.id += 1
         self.notifications[self.id] = Notification(app_name, app_icon, summary, body)
+
+        if "image-data" in hints:
+            save_img_byte(
+                hints["image-data"], f"/tmp/notification-server/{self.id}.png"
+            )
+            self.notifications[self.id].app_icon = (
+                f"/tmp/notification-server/{self.id}.png"
+            )
 
         self.print_state()
 
@@ -118,10 +159,7 @@ class NotificationServer(dbus.service.Object):
                 flush=True,
             )
         else:
-            print(
-                '""',
-                flush=True,
-            )
+            print('""', flush=True)
 
         return
 
