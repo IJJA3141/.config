@@ -14,20 +14,21 @@ $fg4: #a89984;
 
 $shadow: rgba(#000000, 0.3);
 
-// font-size + 2 + 2 * padding
-
 * {
-  font-family: feather;
-  //font-family: Relaxed Typing Mono JP;
+  font-size: 16px;
 }
 
-// Bars
+// Bar
 .bar_long {
   background-color: transparent;
+  font-size: 20px;
+  color: $fg3;
 }
 
 .bar_short {
   background-color: transparent;
+  font-size: 20px;
+  color: $fg3;
 }
 
 .main-container {
@@ -36,25 +37,74 @@ $shadow: rgba(#000000, 0.3);
 }
 
 .container {
+  box-shadow: 2px 2px 2px $shadow;
   background-color: $bg0_h;
   border-radius: 10px;
-  color: $fg4;
+  padding: 8px;
+}
+
+.spacer {
+  padding-right: 10px;
 }
 
 // workspaces
 .workspaces {
-  padding-right: 20px;
-  padding-left: 20px;
-  min-width: 200px;
-  font-size: 20px;
+  padding-right: 10px;
+  padding-left: 10px;
+  min-width: 150px;
 }
 
 .workspace-active {
-  color: $fg4;
 }
 
 .workspace-used {
   color: $bg2;
+}
+
+.workspace-unused {
+}
+
+//clock
+.clock {
+  min-width: 80px;
+}
+
+//keyboard
+.keyboard-icon {
+  margin-right: 10px;
+}
+
+.keyboard-language {
+  margin-right: 10px;
+}
+
+//package
+.package-icon {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+//battery
+.battery-label {
+  margin-right: 10px;
+}
+
+.bluetooth {
+  margin-left: 10px;
+}
+
+//spotify
+.spotify-spacer {
+  margin-right: 10px;
+}
+
+.spotify-icon {
+  margin-right: 10px;
+}
+
+.spotify- {
+  margin-right: 10px;
+  margin-left: 10px;
 }
 
 // Notifications

@@ -9,7 +9,7 @@
 (defpoll package_listener :interval "1m" "scripts/packages.sh")
 (defwidget package [count]
   (box
-    (label :text "")
+    (label :text "" :class "package-icon")
     (label :text count)
   )
 )
@@ -21,10 +21,12 @@
 
 (deflisten spotify_listener "scripts/spotify.py")
 (defwidget spotify [music artist-album]
-  (box
-    (label :text "")
-    (label :limit-width 7 :text music)
-    (label :limit-width 7 :text artist-album)
+  (box :space-evenly false
+    (label :text "│" :class "spotify-spacer")
+    (label :text "" :class "spotify-icon")
+    (label :text music :class "spotify-music")
+    (label :text "ー" :class "spotify-")
+    (label :text artist-album :class "spotify-artist")
   )
 )
 
@@ -32,26 +34,26 @@
 (defwidget battery [level icon]
   (box
     (label :text icon)
-    (label :text level)
+    (label :text level :class "battery-label")
   )
 )
 
 (defvar keyboard_listener "(keyboard :language 'english' :size 20 )")
-(defwidget keyboard [language size]
-  (box :class "keyboard-container"
+(defwidget keyboard [language]
+  (box :class "keyboard-container" :space-evenly false
     (label :class "keyboard-icon" :text "󰥻")
-    (label :class "keyboard-language" :text language :style 'font-size: ${size}px;')
+    (label :class "keyboard-language" :text language)
   )
 )
 
-(defvar bluetooth_listener "")
+(defvar bluetooth_listener "(bluetooth :level '󰂲')")
 (defwidget bluetooth [level]
   (box 
-    (label :text level)
+    (label :text level :class "bluetooth")
   )
 )
 
-(defvar brightness_listener "")
+(defvar brightness_listener "(brightness :level '---')")
 (defwidget brightness [level]
   (box 
     (label :class "brightness-icon" :text "")
@@ -59,7 +61,7 @@
   )
 )
 
-(defvar sound_listener "")
+(defvar sound_listener "(sound :volume '---' :icon '')")
 (defwidget sound [volume icon]
   (box 
     (label :text icon)
@@ -75,26 +77,29 @@
   :geometry (geometry 
               :y 10
               :width 2860
-              :height 45
+              :height 40
 		        	:anchor "top center"
 			      )
 
 	(box :class "main-container"
- 	 (box :class "container" :halign "start"
-      ;;(clock)
-      ;;(literal :content keyboard_listener)
-      ;;(literal :content spotify_listener)
+ 	 (box :class "container" :halign "start" :space-evenly false :valign "center"
+      (clock)
+      (label :text "│" :class "spacer")
+      (literal :content keyboard_listener)
+      (literal :content spotify_listener)
     )
- 	 (box :class "container" :halign "center"
+ 	 (box :class "container" :halign "center" :valign "center"
       (literal :content workspace_listener );;:valign "center" :halign "center")
    )
- 	 (box :class "container" :halign "end"
-      ;;(literal :content brightness_listener)
-      ;;(literal :content sound_listener)
-      ;;(literal :content battery_listener)
-      ;;(literal :content wifi_listener)
-      ;;(literal :content bluetooth_listener)
-      ;;(literal :content package_listener)
+ 	 (box :class "container" :halign "end" :space-evenly false :spacing 10 :valign "center"
+      (literal :content package_listener)
+      (label :text "│")
+      (literal :content wifi_listener)
+      (literal :content bluetooth_listener)
+      (label :text "│")
+      (literal :content sound_listener)
+      (literal :content brightness_listener)
+      (literal :content battery_listener)
     )
 	)
 )
@@ -145,7 +150,6 @@
         (label :wrap true :text app_name)
         (label :wrap true :text summary)
         (label :wrap true :text body)
-        (label :wrap true :text id)
       )
     )
   )

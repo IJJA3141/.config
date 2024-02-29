@@ -95,15 +95,6 @@ class NotificationServer(dbus.service.Object):
         hints,
         timeout,
     ):
-        print("name", app_name)
-        print("id", replaces_id)
-        print("icon", app_icon)
-        print("summary", summary)
-        print("body", body)
-        print("actions", actions)
-        print("hints", hints)
-        print("timeout", timeout)
-
         if app_name == "rm-msg":
             if replaces_id:
                 self.ActionInvoked(replaces_id, "activate")
