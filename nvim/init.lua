@@ -40,7 +40,9 @@ let g:mkdp_browserfunc = 'OpenMarkdownPreview'
 vim.filetype.add({
 	extension = { rasi = "rasi" },
 	pattern = {
+		[".*/waybar/config"] = "jsonc",
+		[".*/mako/config"] = "dosini",
 		[".*/kitty/*.conf"] = "bash",
-		[".*/hypr/.*%.config"] = "hyprlang",
+		[".*/hypr/.*%.conf"] = "hyprlang",
 	},
 })
