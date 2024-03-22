@@ -37,9 +37,10 @@ endfunction
 let g:mkdp_browserfunc = 'OpenMarkdownPreview'
 ]])
 
-local on_exit = function(obj)
-  print(obj.code)
-  print(obj.signal)
-  print(obj.stdout)
-  print(obj.stderr)
-end
+vim.filetype.add({
+	extension = { rasi = "rasi" },
+	pattern = {
+		[".*/kitty/*.conf"] = "bash",
+		[".*/hypr/.*%.config"] = "hyprlang",
+	},
+})
