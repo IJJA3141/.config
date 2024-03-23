@@ -1,20 +1,3 @@
-/* based on simple fox by Miguel Avila      */
-/* https://github.com/migueravila/SimpleFox */
-
-:root {
-  scrollbar-width: none !important;
-}
-
-@-moz-document url(about:privatebrowsing) {
-  :root {
-    scrollbar-width: none !important;
-  }
-}
-
-/* Removes the white loading page */
-/* url(about:newtab), url(about:home) */
-@-moz-document url(about:blank) {
-	html:not(#ublock0-epicker), html:not(#ublock0-epicker) body, #newtab-customize-overlay {
-		background: var(--bf-bg) !important;
-	}
-}
+@import "/home/alexe/.config/firefox/theme/z-site-scrollbars-and-pip.css";
+@import "/home/alexe/.config/firefox/theme/z-sites.css";
+@import "/home/alexe/.config/firefox/theme/z-site-newtab.css";
