@@ -2,10 +2,10 @@
 ;;                                       bar                                            ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(deflisten workspace_listener "scripts/workspaces.sh")
-
+;; wifi 
 (defpoll wifi_listener :interval "10s" "scripts/wifi.sh")
 
+;; packages
 (defpoll package_listener :interval "1m" "scripts/packages.sh")
 (defwidget package [count]
   (box
@@ -14,11 +14,16 @@
   )
 )
 
+;; clock
 (defpoll TIME :interval "1s" `date +\"%H:%M:%S\"`)
 (defwidget clock []
   (label :text TIME :class "clock")
 )
 
+;; workspaces
+(deflisten workspace_listener "scripts/workspaces.sh")
+
+;; spotify
 (deflisten spotify_listener "scripts/spotify.py")
 (defwidget spotify [music artist-album]
   (box :space-evenly false
@@ -30,6 +35,7 @@
   )
 )
 
+;; battery
 (deflisten battery_listener "scripts/battery.sh")
 (defwidget battery [level icon]
   (box
@@ -38,6 +44,7 @@
   )
 )
 
+;; keyboard
 (defvar keyboard_listener "(keyboard :language 'english' :size 20 )")
 (defwidget keyboard [language]
   (box :class "keyboard-container" :space-evenly false
@@ -46,6 +53,7 @@
   )
 )
 
+;; bluetooth
 (defvar bluetooth_listener "(bluetooth :level '󰂲')")
 (defwidget bluetooth [level]
   (box 
@@ -53,6 +61,7 @@
   )
 )
 
+;; brightness
 (defvar brightness_listener "(brightness :level '---')")
 (defwidget brightness [level]
   (box 
@@ -61,6 +70,15 @@
   )
 )
 
+;; mic 
+(defvar mic_listener "(mic :icon '')")
+(defwidget mic [icon]
+  (box 
+    (label :text icon)
+  )
+)
+
+;; sound
 (defvar sound_listener "(sound :volume '---' :icon '')")
 (defwidget sound [volume icon]
   (box 
@@ -96,6 +114,7 @@
       (label :text "│")
       (literal :content wifi_listener)
       (literal :content bluetooth_listener)
+      (literal :content mic_listener)
       (label :text "│")
       (literal :content sound_listener)
       (literal :content brightness_listener)
