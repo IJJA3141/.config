@@ -8,27 +8,27 @@ while true; do
     file=/tmp/battery
 
     if [ "$state" = "Charging" ]; then
-        icon="󰂄"
+        icon="󰂄 "
     elif [ "$level" -gt 90 ]; then
-        icon="󰁹"
+        icon="󰁹 "
     elif [ "$level" -gt 80 ]; then
-        icon="󰂂"
+        icon="󰂂 "
     elif [ "$level" -gt 70 ]; then
-        icon="󰂁"
+        icon="󰂁 "
     elif [ "$level" -gt 60 ]; then
-        icon="󰂀"
+        icon="󰂀 "
     elif [ "$level" -gt 50 ]; then
-        icon="󰁿"
+        icon="󰁿 "
     elif [ "$level" -gt 40 ]; then
-        icon="󰁾"
+        icon="󰁾 "
     elif [ "$level" -gt 30 ]; then
-        icon="󰁽"
+        icon="󰁽 "
     elif [ "$level" -gt 20 ]; then
-        icon="󰁼"
+        icon="󰁼 "
     elif [ "$level" -gt 10 ]; then
-        icon="󰁻"
+        icon="󰁻 "
     else
-        icon="󰁺"
+        icon="󰁺 "
     fi
 
     if [ -f $file ] && [ "$state" = "Charging" ]; then
@@ -53,7 +53,7 @@ while true; do
         state=" ${state}"
     fi
 
-    echo "(battery :icon '${icon}' :level '${level}')"
+    echo "(icon_text :icon '${icon}' :text '${level}')"
 
     sleep 20
 done

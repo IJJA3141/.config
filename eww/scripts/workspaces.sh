@@ -4,7 +4,7 @@
 
 handle() {
 case $1 in workspace*)
-            str='(box :class "workspaces" '
+            str='(box :orientation flow :class "workspaces" '
 
             for i in 1 2 3 4 5; do
                 if [ $i -eq "${1: -1}" ]; then
@@ -22,7 +22,7 @@ case $1 in workspace*)
     esac
 }
 
-echo "(box :class \"workspaces\"\
+echo "(box :orientation flow :class \"workspaces\"\
 (box :class \"unused_workspace\" \"\")\
 (box :class \"unused_workspace\" \"\")\
 (box :class \"workspace-active\" \"\")\

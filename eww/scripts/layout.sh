@@ -1,5 +1,5 @@
 #!/bin/sh
-#(defvar languages '[["US","english"],["JP","日本語"],["FR","français"]]')
+#(defvar keyboard_listener "(icon_text :icon '󰥻' :text '---')")
 
 im=$(fcitx5-remote -n)
 
@@ -14,9 +14,9 @@ fi
 im2=$(fcitx5-remote -n)
 
 if [ "$im2" = "mozc" ]; then
-    eww update keyboard_listener='(keyboard :language "日本語")'
+    eww update keyboard_listener='(icon_text :icon "󰥻 " :text "日本語")'
 elif [ "$im2" = "keyboard-us" ]; then
-    eww update keyboard_listener='(keyboard :language "english")'
+    eww update keyboard_listener='(icon_text :icon "󰥻 " :text "english")'
 else
-    eww update keyboard_listener='(keyboard :language "français")'
+    eww update keyboard_listener='(icon_text :icon "󰥻 " :text "français")'
 fi

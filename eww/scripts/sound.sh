@@ -10,22 +10,14 @@ fi
 
 volume=$(pactl get-sink-volume 0 | sed -n -e 's/\%.*// p' | sed -n -e 's/.* // p')
 
-if [ "$volume" -lt 100 ];then
-    if [ "$volume" -gt 9  ];then
-        volume=" $volume"
-    else
-        volume="  $volume"
-    fi
-fi
-
 if [ "$(pactl get-sink-mute 0)" = "Mute: yes" ]; then
-    eww update sound_listener="(sound :volume ${volume} :icon '')"
+    eww update sound_listener="(icon_text :icon ' ' :text '${volume}')"
 else
     if [ "$volume" -gt 66 ]; then
-        eww update sound_listener="(sound :volume ${volume} :icon '')"
+        eww update sound_listener="(icon_text :icon ' ' :text '${volume}')"
     elif [ "$volume" -gt 33 ]; then
-        eww update sound_listener="(sound :volume ${volume} :icon '')"
+        eww update sound_listener="(icon_text :icon ' ' :text '${volume}')"
     else
-        eww update sound_listener="(sound :volume ${volume} :icon '')"
+        eww update sound_listener="(icon_text :icon ' ' :text '${volume}')"
     fi
 fi

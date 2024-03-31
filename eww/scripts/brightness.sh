@@ -1,11 +1,12 @@
 #!/bin/sh
 
-level=$(brightnessctl g)
+level=$(brightnessctl i | grep -o '[0-9][0-9]\?[0-9]\?%')
 
 if [ "$1" = "up" ]; then
-  brightnessctl set $((level + 2))
+    brightnessctl set "$((${level::-1} + 1))%"
 elif [ "$1" = "down" ]; then
-    brightnessctl set $((level - 2))
+    brightnessctl set "$((${level::-1} - 1))%"
 fi
 
-eww update brightness_listener="(brightness :level $((level * 100 / 255)))"
+level=$(brightnessctl i | grep -o '[0-9][0-9]\?[0-9]\?%')
+eww update brightness_listener="(icon_text :icon ' ' :text '${level::-1}')"

@@ -53,6 +53,7 @@ class NotificationServer(dbus.service.Object):
         self.notifications = {}
         self.default_timeout = 10000
         self.id = 0
+        self.is_mute = False
 
         if os.path.exists("/tmp/notification-server"):
             shutil.rmtree("/tmp/notification-server")
@@ -95,6 +96,18 @@ class NotificationServer(dbus.service.Object):
         hints,
         timeout,
     ):
+        if app_name == "toggle-mute":
+            self.is_mute = not self.is_mute
+
+            if self.is_mute:
+                os.system("eww update bell_listener=\"(icon :icon '')\"")
+            else:
+                os.system("eww update bell_listener=\"(icon :icon '')\"")
+            return 0
+
+        if self.is_mute:
+            return 0
+
         if app_name == "rm-msg":
             if replaces_id:
                 self.ActionInvoked(replaces_id, "activate")

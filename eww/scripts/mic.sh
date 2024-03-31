@@ -2,7 +2,7 @@
 
 pactl set-source-mute 0 toggle
 if [[ "$(pactl get-source-mute 0)" == "Mute: yes" ]]; then
-    echo  ''
+    eww update mic_listener="(icon :icon '')"
 else
-    echo ''
+    eww update mic_listener="(icon :icon '')"
 fi

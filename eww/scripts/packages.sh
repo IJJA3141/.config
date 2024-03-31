@@ -1,3 +1,3 @@
 #!/bin/sh
 
-echo "(package :count '$(checkupdates | wc -l)')"
+echo "(icon_text :icon ' ' :text '$(checkupdates | wc -l)')"

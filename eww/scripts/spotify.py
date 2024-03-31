@@ -14,7 +14,7 @@ def on_metadata(player, metadata, manager):
     keys = metadata.keys()
     if "xesam:artist" in keys and "xesam:title" in keys:
         print(
-            f"""(spotify :music '{metadata['xesam:artist'][0]}' :artist-album '{metadata['xesam:title']}')""",
+            f"""(box :space-evenly false (label :text '│' :class 'spacer')(icon_text :icon ' ' :text '{metadata['xesam:artist'][0]} ー {metadata['xesam:title']}'))""",
             flush=True,
         )
 

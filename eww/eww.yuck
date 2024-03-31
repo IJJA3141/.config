@@ -2,90 +2,29 @@
 ;;                                       bar                                            ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;; wifi 
+(defvar flow "horizontal")
+
+(defwidget icon [?class_name icon] (box :class class_name (label :text icon)))
+(defwidget icon_text [icon text] (box :space-evenly false :orientation flow
+  (label :text icon)
+  (label :text text)
+))
+
 (defpoll wifi_listener :interval "10s" "scripts/wifi.sh")
-
-;; packages
 (defpoll package_listener :interval "1m" "scripts/packages.sh")
-(defwidget package [count]
-  (box
-    (label :text "" :class "package-icon")
-    (label :text count)
-  )
-)
-
-;; clock
 (defpoll TIME :interval "1s" `date +\"%H:%M:%S\"`)
-(defwidget clock []
-  (label :text TIME :class "clock")
-)
 
-;; workspaces
 (deflisten workspace_listener "scripts/workspaces.sh")
-
-;; spotify
 (deflisten spotify_listener "scripts/spotify.py")
-(defwidget spotify [music artist-album]
-  (box :space-evenly false
-    (label :text "│" :class "spotify-spacer")
-    (label :text "" :class "spotify-icon")
-    (label :text music :class "spotify-music")
-    (label :text "ー" :class "spotify-")
-    (label :text artist-album :class "spotify-artist")
-  )
-)
-
-;; battery
 (deflisten battery_listener "scripts/battery.sh")
-(defwidget battery [level icon]
-  (box
-    (label :text icon)
-    (label :text level :class "battery-label")
-  )
-)
 
-;; keyboard
-(defvar keyboard_listener "(keyboard :language 'english' :size 20 )")
-(defwidget keyboard [language]
-  (box :class "keyboard-container" :space-evenly false
-    (label :class "keyboard-icon" :text "󰥻")
-    (label :class "keyboard-language" :text language)
-  )
-)
+(defvar keyboard_listener "(icon_text :icon '󰥻 ' :text 'english')")
+(defvar brightness_listener "(icon_text :icon ' ' :text '---')")
+(defvar sound_listener "(icon_text :icon ' ' :text '---')")
 
-;; bluetooth
-(defvar bluetooth_listener "(bluetooth :level '󰂲')")
-(defwidget bluetooth [level]
-  (box 
-    (label :text level :class "bluetooth")
-  )
-)
-
-;; brightness
-(defvar brightness_listener "(brightness :level '---')")
-(defwidget brightness [level]
-  (box 
-    (label :class "brightness-icon" :text "")
-    (label :text level)
-  )
-)
-
-;; mic 
-(defvar mic_listener "(mic :icon '')")
-(defwidget mic [icon]
-  (box 
-    (label :text icon)
-  )
-)
-
-;; sound
-(defvar sound_listener "(sound :volume '---' :icon '')")
-(defwidget sound [volume icon]
-  (box 
-    (label :text icon)
-    (label :text volume)
-  )
-)
+(defvar bluetooth_listener "(icon :icon '󰂲')")
+(defvar mic_listener "(icon :icon '')")
+(defvar bell_listener "(icon :icon '')")
 
 (defwindow bar_long
 	:monitor 0
@@ -94,67 +33,36 @@
   :namespace "eww-bar"
   :geometry (geometry 
               :y 10
-              :width 2860
-              :height 40
 		        	:anchor "top center"
 			      )
 
-	(box :class "main-container"
- 	 (box :class "container" :halign "start" :space-evenly false :valign "center"
-      (clock)
+	(box :class "main-container" :orientation flow
+ 	 (box :class "left_container" :halign "start" :valign "fill" :space-evenly false :orientation flow
+      (icon :class_name "clock" :icon TIME)
       (label :text "│" :class "spacer")
-      (literal :content keyboard_listener)
-      (literal :content spotify_listener)
+      (literal :valign "center" :content keyboard_listener)
+      (literal :valign "center" :content spotify_listener)
     )
- 	 (box :class "container" :halign "center" :valign "center"
-      (literal :content workspace_listener );;:valign "center" :halign "center")
+ 	 (box :class "center_container" :halign "center" :valign "fill" :orientation flow
+      (literal :valign "center" :content workspace_listener )
    )
- 	 (box :class "container" :halign "end" :space-evenly false :spacing 10 :valign "center"
-      (literal :content package_listener)
+ 	 (box :class "right_container" :halign "end" :valign "fill" :space-evenly false :orientation flow
+      (literal :valign "center" :class "right_obj" :content package_listener)
       (label :text "│")
-      (literal :content wifi_listener)
-      (literal :content bluetooth_listener)
-      (literal :content mic_listener)
+      (literal :valign "center" :class "right_obj" :content bluetooth_listener)
+      (literal :valign "center" :class "right_obj" :content wifi_listener)
+      (literal :valign "center" :class "right_obj" :content mic_listener)
       (label :text "│")
-      (literal :content sound_listener)
-      (literal :content brightness_listener)
-      (literal :content battery_listener)
+      (literal :valign "center" :class "right_obj" :content sound_listener)
+      (literal :valign "center" :class "right_obj" :content brightness_listener)
+      (literal :valign "center" :class "right_obj" :content battery_listener)
+      (label :text "│")
+      (eventbox :onclick 'notify-send -a "toggle-mute" void' 
+        (literal :valign "center" :class "right_obj" :content bell_listener)
+      )
     )
 	)
 )
-
-(defwindow bar_short
-	:monitor 0
-	:windowtype "dock"
-	:exclusive true	
-  :namespace "eww-bar"
-  :geometry (geometry 
-              :y "10px"
-              :height 40
-              :width 2540
-		        	:anchor "top center"
-			      )
-
-	(box :class "main-container"
-	  (box :class "container" :halign "start"
-      (literal :content keyboard_listener)
-      (clock)
-    )
-	  (box :class "container" :halign "center"
-      (literal :content workspace_listener)
-    )
-	  (box :class "container" :halign "end"
-      (literal :content brightness_listener)
-      (literal :content bluetooth_listener)
-      (literal :content sound_listener)
-      (literal :content battery_listener)
-      (literal :content package_listener)
-      (literal :content wifi_listener)
-    )
-	)
-)
-
-
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;                                notification deamon                                   ;;
