@@ -69,15 +69,13 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (deflisten notifications_listener :initial "" "python ~/.config/eww/scripts/notification.py")
-(defwidget notification [id app_name summary body icon]
+(defwidget notification [id app_name summary body icon img]
   (button :class 'notif' :onclick "notify-send ' ' -a 'rm-msg' -r ${id}"
-    (box :orientation 'horizontal' :space-evenly false
-      (image :path icon :image-width 100 :image-height 100)
-      (box :orientation 'vertical'
-        (label :wrap true :text app_name)
-        (label :wrap true :text summary)
-        (label :wrap true :text body)
-      )
+    (box :orientation 'vertical' :space-evenly false
+      (label :wrap true :class 'notif-app' :text app_name)
+      (image :path icon :class 'notif-image' :image-width 300 :image-height 200 :visible img :hexpand false :vexpand false)
+      (label :wrap true :class 'notif-summary' :text summary)
+      (label :wrap true :class 'notif-body' :text body)
     )
   )
 )
@@ -86,13 +84,7 @@
   :monitor 0
   :namespace "eww-notification-daemon"
   :stacking "overlay"
-  :geometry (geometry 
-              :x "10px"
-              :y "10px"
-              :width 2
-              :height 2
-              :anchor "top right"
-  )
+  :geometry (geometry :anchor "top right" :x 10 :y 10 :width 2 :height 500)
 
   (literal :content notifications_listener)
 )

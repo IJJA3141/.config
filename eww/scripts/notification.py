@@ -152,14 +152,21 @@ class NotificationServer(dbus.service.Object):
     def print_state(self):
         string = ""
         for notification_key in self.notifications:
+            if self.notifications[notification_key].app_icon:
+                res = "true"
+                str = self.notifications[notification_key].app_icon
+            else:
+                res = "false"
+                str = ""
+
             string = (
                 string
-                + f"""(notification :id {notification_key} :app_name '{self.notifications[notification_key].app_name or ''}' :summary '{self.notifications[notification_key].summary or ''}' :body '{self.notifications[notification_key].body or ''}' :icon '{self.notifications[notification_key].app_icon or ''}')"""
+                + f"""(notification :id {notification_key} :app_name '{self.notifications[notification_key].app_name or ''}' :summary '{self.notifications[notification_key].summary or ''}' :body '{self.notifications[notification_key].body or ''}' :icon '{str}' :img '{res}')"""
             )
         if string:
             string = string.replace("\n", "")
             print(
-                rf"""(box :orientation 'vertical' :class 'notifications-box' {string or ''})""",
+                rf"""(box :orientation 'vertical' :space-evenly false :class 'notifications-box' {string or ''})""",
                 flush=True,
             )
         else:
