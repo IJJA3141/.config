@@ -23,8 +23,9 @@ zinit light-mode for \
     zdharma-continuum/fast-syntax-highlighting \
     MichaelAquilina/zsh-you-should-use \
     zsh-users/zsh-autosuggestions \
+    softmoth/zsh-vim-mode \
 
-zinit ice wait'3' lucid
+    zinit ice wait'3' lucid
 zinit light zsh-users/zsh-history-substring-search
 
 zinit ice wait'2' lucid
