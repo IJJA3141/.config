@@ -15,12 +15,10 @@ for consistency across custom themes and addons i will split this into two secti
 :root,
 body,
 * {
-  --toolbar-bgcolor: #1d2021 !important;
-
   color-scheme: dark !important;
   /*--<--dont touch--*/
 
-  --uc-ultima-window: #ff0000;
+  --uc-ultima-window: #rgba(255, 0, 0, 1);
   --uc-dark: #00ff00;
   --uc-light: #0000ff;
   --uc-light-dark: #504945;
@@ -36,6 +34,8 @@ body,
   /* hex = a89984 */
   --uc-ultima-background-ii: #bdae93;
   --uc-ultima-background-iii: #bdae93;
+  /* background */
+  --toolbar-bgcolor: #1d2021;
   /* stack border */
   --uc-transparent: rgba(0, 0, 0, 0);
   --uc-selected: rgba(0, 0, 0, 0.25);
@@ -97,7 +97,9 @@ body,
   --toolbar-field-border-color: var(--uc-ultima-accent-w) !important;
   --toolbar-field-focus-border-color: var(--uc-ultima-accent-w) !important;
   --urlbarView-result-button-selected-color: var(--uc-text) !important;
-  --urlbarView-result-button-selected-background-color: var(--uc-selected) !important;
+  --urlbarView-result-button-selected-background-color: var(
+    --uc-selected
+  ) !important;
   --urlbarView-highlight-background: var(--uc-selected) !important;
   --urlbarView-hover-background: var(--uc-selected) !important;
   --toolbar-field-color: var(--uc-text) !important;
@@ -210,13 +212,15 @@ body {
 
 /*------------------URL bar----------------*/
 
-#main-window:not([lwtheme="true"]) #urlbar:is([focused="true"], [open])>#urlbar-background,
+#main-window:not([lwtheme="true"])
+  #urlbar:is([focused="true"], [open])
+  > #urlbar-background,
 #searchbar:focus-within {
   background-color: var(--uc-ultima-accent-g) !important;
   border-radius: var(--uc-all-border-radius) !important;
 }
 
-#urlbar:is([focused="true"], [open])>#urlbar-background,
+#urlbar:is([focused="true"], [open]) > #urlbar-background,
 #searchbar:focus-within {
   border-radius: var(--uc-all-border-radius) !important;
 }
@@ -227,7 +231,7 @@ body {
   border-radius: 10px !important;
 }
 
-#main-window:not([lwtheme="true"]) #urlbar[open]>#urlbar-background {
+#main-window:not([lwtheme="true"]) #urlbar[open] > #urlbar-background {
   border-color: var(--uc-ultima-accent-w) !important;
 }
 
@@ -264,7 +268,7 @@ body {
 
 /*------------------buttons-----------------*/
 
-#TabsToolbar #firefox-view-button:hover:not([open])>.toolbarbutton-icon {
+#TabsToolbar #firefox-view-button:hover:not([open]) > .toolbarbutton-icon {
   background-color: var(--uc-selected) !important;
 }
 

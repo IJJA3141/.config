@@ -11,6 +11,7 @@
 #nav-bar {
   margin-left: calc((100vw - 500px) / 2) !important;
   margin-right: 0 !important;
+  margin-top: 3px !important;
 }
 
 #urlbar {
@@ -42,7 +43,7 @@ image.textbox-search-sign {
 }
 
 #search-box {
-  font-size: 12px !important;
+  display: none !important;
 }
 
 .item-title-container {
@@ -51,7 +52,7 @@ image.textbox-search-sign {
 
 #sidebar-search-container,
 .sidebar-placesTree {
-  color: #bdae93!important;
+  color: #bdae93 !important;
 }
 
 /*-----------------*/

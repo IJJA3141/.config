@@ -6,6 +6,7 @@ while true; do
     level=$(cat /sys/class/power_supply/BAT0/capacity)
     state=$(cat /sys/class/power_supply/BAT0/status)
     file=/tmp/battery
+    class=""
 
     if [ "$state" = "Charging" ]; then
         icon="󰂄 "
@@ -23,12 +24,16 @@ while true; do
         icon="󰁾 "
     elif [ "$level" -gt 30 ]; then
         icon="󰁽 "
+        class=":class_name 'red'"
     elif [ "$level" -gt 20 ]; then
         icon="󰁼 "
+        class=":class_name 'red'"
     elif [ "$level" -gt 10 ]; then
         icon="󰁻 "
+        class=":class_name 'red'"
     else
         icon="󰁺 "
+        class=":class_name 'red'"
     fi
 
     if [ -f $file ] && [ "$state" = "Charging" ]; then
@@ -53,7 +58,7 @@ while true; do
         state=" ${state}"
     fi
 
-    echo "(icon_text :icon '${icon}' :text '${level}')"
+    echo "(icon_text ${class} :icon '${icon}' :text '${level}')"
 
     sleep 20
 done

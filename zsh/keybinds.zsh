@@ -1,2 +1,2 @@
-
-#bindkey -v
+MODE_CURSOR_VIINS="blinking bar"
+MODE_CURSOR_VICMD="block"

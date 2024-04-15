@@ -5,7 +5,7 @@
 (defvar flow "horizontal")
 
 (defwidget icon [?class_name icon] (box :class class_name (label :text icon)))
-(defwidget icon_text [icon text] (box :space-evenly false :orientation flow
+(defwidget icon_text [?class_name icon text] (box :class class_name :space-evenly false :orientation flow
   (label :text icon)
   (label :text text)
 ))
@@ -64,6 +64,43 @@
 	)
 )
 
+(defwindow bar_short
+	:monitor 0
+	:windowtype "dock"
+	:exclusive true	
+  :namespace "eww-bar"
+  :geometry (geometry 
+              :y 10
+		        	:anchor "top center"
+			      )
+
+	(box :class "main-container" :orientation flow
+ 	 (box :class "left_container" :halign "start" :valign "fill" :space-evenly false :orientation flow
+      (icon :class_name "clock" :icon TIME)
+      (label :text "│" :class "spacer")
+      (literal :valign "center" :content keyboard_listener)
+      (literal :valign "center" :content spotify_listener)
+    )
+ 	 (box :class "center_container" :halign "center" :valign "fill" :orientation flow
+      (literal :valign "center" :content workspace_listener )
+   )
+ 	 (box :class "right_container" :halign "end" :valign "fill" :space-evenly false :orientation flow
+      (literal :valign "center" :class "right_obj" :content package_listener)
+      (label :text "│")
+      (literal :valign "center" :class "right_obj" :content bluetooth_listener)
+      (literal :valign "center" :class "right_obj" :content wifi_listener)
+      (literal :valign "center" :class "right_obj" :content mic_listener)
+      (label :text "│")
+      (literal :valign "center" :class "right_obj" :content sound_listener)
+      (literal :valign "center" :class "right_obj" :content brightness_listener)
+      (literal :valign "center" :class "right_obj" :content battery_listener)
+      (label :text "│")
+      (eventbox :onclick 'notify-send -a "toggle-mute" void' 
+        (literal :valign "center" :class "right_obj" :content bell_listener)
+      )
+    )
+	)
+)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;                                notification deamon                                   ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -73,7 +110,7 @@
   (button :class 'notif' :onclick "notify-send ' ' -a 'rm-msg' -r ${id}"
     (box :orientation 'vertical' :space-evenly false
       (label :wrap true :class 'notif-app' :text app_name)
-      (image :path icon :class 'notif-image' :image-width 300 :image-height 200 :visible img :hexpand false :vexpand false)
+      (image :path icon :image-width 250 :image-height 150 :visible img :hexpand false :vexpand false)
       (label :wrap true :class 'notif-summary' :text summary)
       (label :wrap true :class 'notif-body' :text body)
     )

@@ -100,7 +100,7 @@ class NotificationServer(dbus.service.Object):
             self.is_mute = not self.is_mute
 
             if self.is_mute:
-                os.system("eww update bell_listener=\"(icon :icon '')\"")
+                os.system("eww update bell_listener=\"(icon :class_name 'red' :icon '')\"")
             else:
                 os.system("eww update bell_listener=\"(icon :icon '')\"")
             return 0
@@ -166,7 +166,7 @@ class NotificationServer(dbus.service.Object):
         if string:
             string = string.replace("\n", "")
             print(
-                rf"""(box :orientation 'vertical' :space-evenly false :class 'notifications-box' {string or ''})""",
+                rf"""(scroll :vscroll true :hscroll false :class 'notifications-scroll' (box :orientation 'vertical' :space-evenly false {string or ''}))""",
                 flush=True,
             )
         else:

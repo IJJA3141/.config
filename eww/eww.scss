@@ -12,36 +12,46 @@ $fg2: #d5c4a1;
 $fg3: #bdae93;
 $fg4: #a89984;
 
+// vars
+$txt_fg: $fg3;
+$txt_bg: $bg2;
+
+$bg_fg: $bg0_h;
+$bg_bg: rgba($bg0, 0.6);
+
+$red: #cc241d;
+$blue: #458588;
+
 * {
   all: unset;
-  font-size: 16px;
 }
 
 // Bar
 .bar_long {
-  //:width 2860
+  font-size: 16px;
   min-width: 2860px;
   min-height: 40px;
   background-color: transparent;
-  font-size: 20px;
-  color: $fg3;
+  color: $txt_fg;
 }
 
 .bar_short {
+  font-size: 16px;
+  min-width: 2540px;
+  min-height: 40px;
   background-color: transparent;
-  font-size: 20px;
-  color: $fg3;
+  color: $txt_fg;
 }
 
 .main-container {
-  background-color: rgba($bg0, 0.75);
+  background-color: $bg_bg;
   border-radius: 10px;
 }
 
 .left_container,
 .center_container,
 .right_container {
-  background-color: $bg0_h;
+  background-color: $bg_fg;
   border-radius: 10px;
   padding-left: 14px;
   padding-right: 14px;
@@ -70,13 +80,14 @@ $fg4: #a89984;
 
 // workspaces
 .workspaces {
+  font-size: 12px;
   padding-right: 10px;
   padding-left: 10px;
   min-width: 150px;
 }
 
 .workspace-used {
-  color: $bg2;
+  color: $txt_bg;
 }
 
 //clock
@@ -124,13 +135,21 @@ $fg4: #a89984;
   margin-left: 10px;
 }
 
+.red {
+  color: $red;
+}
+
+.blue {
+  color: $blue;
+}
+
 // Notifications
 .notifications {
   background-color: transparent;
-  color: $fg3;
+  color: $txt_fg;
 }
 
-.notifications-box {
+.notifications-scroll {
   background-color: rgba($bg0, 0.25);
   border: 2px solid $bg3;
   border-radius: 10px;
@@ -138,10 +157,12 @@ $fg4: #a89984;
   padding-right: 10px;
   padding-top: 5px;
   padding-bottom: 5px;
+  min-height: 858px;
 }
 
 .notif-app {
-  font-size: 24px;
+  /*font-size: 20px;*/
+  font-weight: bold;
   margin-top: 10px;
   margin-bottom: 20px;
 }
@@ -152,20 +173,17 @@ $fg4: #a89984;
 }
 
 .notif-body {
-  font-size: 20px;
+  font-size: 16px;
   margin-top: 10px;
   margin-bottom: 20px;
-}
-
-.notif-image {
 }
 
 .notif {
   padding: 10px;
   border: 2px solid $bg3;
   border-radius: 10px;
-  background-color: $bg0_h;
-  min-width: 350px;
+  background-color: $bg_fg;
+  min-width: 300px;
   min-height: 100px;
   margin-top: 5px;
   margin-bottom: 5px;

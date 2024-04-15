@@ -5,5 +5,5 @@ if bluetoothctl show | grep -q 'Powered: yes';  then
     eww update bluetooth_listener="(icon :icon '󰂲')"
 else
     bluetoothctl power on >> /dev/null
-    eww update bluetooth_listener="(icon :icon '󰂯')"
+    eww update bluetooth_listener="(icon :class_name 'blue' :icon '󰂯')"
 fi
