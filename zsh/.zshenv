@@ -34,6 +34,9 @@ export XDG_MUSIC_DIR="$HOME/Music"
 export XDG_PICTURES_DIR="$HOME/Pictures"
 export XDG_VIDEOS_DIR="$HOME/Videos"
 
+export QT_STYLE_OVERRIDE="Adwaita-Dark"
+export GTK_THEME="Adwaita:dark"
+
 #windows stuff
 export C="/mnt/c"
 export D="/mnt/d"

@@ -16,8 +16,6 @@ fi
 
 zsh ~/.config/eww/scripts/sound.sh
 
-sleep 8
-
 for i in 4 5 1 2 3; do
-    hyprctl dispatch movetoworkspace $i >> /dev/null
+    hyprctl dispatch workspace $i
 done
