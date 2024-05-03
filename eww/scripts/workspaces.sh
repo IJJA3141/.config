@@ -29,4 +29,4 @@ echo "(box :orientation flow :class \"workspaces\"\
 (box :class \"unused_workspace\" \"\")\
 (box :class \"unused_workspace\" \"\"))"
 
-socat -U - "UNIX-CONNECT:/tmp/hypr/${HYPRLAND_INSTANCE_SIGNATURE}/.socket2.sock" | while read -r line; do handle "$line"; done
+socat -U - "$XDG_RUNTIME_DIR/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock" | while read -r line; do handle "$line"; done
