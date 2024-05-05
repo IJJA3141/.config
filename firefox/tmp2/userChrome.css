@@ -1,0 +1,38 @@
+/*  
+Change tab size?
+Change autohide option?
+Remove tabs panel completely?
+Come to the modification page: https://github.com/soulhotel/FF-ULTIMA/blob/main/doc/Modification.md
+*/
+
+@import url(/home/alexe/.config/firefox/theme/all-global-positioning.css);
+
+@import url(/home/alexe/.config/firefox/theme/all-global-theme-fullmoon.css);
+@import url(/home/alexe/.config/firefox/theme/all-global-theme-dusky.css);
+
+@import url(/home/alexe/.config/firefox/theme/position-verttab.css);
+@import url(/home/alexe/.config/firefox/theme/position-verttab-gone.css);
+@import url(/home/alexe/.config/firefox/theme/position-findbar.css);
+
+@import url(/home/alexe/.config/firefox/theme/function-tabs-autohide-i.css);
+
+@import url(/home/alexe/.config/firefox/theme/function-mini-button-bar.css);
+@import url(/home/alexe/.config/firefox/theme/function-tabs-collapse.css);
+@import url(/home/alexe/.config/firefox/theme/function-containers-indicator.css);
+@import url(/home/alexe/.config/firefox/theme/function-menu-button.css);
+@import url(/home/alexe/.config/firefox/theme/function-privatemode-indicator.css);
+/* sourced from MOG */
+@import url(/home/alexe/.config/firefox/theme/function-urlbar.css);
+@import url(/home/alexe/.config/firefox/theme/function-extensions-menu.css);
+
+@import url(/home/alexe/.config/firefox/theme/theme-return-window-controls.css);
+@import url(/home/alexe/.config/firefox/theme/theme-context-menu.css);
+@import url(/home/alexe/.config/firefox/theme/theme-menubar.css);
+@import url(/home/alexe/.config/firefox/theme/theme-statuspanel.css);
+@import url(/home/alexe/.config/firefox/theme/theme-PIP.css);
+@import url(/home/alexe/.config/firefox/theme/theme-tab-audio-indicator.css);
+
+@import url(/home/alexe/.config/firefox/theme/override-linux.css);
+@import url(/home/alexe/.config/firefox/theme/override-styles.css);
+
+@import url(/home/alexe/.config/firefox/fix.css);
