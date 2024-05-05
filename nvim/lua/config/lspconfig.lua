@@ -23,7 +23,6 @@ capabilities.textDocument.completion.completionItem = {
 -- server list
 local servers = {
 	"cmake",
-	"tsserver",
 	"html",
 	"htmx",
 	"cssls",
@@ -105,4 +104,9 @@ lsp.pylsp.setup({
 			},
 		},
 	},
+})
+
+-- js
+lsp.tsserver.setup({
+	capabilities = capabilities,
 })

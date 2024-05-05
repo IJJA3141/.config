@@ -9,10 +9,10 @@ level=$(brightnessctl i | grep -o '[0-9][0-9]\?[0-9]\?%')
 eww update brightness_listener="(icon_text :icon ' ' :text ${level::-1})"
 
 if bluetoothctl show | grep -q 'Powered: yes';  then
-    eww update bluetooth_listener="(icon :icon '󰂯')"
-else
-    eww update bluetooth_listener="(icon :icon '󰂲')"
+    bluetoothctl power off
 fi
+
+eww update bluetooth_listener="(icon :icon '󰂲')"
 
 zsh ~/.config/eww/scripts/sound.sh
 
