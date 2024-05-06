@@ -1,50 +1,37 @@
-/* 
-https://github.com/soulhotel/FF-CSS-ULTIMA
-
-Full Moon or Dusky. (Dark or Light).
-
-@import "/home/alexe/.config/firefox/theme/all-global-theme-fullmoon.css"; 
-@import "/home/alexe/.config/firefox/theme/all-global-theme-dusky.css"; 
-
-Ultima extra-small, small, or LARGE
+/*  
+Change tab size?
+Change autohide option?
+Remove tabs panel completely?
+Come to the modification page: https://github.com/soulhotel/FF-ULTIMA/blob/main/doc/Modification.md
 */
 
-@import "/home/alexe/.config/firefox/theme/all-global-positioning-xs.css";
+@import url(/home/alexe/.config/firefox/theme/all-global-positioning.css);
 
-/*
-@import "/home/alexe/.config/firefox/theme/all-global-positioning-l.css";
-@import "/home/alexe/.config/firefox/theme/all-global-positioning-s.css";
-*/
+@import url(/home/alexe/.config/firefox/theme/all-global-theme-fullmoon.css);
+@import url(/home/alexe/.config/firefox/theme/all-global-theme-dusky.css);
 
-/*-------------------------- Change your setup: ------------------------*/
+@import url(/home/alexe/.config/firefox/theme/position-verttab.css);
+@import url(/home/alexe/.config/firefox/theme/position-verttab-gone.css);
+@import url(/home/alexe/.config/firefox/theme/position-findbar.css);
 
-@import "/home/alexe/.config/firefox/theme/all-global-theme-fullmoon.css";
-@import "/home/alexe/.config/firefox/theme/all-global-positioning-s.css";
-/*----------------------------------------------------------------------*/
+@import url(/home/alexe/.config/firefox/theme/function-tabs-autohide-i.css); 
 
-/*---------------------(Optional) autohide tabs-------------------------*/
+@import url(/home/alexe/.config/firefox/theme/function-mini-button-bar.css);
+@import url(/home/alexe/.config/firefox/theme/function-tabs-collapse.css);
+@import url(/home/alexe/.config/firefox/theme/function-containers-indicator.css);
+@import url(/home/alexe/.config/firefox/theme/function-menu-button.css);
+@import url(/home/alexe/.config/firefox/theme/function-privatemode-indicator.css); /* sourced from MOG */
+@import url(/home/alexe/.config/firefox/theme/function-urlbar.css);
+@import url(/home/alexe/.config/firefox/theme/function-extensions-menu.css);
 
-/*@import "/home/alexe/.config/firefox/theme/function-tabs-autohide-i.css";*/
-/*--tabs overlay content--*/
-@import "/home/alexe/.config/firefox/theme/function-tabs-autohide-ii.css";
-/*--tabs push content to the side--*/
-/*----------------------------------------------------------------------*/
+@import url(/home/alexe/.config/firefox/theme/theme-return-window-controls.css);
+@import url(/home/alexe/.config/firefox/theme/theme-context-menu.css);
+@import url(/home/alexe/.config/firefox/theme/theme-menubar.css);
+@import url(/home/alexe/.config/firefox/theme/theme-statuspanel.css);
+@import url(/home/alexe/.config/firefox/theme/theme-PIP.css);
+@import url(/home/alexe/.config/firefox/theme/theme-tab-audio-indicator.css);
 
-@import "/home/alexe/.config/firefox/theme/position-verttab.css";
-@import "/home/alexe/.config/firefox/theme/position-findbar.css";
+@import url(/home/alexe/.config/firefox/theme/override-linux.css);
+@import url(/home/alexe/.config/firefox/theme/override-styles.css);
 
-@import "/home/alexe/.config/firefox/theme/function-mini-button-bar.css";
-@import "/home/alexe/.config/firefox/theme/function-tabs-collapse.css";
-@import "/home/alexe/.config/firefox/theme/function-menu-button.css";
-@import "/home/alexe/.config/firefox/theme/function-privatemode-indicator.css";
-/* sourced from MOG */
-@import "/home/alexe/.config/firefox/theme/function-urlbar.css";
-
-@import "/home/alexe/.config/firefox/theme/theme-return-window-controls.css";
-@import "/home/alexe/.config/firefox/theme/theme-context-menu.css";
-@import "/home/alexe/.config/firefox/theme/theme-menubar.css";
-@import "/home/alexe/.config/firefox/theme/theme-statuspanel.css";
-@import "/home/alexe/.config/firefox/theme/theme-PIP.css";
-
-/* custom fix */
-@import "/home/alexe/.config/firefox/fix.css";
+@import url(/home/alexe/.config/firefox/fix.css);

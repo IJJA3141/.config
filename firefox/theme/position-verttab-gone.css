@@ -32,7 +32,7 @@ then I will implement autohiding for the native Sidebar
     --uc-all-border-radius: 10px;
     --uc-all-margins: 0px 6px 6px 0px;
     /*--sidebar margins--*/
-    --uc-sb-margin-leftside: 0px 3px 7px -2px;
+    --uc-sb-margin-leftside: 0px 7px 7px -2px;
     --uc-sb-margin-rightside: 0px 6px 6px 0px;
 }
 
@@ -73,6 +73,8 @@ tabbrowser-arrowscrollbox-periphery,
 
 /*--autohide sidebar--*/
 
+@media (-moz-bool-pref: "ultima.sidebar.autohide") {
+
 /*--remove header--*/
 /*--although it may be wiser to style the header instead,
 so you can keep the ability to switch from left to right--*/
@@ -87,7 +89,7 @@ so you can keep the ability to switch from left to right--*/
 
 #sidebar-box {
     --uc-sidebar-width: 38px; /*width when not in view*/
-    --uc-sidebar-hover-width: 240px; /*width when in full view*/
+    --uc-sidebar-hover-width: 250px; /*width when in full view*/
     --uc-autohide-sidebar-delay: 300ms;
     --uc-autohide-transition-duration: 80ms;
     --uc-autohide-transition-type: linear;
@@ -178,7 +180,7 @@ so you can keep the ability to switch from left to right--*/
 { background: var(--uc-tabs-lwt) !important; }
 
 }
-
+}
 }  /*--<--end of media query for ultima.tabs.vertical--*/
 
 

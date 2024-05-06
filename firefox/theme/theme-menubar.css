@@ -6,10 +6,11 @@
 background: var(--uc-ultima-background-ii) !important;
 border-radius: 5px !important;
 justify-content: center !important;
+color: var(--uc-light-dark) !important;
 }
 #toolbar-menubar:not([inactive="true"]) #main-menubar > menu { &[_moz-menuactive] {
 background-color: var(--uc-selected) !important;
-color: inherit;
+color: var(--uc-light-dark) !important;
 border-radius: 5px !important;}}
 
 
@@ -24,7 +25,7 @@ height:23px !important;
 }
 #toolbar-menubar:not([inactive="true"]) #main-menubar > menu { &[_moz-menuactive] {
 background-color: var(--uc-selected) !important;
-color: inherit;
+color: var(--uc-light-dark) !important;
 border-radius: 5px !important;}}
 
 

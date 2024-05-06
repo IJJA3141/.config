@@ -1,3 +1,15 @@
-@import "/home/alexe/.config/firefox/theme/z-site-scrollbars-and-pip.css";
-@import "/home/alexe/.config/firefox/theme/z-sites.css";
-@import "/home/alexe/.config/firefox/theme/z-site-newtab.css";
+/* 
+https://github.com/soulhotel/FF-ULTIMA
+
+z-sites-newtab.css ~ NEW TABS
+
+z-sites.css ~ themes YOUTUBE and REDDIT
+
+z-site-scrollbars-and-pip.css ~ themes the scrollbar inside of your browser tab content
+
+To remove a certain feature, simple delete its line below, open website in new tab, no restart needed.
+*/
+
+/*@import url(/home/alexe/.config/firfox/theme/z-site-scrollbars-and-pip.css);*/
+
+/*@import url(/home/alexe/.config/firfox/theme/z-site-newtab.css);*/
