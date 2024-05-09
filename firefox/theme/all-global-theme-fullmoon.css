@@ -556,68 +556,6 @@
   }
 
   /*-----------------------------------------------------------------------------------*/
-  /*---------------------------------CUSTOM ICONS--------------------------------------*/
-  /*-----------------------------------------------------------------------------------*/
-
-  /*--extension menu--*/
-  #main-window:not([lwtheme]) #unified-extensions-button {
-    list-style-image: url("icons/extensions.svg") !important;
-    fill: var(--uc-ultima-accent-iii) !important;
-  }
-
-  #main-window[lwtheme="true"] #unified-extensions-button {
-    list-style-image: url("icons/extensions.svg") !important;
-    fill: var(--lwt-accent-color) !important;
-  }
-
-  /*--bookmarks folder icon--*/
-  .bookmark-item[container="true"] {
-    list-style-image: url("icons/bm.png") !important;
-  }
-
-  /*--ublock on--*/
-  #ublock0_raymondhill_net-BAP image {
-    list-style-image: url("icons/ubon.png") !important;
-  }
-
-  /*--ublock off--*/
-  #ublock0_raymondhill_net-BAP[tooltiptext="uBlock Origin (off)"] image {
-    list-style-image: url("icons/uboff.png") !important;
-  }
-
-  #forward-button image {
-    list-style-image: url("chrome://global/skin/icons/arrow-right.svg") !important;
-    stroke: var(--uc-ultima-accent-iii) !important;
-  }
-
-  #back-button image {
-    list-style-image: url("chrome://global/skin/icons/arrow-left.svg") !important;
-    stroke: var(--uc-ultima-accent-iii) !important;
-  }
-
-  /*--notification badges--*/
-  .toolbarbutton-badge {
-    background-color: rgba(0, 0, 0, 0.3) !important;
-    box-shadow: 0 !important;
-    color: var(--uc-light) !important;
-    text-shadow: #fdffff 0.5px 0 15px !important;
-  }
-
-  /* --downloads button phases (disabled)--
-#downloads-button image{
-list-style-image: url(icons/downloads.png) !important;
-width:16px !important; height:16px !important;}
-
-#downloads-button[attention="success"] image{
-list-style-image: url(icons/downloadssuccess.gif) !important;
-width:16px !important; height:16px !important; opacity: 1 !important;}
-
-#downloads-button[progress] image{
-list-style-image: url(icons/downloadsprogress.gif) !important;
-width:16px !important; height:16px !important;}
-*/
-
-  /*-----------------------------------------------------------------------------------*/
   /*-------------------------------------END-------------------------------------------*/
   /*-----------------------------------------------------------------------------------*/
 }

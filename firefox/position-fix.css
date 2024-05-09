@@ -1,0 +1,105 @@
+.browserStack>browser {
+  outline: unset !important;
+}
+
+/* Hiding stuff */
+.titlebar-buttonbox-container,
+#sidebar-close,
+image.textbox-search-clear,
+image.textbox-search-sign,
+#forward-button,
+#tabbrowser-arrowscrollbox-periphery,
+#back-button,
+#search-box {
+  display: none !important;
+}
+
+#urlbar-container {
+  max-width: 450px !important;
+  margin-right: 10px !important;
+  margin-left: 10px !important;
+}
+
+#nav-bar {
+  margin-right: 0px !important;
+}
+
+@media (-moz-bool-pref: "ultima.tabs.vertical") {
+  #main-window[sizemode="fullscreen"] #TabsToolbar-customization-target {
+    top: 0 !important;
+    margin: 6px 0px 6px 6px !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    height: calc(100% - 12px) !important;
+  }
+
+  #main-window[sizemode="fullscreen"] #browser {
+    padding-top: 6px !important;
+    outline: unset !important;
+  }
+}
+
+@media (-moz-bool-pref: "ultima.tabs.vertical") {
+  #TabsToolbar-customization-target {
+    top: var(--uc-navbar-height) !important;
+    margin: 0px 0px 6px 6px !important;
+    left: 0 !important;
+    height: calc(100% - 6px - var(--uc-navbar-height)) !important;
+  }
+
+  #browser {
+    padding: 0px 6px 6px 6px !important;
+    outline: unset !important;
+  }
+}
+
+#unified-extensions-button {
+  padding-inline-start: 0px !important;
+}
+
+.toolbarbutton-1 {
+  width: 36px !important;
+  height: 36px !important;
+  padding-top: 4px !important;
+}
+
+#urlbar-container {
+  padding: 0 !important;
+  margin: 6px !important;
+  width: 450px !important;
+  margin-left: calc((100% - 450px) / 2) !important;
+  margin-right: calc((100% - 450px) / 2 - (2 * 36px)) !important;
+}
+
+/*calc(var(--uc-vertical-tabs-width) + var(--uc-margin-inline))*/
+
+#sidebar-box {
+  margin: 0 !important;
+}
+
+#sidebar-splitter {
+  width: 10px !important;
+}
+
+#main-window:not([inDOMFullscreen]) #browser {
+  margin-left: calc(var(--uc-vertical-tabs-width) + 8px) !important;
+}
+
+#navigator-toolbox {
+  border: unset !important;
+}
+
+#urlbar-background,
+#sidebar-box,
+#TabsToolbar-customization-target,
+.browserContainer>findbar,
+.browserContainer>.browserStack {
+  box-shadow: 2px 2px 2.5px rgba(25, 25, 25, 0.8) !important;
+}
+
+.browserContainer>findbar {
+  margin: 6px 0px 0px 0px !important;
+  background-color: magenta !important;
+}
+
+/* urlBarView */
