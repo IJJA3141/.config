@@ -26,11 +26,12 @@
 
 ---@type Config
 local config = {
-	width = 1000,
-	height = 600,
+	width = 800,
+	height = 500,
 	image_width = 200,
 	is_overlay = true,
 	use_local = false,
+	entry_number = 10,
 
 	pages = {
 		{

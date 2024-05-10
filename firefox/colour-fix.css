@@ -1,0 +1,18 @@
+/* background */
+#nav-bar,
+body,
+.browserContainer,
+#browser {
+  background-color: var(--background-colour) !important;
+}
+
+#nav-bar-customization-target,
+#PanelUI-button {
+  background-color: inherit !important;
+}
+
+/* background end */
+
+.browserContainer>findbar {
+  background-color: #282828 !important;
+}
