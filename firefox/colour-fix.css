@@ -1,4 +1,8 @@
 /* background */
+* {
+  color: #ebdbb2;
+}
+
 #nav-bar,
 body,
 .browserContainer,
@@ -15,4 +19,20 @@ body,
 
 .browserContainer>findbar {
   background-color: #282828 !important;
+}
+
+#history-panel {
+  background-color: #1d2021 !important;
+}
+
+.tabsFilter {
+  accent-color: red !important;
+  border-color: pink !important;
+  flood-color: green !important;
+  outline-color: blue !important;
+  stroke: gold !important;
+}
+
+.tab-background {
+  box-shadow: unset !important;
 }

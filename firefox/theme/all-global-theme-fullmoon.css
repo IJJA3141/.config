@@ -17,24 +17,28 @@
     color-scheme: dark !important;
     /*--<--dont touch--*/
 
-    --uc-ultima-window: rgb(43, 42, 51);
+    /* useless */
+    --uc-ultima-window: rgb(255, 0, 0);
+
+    /* fix */
+    --background-colour: #282828;
 
     --uc-dark: #000;
     --uc-light: #fff;
     --uc-light-dark: #fff;
     --uc-dark-light: #000000;
-    --uc-ultima-accent-i: #edf783;
-    --uc-ultima-accent-ii: #17347b;
-    --uc-ultima-accent-iii: rgb(255, 255, 255);
-    --uc-ultima-accent-iv: rgba(28, 27, 34, 0.5);
+    --uc-ultima-accent-i: #d79921;
+    --uc-ultima-accent-ii: #458588;
+    --uc-ultima-accent-iii: #83a598;
+    --uc-ultima-accent-iv: #3c3836;
     --uc-ultima-background-i: rgba(28, 27, 34, 0.5);
     --uc-ultima-background-ii: rgba(28, 27, 34, 0.86);
     --uc-ultima-background-iii: rgba(28, 27, 34, 0.96);
-    --uc-ultima-background-iv: rgb(35, 35, 42);
+    --uc-ultima-background-iv: #3c3836;
     /*keep it similar to tabs background ^*/
     --uc-transparent: rgba(0, 0, 0, 0);
-    --uc-selected: rgba(0, 0, 0, 0.65);
-    --uc-active: rgba(0, 0, 0, 0.75);
+    --uc-selected: #d5c4a190;
+    --uc-active: #665c5490;
     --uc-text: rgb(255, 255, 255);
     --uc-panel-border: rgba(25, 25, 25, 1);
     --uc-panel-border-ii: rgba(45, 45, 45, 0.5);
@@ -43,8 +47,8 @@
     --uc-sb-themed: var(--uc-ultima-background-i);
     --uc-sb-themed-ii: var(--uc-ultima-accent-iv);
     --uc-sb-background: var(--uc-transparent);
-    --uc-tabs-lwt: color-mix(in srgb, var(--lwt-accent-color) 75%, #000);
-    --uc-sb-lwt: color-mix(in srgb, var(--lwt-accent-color) 75%, #000);
+    --uc-tabs-lwt: color-mix(in srgb, var(--lwt-accent-color) 75%, #a89984);
+    --uc-sb-lwt: color-mix(in srgb, var(--lwt-accent-color) 75%, #a89984);
     --uc-panel-background: var(--uc-ultima-background-iii);
     --urlbar-icon-border-radius: var(--uc-all-border-radius);
     --arrowpanel-menuitem-border-radius: var(--uc-all-border-radius);

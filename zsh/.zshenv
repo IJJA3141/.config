@@ -15,6 +15,7 @@ export EDITOR="nvim"
 export VISUAL="nvim"
 export BROWSER="firefox-developer-edition"
 export TERMINAL="kitty"
+export FILEBROWSER="ranger"
 
 export HISTFILE="$ZDOTDIR/.zhistory"    # History filepath
 
