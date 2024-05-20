@@ -93,12 +93,14 @@ nsxiv
 smassh
 lolcat
 ascii-image-converter
-browsh
 mpv
 mpvpaper
 hyprlock-git
 sddm
 playerctl
+tree-sitter-cli
+pandoc-cli
+ranger
 
 # Del
 

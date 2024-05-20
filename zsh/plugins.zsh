@@ -10,8 +10,7 @@ fi
 
 source "${ZINIT_HOME}/zinit.zsh"
 zstyle ':completion:*' menu select
-_comp_options+=(globdots)
-
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
 zinit light zsh-users/zsh-completions
 

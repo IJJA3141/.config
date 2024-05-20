@@ -30,9 +30,15 @@
 @define-color orange_l #fe8019;
 
 * {
+/*
   all: unset;
+*/
   font-size: 22px;
   color: @fg;
+}
+
+#row > button{
+  background-color: red;
 }
 
 #search {

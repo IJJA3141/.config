@@ -39,7 +39,7 @@
     --uc-transparent: rgba(0, 0, 0, 0);
     --uc-selected: #d5c4a190;
     --uc-active: #665c5490;
-    --uc-text: rgb(255, 255, 255);
+    --uc-text: #ebdbb2; 
     --uc-panel-border: rgba(25, 25, 25, 1);
     --uc-panel-border-ii: rgba(45, 45, 45, 0.5);
     --uc-context-menu: rgba(28, 27, 34, 1);

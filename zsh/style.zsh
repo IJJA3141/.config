@@ -7,5 +7,4 @@ autoload -U colors && colors
 
 ## Custom theme
 eval "$(oh-my-posh init zsh --config ~/.config/zsh/posh/ijja.omp.json)"
-
 eval "$(dircolors ~/.config/zsh/.dir_colors)"
