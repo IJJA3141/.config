@@ -1,8 +1,10 @@
+alias aliaslist="cat ~/.config/zsh/alias.zsh"
+
 alias lsa="ls -vahl --color=auto --group-directories-first"
 alias ls="ls --color=auto"
 alias gr="git rm . --cached -rf >> /dev/null"
 
-function fl ()
+function gl ()
 {
     logs="$(git log | grep '[0-99]\.[0-99]')"
 
@@ -10,7 +12,7 @@ function fl ()
         echo $logs | sed "${i}q;d"
     done
 }
-alias gl=fl
+alias gl=gl
 
 function lc ()
 {
@@ -20,3 +22,9 @@ function lc ()
     echo "line: ${l}\ncolomn: ${c}"
 }
 alias lc=lc
+
+function ga ()
+{
+    git add . && git commit -m \'$1\' && git push
+}
+alias ga=ga
