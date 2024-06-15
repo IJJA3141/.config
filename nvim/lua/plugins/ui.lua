@@ -1,6 +1,9 @@
 return {
 	{ -- Dashboard
-		"IJJA3141/dashboard-nvim",
+		"IJJA3141/neovim-dashboard",
+		dependencies = {
+			"m00qek/baleia.nvim",
+		},
 		event = "VimEnter",
 		lazy = true,
 		init = function()
@@ -77,8 +80,8 @@ return {
 	{
 		"shortcuts/no-neck-pain.nvim",
 		opts = {
-			minSideBufferWidth = 25,
-			width = 100,
+			minSideBufferWidth = 35,
+			width = 120,
 		},
 	},
 

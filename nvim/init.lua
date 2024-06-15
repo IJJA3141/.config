@@ -1,3 +1,5 @@
+math.randomseed(os.time())
+
 vim.g.mapleader = " "
 
 local opt = vim.opt
@@ -40,8 +42,6 @@ let g:mkdp_browserfunc = 'OpenMarkdownPreview'
 vim.filetype.add({
 	extension = { rasi = "rasi" },
 	pattern = {
-		[".*/waybar/config"] = "jsonc",
-		[".*/mako/config"] = "dosini",
 		[".*/kitty/*.conf"] = "bash",
 		[".*/hypr/.*%.conf"] = "hyprlang",
 	},
