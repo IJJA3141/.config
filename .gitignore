@@ -11,7 +11,6 @@
 !kitty/
 !neofetch/
 !nvim/
-!rofi/
 !scripts/
 !spicetify/
 !zathyrarc/
@@ -20,13 +19,10 @@
 
 !iris/
 
-!
-!spicetify/
 !.gitignore
 !README.md
 
 # Files
-*.dir_colors
 *.zcompdump
 *.zhistory
 *.zlogin
