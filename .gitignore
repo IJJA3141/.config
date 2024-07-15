@@ -1,1 +1,24 @@
+# Blacklist
+/*
 
+# Whitelist dirs
+!assets/
+!eww/
+!hypr/
+!kitty/
+!nvim/
+!scripts/
+!zsh/
+!読みたん/
+
+# Whitelist files
+!.gitignore
+!user-dirs.dirs
+!README.md
+
+# Files/dirs to be excluded
+*.zcompdump
+*.zhistory
+*.webm
+*.mov
+nvim/lazy-lock.json

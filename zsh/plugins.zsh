@@ -1,4 +1,4 @@
-# zinit
+# Zinit
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git}"
 if [[ ! -f ${ZINIT_HOME}/zinit.zsh ]]; then
     print -P "%F{14}▓▒░ Installing Flexible and fast ZSH plugin manager %F{13}(zinit)%f"

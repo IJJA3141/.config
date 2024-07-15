@@ -1,0 +1,16 @@
+{
+  "pyprland": {
+    "plugins": [
+      "scratchpads"
+    ]
+  },
+  "scratchpads": {
+    "term": {
+      "command": "kitty --title scratchpad",
+      "margin": 20,
+      "size": "1500px 940px",
+      "unfocus": "hide",
+      "animation": "fromTop"
+    }
+  }
+}

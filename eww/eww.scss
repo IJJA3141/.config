@@ -1,0 +1,52 @@
+// gruvbox
+$bg0_h: #1d2021;
+$bg0_s: #32302f;
+$bg0: #282828;
+$bg1: #3c3836;
+$bg2: #504945;
+$bg3: #665c54;
+$bg4: #7c6f64;
+$fg0: #fbf1c7;
+$fg1: #ebdbb2;
+$fg2: #d5c4a1;
+$fg3: #bdae93;
+$fg4: #a89984;
+
+// vars
+$txt_fg: $fg4;
+$txt_bg: $bg2;
+
+$bg_fg: $bg0_h;
+$bg_bg: rgba($bg0, 0.6);
+
+$red: #cc241d;
+$blue: #458588;
+
+* {
+  all: unset;
+  font-family: FiraCode Nerd Font Mono;
+  font-size: 18px;
+  border-radius: 10px;
+}
+
+.background {
+  border: 2px solid $bg1;
+  background-color: $bg_bg;
+  background-color: transparent;
+  color: $txt_fg;
+}
+
+.workspaces,
+.left,
+.right {
+  padding: 10px;
+  background-color: $bg0_h;
+}
+
+.workspace-active .workspace-unused {
+  color: $txt_fg;
+}
+
+.workspace-used {
+  color: $txt_bg;
+}
