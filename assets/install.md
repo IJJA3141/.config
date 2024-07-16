@@ -84,3 +84,9 @@ chmod +x ~/.zshenv
 
 #### mpvplayer 
 mpvpaper eDP-1 -o "--speed=0.2 --loop-file=inf"  ~/.config/assets/wallpapers/露台.mp4
+
+#### set-up ssh
+
+ln -s ~/.config/ssh/config ~/.ssh/config
+ln -s ~/.config/ssh/authorized_keys ~/.ssh/authorized_keys
+echo "\nInclude /home/$(whoami)/.config/ssh/sshd_config"
