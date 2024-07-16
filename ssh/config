@@ -1,0 +1,9 @@
+Host serv.local
+  HostName 192.168.1.123
+  User server
+  Port 27
+
+Host serv
+  HostName ijja.dev
+  User server
+  Port 27

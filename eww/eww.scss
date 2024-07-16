@@ -12,13 +12,6 @@ $fg2: #d5c4a1;
 $fg3: #bdae93;
 $fg4: #a89984;
 
-// vars
-$txt_fg: $fg4;
-$txt_bg: $bg2;
-
-$bg_fg: $bg0_h;
-$bg_bg: rgba($bg0, 0.6);
-
 $red: #cc241d;
 $blue: #458588;
 
@@ -31,9 +24,8 @@ $blue: #458588;
 
 .background {
   border: 2px solid $bg1;
-  background-color: $bg_bg;
-  background-color: transparent;
-  color: $txt_fg;
+  background-color: rgba($bg0_h, 0.2);
+  color: $fg4;
 }
 
 .workspaces,
@@ -44,9 +36,9 @@ $blue: #458588;
 }
 
 .workspace-active .workspace-unused {
-  color: $txt_fg;
+  color: $fg4;
 }
 
 .workspace-used {
-  color: $txt_bg;
+  color: $bg4;
 }

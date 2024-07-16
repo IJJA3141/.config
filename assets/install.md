@@ -1,18 +1,6 @@
-# PACKAGES (sujétions)
+#ll PACKAGES (sujétions)
 
-## WM
-
-hyprland-git
-hyprland-monitor-attached
-xdg-desktop-portal-hyprland-git
-hyprshot
-pyprland
-eww
-python-dbus
-swww
-mpvpaper
-
-## OS
+### OS
 
 wl-clipboard
 bluez
@@ -24,9 +12,32 @@ fcitx5-mozc
 fcitx5-configtool
 pipewire
 pipewire-pulse
+playerctl
 auto-cpufreq
+pacman-contrib
 
-## dev
+#### WM
+
+hyprland-git
+hyprland-monitor-attached
+xdg-desktop-portal-hyprland-git
+hyprshot
+pyprland
+eww
+python-dbus
+swww
+mpvpaper
+
+#### fonts
+
+[https://github.com/mshioda/relaxed-typing-mono-jp?tab=readme-ov-file](RelaxedTypingMonoJP)
+ttf-fantasque-nerd
+ttf-firacode-nerd
+ttf-icomoon-feather
+noto-fonts-emoji
+noto-fonts-cjk
+
+### dev
 
 neovim
 tree-sitter-cli
@@ -37,7 +48,7 @@ npm
 lua
 luarocks
 
-## terminal
+#### terminal
 
 kitty
 man-db
@@ -49,26 +60,27 @@ socat
 wget
 unzip
 wev
+openssh
+nmap
+net-tools
 
-## fonts
-
-[https://github.com/mshioda/relaxed-typing-mono-jp?tab=readme-ov-file](RelaxedTypingMonoJP)
-ttf-fantasque-nerd
-ttf-firacode-nerd
-ttf-icomoon-feather
-noto-fonts-emoji
-noto-fonts-cjk
-
-## user app
+### user app
 
 firefox-developer-edition -> jack-pipewire
 github-cli
-steam -> amdvlk, amdvlklib
 mpv
+
+#### game
+
+steam -> amdvlk, amdvlklib
+minecraft-launcher
 
 # cmd
 
-## zsh config path
+#### zsh config path
 
 ln -s ~/.config/zsh/.zshenv ~/.zshenv
 chmod +x ~/.zshenv
+
+#### mpvplayer 
+mpvpaper eDP-1 -o "--speed=0.2 --loop-file=inf"  ~/.config/assets/wallpapers/露台.mp4

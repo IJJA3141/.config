@@ -22,12 +22,13 @@
 
 (deflisten workspace_listener "~/.config/scripts/workspaces.sh")
 
-(defvar brightness_listener "(icon_text :icon '' :text '')")
+(defvar brightness_listener "(icon_text :icon '' :text '000')")
 (defvar keyboard_listener "(icon_text :icon '󰥻' :text 'en')")
 (defvar sound_listener "(icon_text :icon '' :text '000')")
 (defvar bluetooth_listener "(icon :icon '󰂲')")
 (defvar bell_listener "(icon :icon '')")
 (defvar mic_listener "(icon :icon '')")
+(defvar music_bool true)
 
 (defwindow bar
   :monitor 0
@@ -41,14 +42,19 @@
               :x 10
             )
 
-  (box :orientation "v" :class "background"
+  (box :orientation "v" :class "background" 
     (box :orientation "v" :valign "start" :space-evenly false :class "left"
-      (literal :content clock_listener) 
-      (label :text "---")
       (eventbox :onclick 'notify-send -a "toggle-mute" void' 
         (literal :content bell_listener)
       )
+      (label :text "---")
+      (literal :content clock_listener) 
+      (label :text "---")
       (literal :content keyboard_listener)
+      (label :text "---")
+      (eventbox :onclick  {music_bool ? "eww update music_bool=false" : "eww update music_bool=true"}
+        (label :text {music_bool ? "" : ""})
+      )
     )
 
     (box :orientation "v" :valign "center" :space-evenly false
@@ -58,17 +64,21 @@
     (box :orientation "v" :valign "end" :space-evenly false :class "right"
       (literal :content wifi_listener)
       (literal :content bluetooth_listener)
-      (literal :content mic_listener)
       (label :text "---")
+      (literal :content mic_listener)
+      (literal :content sound_listener)
+      (label :text "---")
+      (literal :content package_listener)
       (literal :content brightness_listener)
       (literal :content battery_listener)
-      (literal :content sound_listener)
-      (literal :content package_listener)
 )))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;                                      music                                           ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+(deflisten media_listener :initial "" "python ~/.config/eww/media.py")
 
 (defwindow music
   :monitor 0
@@ -76,12 +86,9 @@
   :windowtype "normal"
   :stacking "overlay"
   :namespace "eww-music"
-  :geometry (geometry
-              :anchor "top center" 
-              :width "500px"
-              :height "30px"
-            )
-  (label :text "tdjskalfsd;a")
+  :geometry (geometry :anchor "top center" :y 15 :width 2)
+
+  (literal :content media_listener)
 )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
