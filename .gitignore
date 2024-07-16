@@ -19,7 +19,7 @@
 
 # Files/dirs to be excluded
 *.zcompdump
-*.zhistory
+#*.zhistory
 *.webm
 *.mov
 nvim/lazy-lock.json
