@@ -39,6 +39,8 @@ endfunction
 let g:mkdp_browserfunc = 'OpenMarkdownPreview'
 ]])
 
+-- vim.api.nvim_set_var("mkdp_browser", "firefox-developer-edition")
+
 vim.filetype.add({
 	extension = { rasi = "rasi" },
 	pattern = {

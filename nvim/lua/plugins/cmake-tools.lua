@@ -20,7 +20,7 @@ return {
 		},
 		cmake_dap_configuration = { -- debug settings for cmake
 			name = "cpp",
-			type = "codelldb",
+			type = "cppdbg",
 			request = "launch",
 			stopOnEntry = false,
 			runInTerminal = true,
