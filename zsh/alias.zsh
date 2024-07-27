@@ -3,6 +3,9 @@ alias aliaslist="cat ~/.config/zsh/alias.zsh"
 alias lsa="ls -vahl --color=auto --group-directories-first"
 alias ls="ls --color=auto"
 alias gr="git rm . --cached -rf >> /dev/null"
+alias ga="git add . && git commit -m \'$1\' && git push"
+alias untar="tar -xvf"
+alias ungz="tar -xzvf"
 
 function gl ()
 {
@@ -22,9 +25,3 @@ function lc ()
     echo "line: ${l}\ncolomn: ${c}"
 }
 alias lc=lc
-
-function ga ()
-{
-    git add . && git commit -m \'$1\' && git push
-}
-alias ga=ga

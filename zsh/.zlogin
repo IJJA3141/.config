@@ -1,5 +1,5 @@
 #!/bin/sh
 
 if [ "$(tty)" = "/dev/tty1" ];then
-	exec Hyprland >> /dev/null
+    exec Hyprland >> /dev/null
 fi
