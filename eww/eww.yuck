@@ -30,15 +30,15 @@
 (defvar mic_listener "(icon :icon '')")
 (defvar music_bool true)
 
-(defwindow bar
+(defwindow bar [screen id]
   :monitor 0
   :exclusive true
   :windowtype "dock"
-  :namespace "eww-bar"
+  :namespace {id == 0 ? "eww-bar" : "eww-bar-1"}
   :geometry (geometry
               :anchor "left center" 
               :width "57px"
-              :height "1780px"
+              :height {id == 0 ? "1780px" : "1420px"}
               :x 10
             )
 
@@ -58,7 +58,7 @@
     )
 
     (box :orientation "v" :valign "center" :space-evenly false
-      (literal :content workspace_listener)
+      (literal :content workspace_listener :screen screen)
     )
 
     (box :orientation "v" :valign "end" :space-evenly false :class "right"
