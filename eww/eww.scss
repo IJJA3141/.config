@@ -17,22 +17,24 @@ $blue: #458588;
 
 * {
   all: unset;
-  font-family: FiraCode Nerd Font Mono;
   font-size: 18px;
-  border-radius: 10px;
 }
 
 .background {
-  border: 2px solid $bg1;
-  background-color: rgba($bg0_h, 0.2);
+  background-color: $bg0;
   color: $fg4;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-family: Relaxed Typing Mono JP;
 }
 
-.workspaces,
-.left,
-.right {
-  padding: 10px;
-  background-color: $bg0_h;
+.clock_listener {
+  color: blue;
+}
+
+.workspaces {
+  font-family: FantasqueSansM Nerd Font Mono;
+  padding: 0px;
 }
 
 .workspace-active .workspace-unused {
@@ -41,4 +43,51 @@ $blue: #458588;
 
 .workspace-used {
   color: $bg4;
+}
+
+.icon {
+  font-family: icomoon-feather;
+  font-family: MartianMono Nerd Font Mono;
+}
+
+.fcitx>.icon {
+  margin-bottom: -8px;
+  font-size: 24px;
+  font-family: MartianMono Nerd Font Mono;
+}
+
+.fcitx>label {
+  margin-bottom: -4px;
+}
+
+.fcitx {
+  margin-bottom: 10px;
+}
+
+.red {
+  color: $red;
+}
+
+.blue {
+  color: $blue;
+}
+
+/*
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                                notification deamon                                   ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+*/
+
+.notif {
+  min-width: 650px;
+  min-height: 200px;
+  margin-bottom: 10px;
+  background-color: $bg0;
+  border: solid $bg3 2px;
+  //padding: 10px;
+}
+
+.notification_box,
+.notifications {
+  background-color: transparent;
 }

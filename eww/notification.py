@@ -1,4 +1,4 @@
-#!/bin/pythoh
+#!/bin/python
 
 import gi
 
@@ -100,7 +100,9 @@ class NotificationServer(dbus.service.Object):
             self.is_mute = not self.is_mute
 
             if self.is_mute:
-                os.system("eww update bell_listener=\"(icon :class_name 'red' :icon '')\"")
+                os.system(
+                    "eww update bell_listener=\"(icon :class_name 'red' :icon '')\""
+                )
             else:
                 os.system("eww update bell_listener=\"(icon :icon '')\"")
             return 0
@@ -151,22 +153,22 @@ class NotificationServer(dbus.service.Object):
 
     def print_state(self):
         string = ""
+        i = 0
+
         for notification_key in self.notifications:
             if self.notifications[notification_key].app_icon:
-                res = "true"
                 str = self.notifications[notification_key].app_icon
             else:
-                res = "false"
                 str = ""
 
             string = (
                 string
-                + f"""(notification :id {notification_key} :app_name '{self.notifications[notification_key].app_name or ''}' :summary '{self.notifications[notification_key].summary or ''}' :body '{self.notifications[notification_key].body or ''}' :icon '{str}' :img '{res}')"""
+                + f"""(notification :id {notification_key} :app_name '{self.notifications[notification_key].app_name or ''}' :summary "{self.notifications[notification_key].summary or ''}" :body "{self.notifications[notification_key].body or ''}" :icon '{str}' )"""
             )
         if string:
             string = string.replace("\n", "")
             print(
-                rf"""(scroll :vscroll true :hscroll false :class 'notifications-scroll' (box :orientation 'vertical' :space-evenly false {string or ''}))""",
+                rf"""(box :class 'notification_box' :orientation 'vertical' :space-evenly false {string or ''})""",
                 flush=True,
             )
         else:

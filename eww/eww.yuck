@@ -4,12 +4,12 @@
 
 (defwidget icon [?class_name icon] (box :class class_name (label :text icon)))
 (defwidget icon_text [?class_name icon text] (box :class class_name :space-evenly false :orientation "v"
-    (label :text icon)
-    (label :text text)
+    (label :class "icon" :text icon)
+    (label :class "text" :text text)
 ))
 
-(defwidget clock[h m s] (box :orientation "v" :space-evenly false
-    (label :text "")
+(defwidget clock[h m s] (box :orientation "v" :space-evenly false :class "clock"
+    (label :class "icon" :text "")
     (label :text h)
     (label :text m)
     (label :text s)
@@ -23,7 +23,7 @@
 (deflisten workspace_listener "~/.config/scripts/workspaces.sh")
 
 (defvar brightness_listener "(icon_text :icon '' :text '000')")
-(defvar keyboard_listener "(icon_text :icon '󰥻' :text 'en')")
+(defvar keyboard_listener '(box :class "fcitx" :space-evenly false :orientation "v" (label :class "icon" :text "󰥻") (label :text "en"))')
 (defvar sound_listener "(icon_text :icon '' :text '000')")
 (defvar bluetooth_listener "(icon :icon '󰂲')")
 (defvar bell_listener "(icon :icon '')")
@@ -37,21 +37,17 @@
   :namespace {id == 0 ? "eww-bar" : "eww-bar-1"}
   :geometry (geometry
               :anchor "left center" 
-              :width "57px"
-              :height {id == 0 ? "1780px" : "1420px"}
-              :x 10
+              :width "60px"
+              :height {id == 0 ? "1800px" : "1080px"}
             )
 
   (box :orientation "v" :class "background" 
     (box :orientation "v" :valign "start" :space-evenly false :class "left"
+      (literal :content clock_listener) 
+      (literal :content keyboard_listener)
       (eventbox :onclick 'notify-send -a "toggle-mute" void' 
         (literal :content bell_listener)
       )
-      (label :text "---")
-      (literal :content clock_listener) 
-      (label :text "---")
-      (literal :content keyboard_listener)
-      (label :text "---")
       (eventbox :onclick  {music_bool ? "eww update music_bool=false" : "eww update music_bool=true"}
         (label :text {music_bool ? "" : ""})
       )
@@ -64,45 +60,27 @@
     (box :orientation "v" :valign "end" :space-evenly false :class "right"
       (literal :content wifi_listener)
       (literal :content bluetooth_listener)
-      (label :text "---")
       (literal :content mic_listener)
       (literal :content sound_listener)
-      (label :text "---")
       (literal :content package_listener)
       (literal :content brightness_listener)
       (literal :content battery_listener)
 )))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;                                      music                                           ;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-
-(deflisten media_listener :initial "" "python ~/.config/eww/media.py")
-
-(defwindow music
-  :monitor 0
-  :exclusive false
-  :windowtype "normal"
-  :stacking "overlay"
-  :namespace "eww-music"
-  :geometry (geometry :anchor "top center" :y 15 :width 2)
-
-  (literal :content media_listener)
-)
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;                                notification deamon                                   ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (deflisten notifications_listener :initial "" "python ~/.config/eww/notification.py")
-(defwidget notification [id app_name summary body icon img]
+(defwidget notification [id app_name summary body icon]
   (button :class 'notif' :onclick "notify-send ' ' -a 'rm-msg' -r ${id}"
-    (box :orientation 'vertical' :space-evenly false
-      (label :wrap true :class 'notif-app' :text app_name)
-      (image :path icon :image-width 250 :image-height 150 :visible img :hexpand false :vexpand false)
-      (label :wrap true :class 'notif-summary' :text summary)
-      (label :wrap true :class 'notif-body' :text body)
+    (box :orientation 'h' :space-evenly false
+      (image :path icon :image-height 200 :image-width 200 :visible {icon != ''} :hexpand false :vexpand false)
+      (box :orientation 'vertical' :space-evenly false
+        (label :wrap true :class 'notif-app' :text app_name)
+        (label :wrap true :class 'notif-summary' :text summary)
+        (label :wrap true :class 'notif-body' :text body)
+      )
     )
   )
 )
@@ -111,7 +89,38 @@
   :monitor 0
   :namespace "eww-notification-daemon"
   :stacking "overlay"
-  :geometry (geometry :anchor "top right" :x 10 :y 10 :width 2 :height 500)
+  :geometry (geometry :anchor "top right" :x 20 :y 18)
 
-  (literal :content notifications_listener)
+  (box :class "notification_box" (literal :content notifications_listener))
+)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                                      music                                           ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(deflisten media_listener :initial "" "python ~/.config/eww/media.py")
+(defvar media_number 0)
+(defvar media_index 0)
+(defwidget media [icon title album state]
+  (box :orientation "h"
+    (label :text icon)
+    (label :text title)
+    (label :text album)
+    (label :text state)
+  )
+)
+
+(defwindow music
+  :monitor 0
+  :exclusive false
+  :windowtype "normal"
+  :stacking "overlay"
+  :namespace "eww-music"
+  :geometry (geometry :anchor "top center" :y 15 :width 300)
+
+  (box :orientation "h" :visible {media_number != 0 ? true : false}
+    (button :onclick "eww update media_index=${media_index != 0 ? media_index - 1 : media_number - 1}" (label :text "O"))
+    (literal :content media_listener)
+    (button :onclick "eww update media_index=${media_index != media_number - 1 ? media_index + 1 : 0}" (label :text "O"))
+  )
 )
