@@ -13,9 +13,9 @@ fi
 im2=$(fcitx5-remote -n)
 
 if [ "$im2" = "mozc" ]; then
-    eww update keyboard_listener='(icon_text :icon "󰥻" :text "日本語")'
+    eww update keyboard_listener='(box :class "fcitx" :space-evenly false :orientation "v" (label :class "icon" :text "󰥻") (label :text "日")(label :text "本")(label :text "語"))'
 elif [ "$im2" = "keyboard-us" ]; then
-    eww update keyboard_listener='(icon_text :icon "󰥻" :text "en")'
+    eww update keyboard_listener='(box :class "fcitx" :space-evenly false :orientation "v" (label :class "icon" :text "󰥻") (label :text "en"))'
 else
-    eww update keyboard_listener='(icon_text :icon "󰥻" :text "fr")'
+    eww update keyboard_listener='(box :class "fcitx" :space-evenly false :orientation "v" (label :class "icon" :text "󰥻") (label :text "fr"))'
 fi

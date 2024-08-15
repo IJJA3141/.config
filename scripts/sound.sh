@@ -1,5 +1,7 @@
 #!/bin/sh
 
+#
+
 if [ "$1" = "up" ]; then
     pactl set-sink-volume 0 +1%
 elif [ "$1" = "down" ]; then
