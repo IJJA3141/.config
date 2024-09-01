@@ -10,14 +10,12 @@ local sources = {
 	formatting.prettier,
 	formatting.prettierd,
 	formatting.stylua,
-	--formatting.shfmt,
 
-	--lint.cpplint, annoying
 	lint.luacheck,
 	lint.shellcheck,
 }
 
 null_ls.setup({
-	debug = true,
+	debug = false,
 	sources = sources,
 })

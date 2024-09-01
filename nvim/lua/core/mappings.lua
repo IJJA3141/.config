@@ -1,4 +1,5 @@
 local mappings = {}
+local lspmappings = {}
 
 mappings.n = {
 	-- switch between windows
@@ -11,22 +12,11 @@ mappings.n = {
 	["<A-j>"] = { "<cmd> move +1 <cr>", "Move line down" },
 	["<A-k>"] = { "<cmd> move -2 <cr>", "Move line up" },
 
-	-- oil
-	["<leader>e"] = { "<cmd> Oil --float <cr>", "Oil on water" },
-
-	-- no neck pain
-	["<leader>nn"] = { "<cmd> NoNeckPain <cr>", "No neck pain" },
-
-	-- telescope
-	["<leader>tf"] = { "<cmd> Telescope fd <cr>", "Telescope finder" },
-	["<leader>tg"] = { "<cmd> Telescope live_grep <cr>", "Telescope finder" },
-
 	-- split
+	["<leader>vs"] = { "<cmd> vsplit <cr>", "Vertical split" },
 	["<leader>sv"] = { "<cmd> vsplit <cr>", "Vertical split" },
+	["<leader>hs"] = { "<cmd> split <cr>", "Horizontal split" },
 	["<leader>sh"] = { "<cmd> split <cr>", "Horizontal split" },
-
-	-- markdown
-	["<leader>om"] = { "<cmd> MarkdownPreview <cr>", "Open Markdown" },
 
 	-- transparentie
 	["<leader>tt"] = {
@@ -39,23 +29,53 @@ mappings.n = {
 		"Toggle transparency",
 	},
 
-	["<leader>do"] = {
-		function()
-			require("dapui").open()
-		end,
-		"Dap open",
-	},
+	-- oil
+	["<leader>e"] = { "<cmd> Oil --float <cr>", "Oil on water" },
+
+	-- no neck pain
+	["<leader>nn"] = { "<cmd> NoNeckPain <cr>", "No neck pain" },
+
+	-- telescope
+	["<leader>ff"] = { "<cmd> Telescope fd <cr>", "Telescope finder" },
+	["<leader>fg"] = { "<cmd> Telescope live_grep <cr>", "Telescope finder" },
+
+	-- dap
 	["<leader>dc"] = {
 		function()
-			require("dapui").close()
+			require("dap").continue()
 		end,
-		"Dap close",
+		"Continue",
 	},
-	["<leader>dt"] = {
+	["<leader>db"] = {
 		function()
-			require("dapui").toggle()
+			require("dap").toggle_breakpoint()
 		end,
-		"Dap toggle",
+		"Breakpoint",
+	},
+	["<leader>ds"] = {
+		function()
+			require("dap").step_over()
+		end,
+		"Step over",
+	},
+	["<leader>de"] = {
+		function()
+			require("dap").step_into()
+		end,
+		"Step into",
+	},
+	["<leader>do"] = {
+		function()
+			require("dap").step_out()
+		end,
+		"Step out",
+	},
+	["<leader>dv"] = {
+		function()
+			local widgets = require("dap.ui.widgets")
+			widgets.centered_float(widgets.scopes)
+		end,
+		"Scopes",
 	},
 }
 
@@ -70,7 +90,33 @@ mappings.i = {
 	["<A-j>"] = { "<cmd> move +1 <cr>", "Move line down" },
 }
 
-mappings.v = {}
+lspmappings.n = {
+	-- Moves
+	["<leader>gD"] = { vim.lsp.buf.declaration, "Lsp declaration" },
+	["<leader>gd"] = { vim.lsp.buf.definition, "Lsp definition" },
+	["<leader>gi"] = { vim.lsp.buf.implementation, "Lsp implementatoin" },
+	["<leader>gr"] = { vim.lsp.buf.references, "Lsp references" },
+
+	-- Info
+	["<leader>lh"] = { vim.lsp.buf.hover, "Lsp hover" },
+	["<leader>le"] = { "<cmd>lua vim.diagnostic.open_float(nil, { focus = false }) <cr>" },
+	["<leader>ls"] = { vim.lsp.buf.signature_help, "Lsp signature help" },
+	["<leader>lt"] = { vim.lsp.buf.type_definition, "Lsp type definition" },
+
+	-- Actions
+	["<leader>la"] = { vim.lsp.buf.code_action, "Lsp code action" },
+	["<leader>lr"] = { vim.lsp.buf.rename, "Lsp rename" },
+	["<leader>lf"] = {
+		function()
+			vim.lsp.buf.format({ async = true })
+		end,
+		"Lsp format",
+	},
+}
+
+lspmappings.i = {
+	--["<C-i>"] = { vim.lsp.buf.completion, "" }, ?
+}
 
 for mode, binds in pairs(mappings) do
 	for keys, func in pairs(binds) do
@@ -90,41 +136,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		-- See `:help vim.lsp.*` for documentation on any of the below functions
 		local opts = { buffer = ev.buf }
 
-		local lspmappings = {}
-		lspmappings.n = {
-			-- Moves
-			["<leader>gD"] = { vim.lsp.buf.declaration, "Lsp declaration" },
-			["<leader>gd"] = { vim.lsp.buf.definition, "Lsp definition" },
-			["<leader>gi"] = { vim.lsp.buf.implementation, "Lsp implementatoin" },
-			["<leader>gr"] = { vim.lsp.buf.references, "Lsp references" },
-
-			-- Info
-			["<leader>lh"] = { vim.lsp.buf.hover, "Lsp hover" },
-			["<leader>le"] = { "<cmd>lua vim.diagnostic.open_float(nil, { focus = false }) <cr>" },
-			["<leader>ls"] = { vim.lsp.buf.signature_help, "Lsp signature help" },
-			["<leader>lt"] = { vim.lsp.buf.type_definition, "Lsp type definition" },
-
-			-- Harpoon ?
-			["<leader>wa"] = { vim.lsp.buf.add_workspace_folder, "Lsp add workspace folder" },
-			["<leader>wr"] = { vim.lsp.buf.remove_workspace_folder, "Lsp remove workspace folder" },
-			["<leader>wl"] = {
-				function()
-					print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-				end,
-				"Lsp list workspace  folders",
-			},
-
-			-- Actions
-			["<leader>la"] = { vim.lsp.buf.code_action, "Lsp code action" },
-			["<leader>lr"] = { vim.lsp.buf.rename, "Lsp rename" },
-			["<leader>lf"] = {
-				function()
-					vim.lsp.buf.format({ async = true })
-				end,
-				"Lsp format",
-			},
-		}
-
 		for mode, binds in pairs(lspmappings) do
 			for keys, func in pairs(binds) do
 				opts.desc = func[2]
@@ -133,3 +144,5 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		end
 	end,
 })
+
+return cmpmappings

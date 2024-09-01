@@ -2,42 +2,14 @@ local lsp = require("lspconfig")
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 
-capabilities.textDocument.completion.completionItem = {
-	documentationFormat = { "markdown", "plaintext" },
-	snippetSupport = true,
-	preselectSupport = true,
-	insertReplaceSupport = true,
-	labelDetailsSupport = true,
-	deprecatedSupport = true,
-	commitCharactersSupport = true,
-	tagSupport = { valueSet = { 1 } },
-	resolveSupport = {
-		properties = {
-			"documentation",
-			"detail",
-			"additionalTextEdits",
-		},
-	},
-}
-
 -- server list
 local servers = {
 	"cmake",
 	"html",
-	"htmx",
 	"cssls",
+    "tsserver",
 	"jsonls",
-	"pylsp",
-	"bashls",
-	"cairo_ls",
-	"dotls",
-	"jqls",
-	"ltex",
-	"bashls",
-	"cmake",
-	"cssls",
-	"yamlls",
-	"jsonls",
+    "bashls",
 }
 
 -- default
@@ -94,6 +66,7 @@ lsp.lua_ls.setup({
 
 -- pylsp
 lsp.pylsp.setup({
+    capabilities = capabilities,
 	settings = {
 		pylsp = {
 			plugins = {
@@ -104,9 +77,4 @@ lsp.pylsp.setup({
 			},
 		},
 	},
-})
-
--- js
-lsp.tsserver.setup({
-	capabilities = capabilities,
 })
