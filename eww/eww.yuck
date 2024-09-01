@@ -8,14 +8,6 @@
     (label :class "text" :text text)
 ))
 
-(defwidget clock[h m s] (box :orientation "v" :space-evenly false :class "clock"
-    (label :class "icon" :text "")
-    (label :text h)
-    (label :text m)
-    (label :text s)
-))
-
-(defpoll clock_listener :interval "1s" `date +\"\(clock :h %H :m %M :s %S\)\"`)
 (defpoll battery_listener :interval "10s" "~/.config/scripts/battery.sh")
 (defpoll package_listener :interval "1m" "~/.config/scripts/package.sh")
 (defpoll wifi_listener :interval "10s" "~/.config/scripts/wifi.sh")
@@ -43,13 +35,10 @@
 
   (box :orientation "v" :class "background" 
     (box :orientation "v" :valign "start" :space-evenly false :class "left"
-      (literal :content clock_listener) 
+      (label :text "\\n${formattime(EWW_TIME, '%H\\n%M\\n%S')}")
       (literal :content keyboard_listener)
       (eventbox :onclick 'notify-send -a "toggle-mute" void' 
         (literal :content bell_listener)
-      )
-      (eventbox :onclick  {music_bool ? "eww update music_bool=false" : "eww update music_bool=true"}
-        (label :text {music_bool ? "" : ""})
       )
     )
 
@@ -66,6 +55,42 @@
       (literal :content brightness_listener)
       (literal :content battery_listener)
 )))
+
+
+(defwindow test []
+  :monitor 0
+  :exclusive true
+  :windowtype "dock"
+  :namespace {0 == 0 ? "eww-bar" : "eww-bar-1"}
+  :geometry (geometry
+              :anchor "right center" 
+              :width "60px"
+              :height {0 == 0 ? "1800px" : "1080px"}
+            )
+
+  (box :orientation "v" :class "background" 
+    (box :orientation "v" :valign "start" :space-evenly false :class "left"
+      (label :text "\\n${formattime(EWW_TIME, '%H\\n%M\\n%S')}")
+      (literal :content keyboard_listener)
+      (eventbox :onclick 'notify-send -a "toggle-mute" void' 
+        (literal :content bell_listener)
+      )
+    )
+
+    (box :orientation "v" :valign "center" :space-evenly false
+    )
+
+    (box :orientation "v" :valign "end" :space-evenly false :class "right"
+      (literal :content wifi_listener)
+      (literal :content bluetooth_listener)
+      (literal :content mic_listener)
+      (literal :content sound_listener)
+      (literal :content package_listener)
+      (literal :content brightness_listener)
+      (literal :content battery_listener)
+)))
+
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;                                notification deamon                                   ;;
@@ -92,35 +117,4 @@
   :geometry (geometry :anchor "top right" :x 20 :y 18)
 
   (box :class "notification_box" (literal :content notifications_listener))
-)
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;                                      music                                           ;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(deflisten media_listener :initial "" "python ~/.config/eww/media.py")
-(defvar media_number 0)
-(defvar media_index 0)
-(defwidget media [icon title album state]
-  (box :orientation "h"
-    (label :text icon)
-    (label :text title)
-    (label :text album)
-    (label :text state)
-  )
-)
-
-(defwindow music
-  :monitor 0
-  :exclusive false
-  :windowtype "normal"
-  :stacking "overlay"
-  :namespace "eww-music"
-  :geometry (geometry :anchor "top center" :y 15 :width 300)
-
-  (box :orientation "h" :visible {media_number != 0 ? true : false}
-    (button :onclick "eww update media_index=${media_index != 0 ? media_index - 1 : media_number - 1}" (label :text "O"))
-    (literal :content media_listener)
-    (button :onclick "eww update media_index=${media_index != media_number - 1 ? media_index + 1 : 0}" (label :text "O"))
-  )
 )

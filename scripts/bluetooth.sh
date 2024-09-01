@@ -6,7 +6,7 @@ if bluetoothctl show | grep -q 'Powered: yes';  then
 else
     bluetoothctl power on >> /dev/null
     if ! bluetoothctl show | grep -q 'Powered: yes';  then
-        zsh ~/.config/scripts/fuckbluetooth.sh
+        sudo zsh ~/.config/scripts/fuckbluetooth.sh
         bluetoothctl power on >> /dev/null
     fi
     eww update bluetooth_listener="(icon :class_name 'blue' :icon '󰂯')"

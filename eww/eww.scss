@@ -17,7 +17,8 @@ $blue: #458588;
 
 * {
   all: unset;
-  font-size: 18px;
+  font-size: 20px;
+  font-family: FiraCode Nerd Font Mono;
 }
 
 .background {
@@ -25,7 +26,6 @@ $blue: #458588;
   color: $fg4;
   padding-top: 15px;
   padding-bottom: 15px;
-  font-family: Relaxed Typing Mono JP;
 }
 
 .clock_listener {
@@ -33,7 +33,6 @@ $blue: #458588;
 }
 
 .workspaces {
-  font-family: FantasqueSansM Nerd Font Mono;
   padding: 0px;
 }
 
@@ -46,17 +45,14 @@ $blue: #458588;
 }
 
 .icon {
-  font-family: icomoon-feather;
-  font-family: MartianMono Nerd Font Mono;
 }
 
-.fcitx>.icon {
+.fcitx > .icon {
   margin-bottom: -8px;
   font-size: 24px;
-  font-family: MartianMono Nerd Font Mono;
 }
 
-.fcitx>label {
+.fcitx > label {
   margin-bottom: -4px;
 }
 
