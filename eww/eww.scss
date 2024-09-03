@@ -12,78 +12,15 @@ $fg2: #d5c4a1;
 $fg3: #bdae93;
 $fg4: #a89984;
 
-$red: #cc241d;
+$yellow: #d79921;
 $blue: #458588;
+$red: #cc241d;
 
 * {
   all: unset;
-  font-size: 20px;
+  font-size: 18px;
   font-family: FiraCode Nerd Font Mono;
-}
-
-.background {
-  background-color: $bg0;
-  color: $fg4;
-  padding-top: 15px;
-  padding-bottom: 15px;
-}
-
-.clock_listener {
-  color: blue;
-}
-
-.workspaces {
-  padding: 0px;
-}
-
-.workspace-active .workspace-unused {
   color: $fg4;
 }
 
-.workspace-used {
-  color: $bg4;
-}
-
-.icon {
-}
-
-.fcitx > .icon {
-  margin-bottom: -8px;
-  font-size: 24px;
-}
-
-.fcitx > label {
-  margin-bottom: -4px;
-}
-
-.fcitx {
-  margin-bottom: 10px;
-}
-
-.red {
-  color: $red;
-}
-
-.blue {
-  color: $blue;
-}
-
-/*
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;                                notification deamon                                   ;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-*/
-
-.notif {
-  min-width: 650px;
-  min-height: 200px;
-  margin-bottom: 10px;
-  background-color: $bg0;
-  border: solid $bg3 2px;
-  //padding: 10px;
-}
-
-.notification_box,
-.notifications {
-  background-color: transparent;
-}
+@import "./bar.scss", "./widget.scss";

@@ -1,0 +1,91 @@
+(defwidget icon [?class_name icon] 
+  (box :orientation "v" :space-evenly false :class "icon_widget ${class_name}"
+    (label :text icon :class "icon")
+  )
+)
+(defwidget icon_text [?class_name icon text]
+  (box :orientation "v" :space-evenly false :class "icon_text ${class_name}"
+    (label :text icon :class "icon")
+    (label :text text)
+  )
+)
+(defwidget metric [?class_name icon value]
+  (box :orientation "v" :space-evenly false :class "metric ${class_name}"
+    (label :class "icon" :text icon)
+    (progress :orientation "v" :flipped true :value value)
+  )
+)
+
+(defpoll bluetooth_battery_listener :interval "5m" "~/.config/scripts/bluetooth_battery.sh")
+(defpoll battery_listener :interval "10s" "~/.config/scripts/battery.sh")
+(defpoll wifi_listener :interval "10s" "~/.config/scripts/wifi.sh")
+(defpoll package_listener :interval "1m" "checkupdates | wc -l")
+
+(deflisten workspace_listener "~/.config/scripts/workspaces.sh")
+
+(defvar sound_listener "(metric :icon '' :value '0')")
+(defvar bluetooth_listener "(icon :icon '󰂲')")
+(defvar mic_listener "(icon :icon '󰍭')")
+(defvar keyboard_listener "en")
+(defvar brightness_listener 0)
+(defvar bell_listener false)
+
+(defwindow bar_left [height]
+  :monitor 0 
+  :exclusive true
+  :windowtype "dock"
+  :namespace "eww-bar"
+  :geometry (geometry
+              :anchor "left center" 
+              :width "50px"
+              :height height
+            )
+
+  (box :orientation "v" :class "bar" 
+    (box :orientation "v" :valign "start" :space-evenly false :class "left"
+      (icon_text :icon "󰥔" :text "${formattime(EWW_TIME, '%H\\n%M\\n%S')}")
+      (icon_text :icon "󰌌" :text "${formattime(0, keyboard_listener)}")
+    )
+
+    (box :orientation "v" :valign "center" :space-evenly false 
+      (literal :content workspace_listener)
+    )
+
+    (box :orientation "v" :valign "end" :space-evenly false :class "right"
+      (icon_text :icon "" :text package_listener)
+      (icon_text :icon "󰸗" :text "${formattime(EWW_TIME, '%d\\n%m\\n%y')}")
+    )
+  )
+)
+
+(defwindow bar_right [height]
+  :monitor 0 
+  :exclusive true
+  :windowtype "dock"
+  :namespace "eww-bar"
+  :geometry (geometry
+              :anchor "right center" 
+              :width "50px"
+              :height height
+            )
+  (box :orientation "v" :class "bar" 
+    (box :orientation "v" :valign "start" :space-evenly false :class "left"
+      (icon :icon {bell_listener ? "󰂚" : "󰂛"})
+      (literal :content wifi_listener)
+      (literal :content bluetooth_listener)
+      (literal :content mic_listener)
+      (literal :content sound_listener)
+      (metric :icon "" :value brightness_listener)
+    )
+
+    (box :orientation "v" :valign "center" :space-evenly false
+      (metric :class_name {EWW_CPU["avg"] > 75 ? EWW_CPU["avg"] > 50 ? "red" : "yellow" : ""} :icon "" :value {EWW_CPU["avg"]})
+      (metric :class_name {EWW_CPU["avg"] > 75 ? EWW_CPU["avg"] > 50 ? "red" : "yellow" : ""} :icon "" :value {EWW_RAM["used_mem_perc"]})
+    )
+
+    (box :orientation "v" :valign "end" :space-evenly false :class "right"
+      (literal :content bluetooth_battery_listener)
+      (literal :content battery_listener)
+    )
+  )
+)

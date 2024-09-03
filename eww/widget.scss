@@ -1,0 +1,19 @@
+/*
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                                notification deamon                                   ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+*/
+
+.notif {
+  min-width: 650px;
+  min-height: 200px;
+  margin-bottom: 10px;
+  background-color: $bg0;
+  border: solid $bg3 2px;
+  //padding: 10px;
+}
+
+.notification_box,
+.notifications {
+  background-color: transparent;
+}

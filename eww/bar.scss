@@ -1,0 +1,58 @@
+.icon {
+  font-size: 26px;
+}
+
+.icon_widget,
+.icon_text {
+  &.blue .icon {
+    color: $blue;
+  }
+}
+
+.icon_widget,
+.icon_text {
+  &.yellow .icon {
+    color: $yellow;
+  }
+}
+
+.icon_widget,
+.icon_text {
+  &.red .icon {
+    color: $red;
+  }
+}
+
+.bar {
+  padding: 10px;
+}
+
+.metric progress,
+.metric trough {
+  border-radius: 5px;
+  min-width: 6px;
+}
+
+// top part
+.metric progress {
+  background-color: $bg4;
+}
+
+// bottom part
+.metric trough {
+  border: 1px solid $bg4;
+  margin-right: 11px;
+  min-height: 65px;
+}
+
+.metric {
+  &.yellow progress {
+    background-color: $yellow;
+  }
+}
+
+.metric {
+  &.red progress {
+    background-color: $red;
+  }
+}
