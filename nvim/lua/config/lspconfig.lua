@@ -7,9 +7,8 @@ local servers = {
 	"cmake",
 	"html",
 	"cssls",
-    "tsserver",
 	"jsonls",
-    "bashls",
+	"bashls",
 }
 
 -- default
@@ -66,7 +65,7 @@ lsp.lua_ls.setup({
 
 -- pylsp
 lsp.pylsp.setup({
-    capabilities = capabilities,
+	capabilities = capabilities,
 	settings = {
 		pylsp = {
 			plugins = {

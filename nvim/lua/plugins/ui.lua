@@ -2,6 +2,10 @@ return {
 	{
 		"IJJA3141/neovim-dashboard",
 		dependencies = { "m00qek/baleia.nvim" },
+		event = "VimEnter",
+		config = function()
+			require("core.dashboard")
+		end,
 	},
 	{
 		"shortcuts/no-neck-pain.nvim",

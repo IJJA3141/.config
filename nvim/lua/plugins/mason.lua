@@ -1,7 +1,7 @@
 return {
 	{
 		"williamboman/mason.nvim",
-		cmd = { "Mason", "MasonInstall" },
+		lazy = false,
 		opts = {},
 	},
 
@@ -19,6 +19,7 @@ return {
 				"jsonls",
 				"pylsp",
 				"bashls",
+				"jdtls",
 			},
 		},
 	},
@@ -42,9 +43,9 @@ return {
 	},
 	{ -- dap
 		"jay-babu/mason-nvim-dap.nvim",
-		ft = { "cpp", "hpp", "cmake" },
+		event = { "BufReadPre", "BufNewFile" },
 		opts = {
-			ensure_installed = { "cppdbg" },
+			ensure_installed = { "cppdbg", "javadbg" },
 			automatic_installation = true,
 		},
 	},

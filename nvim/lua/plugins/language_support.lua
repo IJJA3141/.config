@@ -35,42 +35,45 @@ return {
 	-- syntax highlight
 	{
 		"nvim-treesitter/nvim-treesitter",
-		cmd = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSModuleInfo" },
-		opts = {
-			highlight = {
-				enable = true,
-				use_languagetree = true,
-				disable = { "cpp", "sh", "shell", "help" },
-			},
+		event = { "BufReadPre", "BufNewFile" },
+		config = function()
+			require("nvim-treesitter.configs").setup({
+				highlight = {
+					enable = true,
+					use_languagetree = true,
+					disable = { "cpp", "sh", "shell", "help" },
+				},
 
-			ensure_installed = {
-				"bash",
-				"cmake",
-				"cpp",
-				"css",
-				"gitignore",
-				"html",
-				"hyprlang",
-				"javascript",
-				"jq",
-				"jsdoc",
-				"json",
-				"latex",
-				"lua",
-				"luadoc",
-				"make",
-				"markdown",
-				"python",
-				"scss",
-				"ssh_config",
-				"typescript",
-				"vim",
-				"vimdoc",
-				"yuck",
-			},
-		},
+				ensure_installed = {
+					"bash",
+					"cmake",
+					"cpp",
+					"css",
+					"gitignore",
+					"html",
+					"hyprlang",
+					"javascript",
+					"jq",
+					"jsdoc",
+					"json",
+					"latex",
+					"lua",
+					"luadoc",
+					"make",
+					"markdown",
+					"python",
+					"scss",
+					"ssh_config",
+					"typescript",
+					"vim",
+					"vimdoc",
+					"yuck",
+				},
+			})
+		end,
 	},
 
 	-- miscellaneous
-	{ "elkowar/yuck.vim", ft = { "yuck" } },
+	{ "elkowar/yuck.vim", ft = { "yuck" } }, -- eww
+	{ "mfussenegger/nvim-jdtls", dependencies = { "nvim-dap" }, ft = { "java" } }, -- java
 }
