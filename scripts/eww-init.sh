@@ -2,17 +2,14 @@
 
 sleep 2
 
-pactl set-source-mute 0 true
-eww update mic_listener="(icon :icon '')"
+pactl set-source-mute alsa_input.pci-0000_03_00.6.analog-stereo true
 
 level=$(brightnessctl i | grep -o '[0-9][0-9]\?[0-9]\?%')
-eww update brightness_listener="(icon_text :icon '' :text ${level::-1})"
+eww update brightness_listener="${level::-1}"
 
 if bluetoothctl show | grep -q 'Powered: yes';  then
     bluetoothctl power off
 fi
-
-eww update bluetooth_listener="(icon :icon '󰂲')"
 
 zsh ~/.config/scripts/sound.sh
 

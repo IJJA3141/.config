@@ -19,7 +19,7 @@ ntfs-3g
 
 #### WM
 
-hyprland-git
+hyprland
 hyprland-monitor-attached
 xdg-desktop-portal-hyprland-git
 hyprshot
@@ -69,6 +69,8 @@ wev
 openssh
 nmap
 net-tools
+pandoc-cli
+└─ texlive-bin
 
 ### user app
 

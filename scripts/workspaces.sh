@@ -1,6 +1,8 @@
 #!/bin/sh
 
 ##
+#󰄯󰪥󰄰#
+#󰄮󰡖󰄱#
 
 handle() {
 case $1 in workspace*)
@@ -8,11 +10,11 @@ case $1 in workspace*)
 
             for i in 1 2 3 4 5; do
                 if [ $i -eq "${1: -1}" ]; then
-                    str="${str} (box :class \"workspace-active\" \"\")"
+                    str="${str} (box :class \"workspace-active\" \"󰄯\")"
                 elif [ "$(hyprctl workspaces -j | jq '.[] | select(.id=='$i').windows')" -gt 0 ]; then
-                    str="${str} (box :class \"workspace-used\" \"\")"
+                    str="${str} (box :class \"workspace-used\" \"󰄯\")"
                 else
-                    str="${str} (box :class \"workspace-unused\" \"\")"
+                    str="${str} (box :class \"workspace-unused\" \"󰄰\")"
                 fi
             done
 

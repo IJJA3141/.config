@@ -20,7 +20,7 @@
   :monitor 0
   :namespace "eww-notification-daemon"
   :stacking "overlay"
-  :geometry (geometry :anchor "top right" :x 20 :y 18)
+  :geometry (geometry :anchor "top right" :x 18 :y 18)
 
-  (box :class "notification_box" (literal :content notifications_listener))
+  (box :visible {bell_listener} :class "notification_box" (literal :content notifications_listener))
 )

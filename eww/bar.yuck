@@ -28,7 +28,6 @@
 (defvar mic_listener "(icon :icon '󰍭')")
 (defvar keyboard_listener "en")
 (defvar brightness_listener 0)
-(defvar bell_listener false)
 
 (defwindow bar_left [height]
   :monitor 0 
@@ -70,7 +69,9 @@
             )
   (box :orientation "v" :class "bar" 
     (box :orientation "v" :valign "start" :space-evenly false :class "left"
-      (icon :icon {bell_listener ? "󰂚" : "󰂛"})
+      (button :onclick "eww update bell_listener=${!bell_listener}"
+        (icon :class_name {bell_listener ? "" : "red"} :icon {bell_listener ? "󰂚" : "󰂛"})
+      )
       (literal :content wifi_listener)
       (literal :content bluetooth_listener)
       (literal :content mic_listener)
