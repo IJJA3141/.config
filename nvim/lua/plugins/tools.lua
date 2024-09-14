@@ -47,4 +47,14 @@ return {
 		dependencies = { "nvim-lua/plenary.nvim" },
 		cmd = { "Telescope" },
 	},
+	{ -- markdown
+		"iamcco/markdown-preview.nvim",
+		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+		ft = { "markdown" },
+		build = "cd app && yarn install",
+		config = function()	
+			vim.g.mkdp_filetypes = { "markdown" }
+			vim.g.mkdp_browser = "/bin/firefox-developer-edition"
+		end,
+	},
 }

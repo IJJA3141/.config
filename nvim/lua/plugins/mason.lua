@@ -15,7 +15,6 @@ return {
 				"clangd",
 				"html",
 				"cssls",
-				"tsserver",
 				"jsonls",
 				"pylsp",
 				"bashls",
