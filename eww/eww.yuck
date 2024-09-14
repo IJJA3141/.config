@@ -1,4 +1,4 @@
-(defvar bell_listener false)
+(defvar bell_listener true)
 
 (include "./bar.yuck")
 (include "./widget.yuck")

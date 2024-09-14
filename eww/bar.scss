@@ -25,6 +25,7 @@
 
 .bar {
   padding: 10px;
+  color: $fg4;
 }
 
 .metric progress,
@@ -55,4 +56,8 @@
   &.red progress {
     background-color: $red;
   }
+}
+
+.workspace-used{
+  color: $bg4;
 }
