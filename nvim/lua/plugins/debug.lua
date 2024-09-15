@@ -1,14 +1,7 @@
 return {
 	{ -- debug
 		"mfussenegger/nvim-dap",
-		dependencies = {
-			{ "nvim-neotest/nvim-nio" },
-			{
-				"theHamsta/nvim-dap-virtual-text",
-				dependencies = { "nvim-neotest/nvim-nio" },
-				config = true,
-			},
-		},
+		cmd = { "DapContinue", "DapNew", "DapToggleBreakpoint" },
 		config = function()
 			local dap = require("dap")
 
@@ -40,6 +33,24 @@ return {
 					stopAtEntry = true,
 				},
 			}
+
+			vim.fn.sign_define(
+				"DapBreakpoint",
+				{ text = "", texthl = "GruvboxRed", linehl = "DapBreakpoint", numhl = "DapBreakpoint" }
+			)
+
+			vim.fn.sign_define(
+				"DapStopped",
+				{ text = "➔", texthl = "GruvboxGreen", linehl = "DapBreakpoint", numhl = "DapBreakpoint" }
+			)
+
+			require("nvim-dap-virtual-text").setup()
+			if vim.bo.filetype == "java" then
+				require("jdtls.dap").setup_dap_main_class_configs()
+			end
 		end,
+	},
+	{
+		"theHamsta/nvim-dap-virtual-text",
 	},
 }
