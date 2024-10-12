@@ -9,6 +9,8 @@ local servers = {
 	"cssls",
 	"jsonls",
 	"bashls",
+	"ts_ls",
+	"texlab",
 }
 
 -- default

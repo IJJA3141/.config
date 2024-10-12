@@ -40,8 +40,8 @@ return {
 			require("nvim-treesitter.configs").setup({
 				highlight = {
 					enable = true,
-					use_languagetree = true,
 					disable = { "cpp", "sh", "shell", "help", "scss" },
+					use_languagetree = true,
 				},
 
 				ensure_installed = {

@@ -52,9 +52,23 @@ return {
 		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
 		ft = { "markdown" },
 		build = "cd app && yarn install",
-		config = function()	
+		config = function()
 			vim.g.mkdp_filetypes = { "markdown" }
 			vim.g.mkdp_browser = "/bin/firefox-developer-edition"
 		end,
+	},
+	{ -- git
+		"NeogitOrg/neogit",
+		dependencies = {
+			"nvim-lua/plenary.nvim", -- required
+			"sindrets/diffview.nvim", -- optional - Diff integration
+
+			-- Only one of these is needed.
+			"nvim-telescope/telescope.nvim", -- optional
+			"ibhagwan/fzf-lua", -- optional
+			"echasnovski/mini.pick", -- optional
+		},
+		config = true,
+		cmd = { "Neogit", "Git" },
 	},
 }

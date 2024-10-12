@@ -19,6 +19,7 @@ return {
 				"pylsp",
 				"bashls",
 				"jdtls",
+        "texlab",
 			},
 		},
 	},
