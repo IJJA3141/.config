@@ -1,8 +1,6 @@
-alias aliaslist="cat ~/.config/zsh/alias.zsh"
 alias keybinds="cat ~/.config/hypr/input.conf"
 alias wifi="zsh ~/.config/scripts/fuckwifi.sh"
 alias ssh="kitten ssh"
-
 alias lsa="ls -vahl --color=auto --group-directories-first"
 alias ls="ls --color=auto"
 alias gr="git rm . --cached -rf >> /dev/null"
@@ -10,7 +8,7 @@ alias ga="git add . && git commit -m \'$1\' && git push"
 alias untar="tar -xvf"
 alias ungz="tar -xzvf"
 
-function gl ()
+function gitlog
 {
     logs="$(git log | grep '[0-99]\.[0-99]')"
 
@@ -18,16 +16,16 @@ function gl ()
         echo $logs | sed "${i}q;d"
     done
 }
-alias gl=gl
+alias gl=gitlog
 
-function lc ()
+function asciisize
 {
-    l=$(sed -e 's/\x1b\[[0-9;]*m//g' $1 | wc -l)
-    c=$(sed -e 's/\x1b\[[0-9;]*m//g' $1 | wc -L)
+    row=$(sed -e 's/\x1b\[[0-9;]*m//g' $1 | wc -l)
+    column=$(sed -e 's/\x1b\[[0-9;]*m//g' $1 | wc -L)
 
-    echo "line: ${l}\ncolomn: ${c}"
+    echo "row: ${row}\ncolumn: ${column}"
 }
-alias lc=lc
+alias lc=asciisize
 
 function forallfiles()
 {
@@ -38,4 +36,10 @@ function forallfiles()
         eval "$1 $files[i]"
     done
 }
-alias forfiles=forallfiles
+alias forfiles=foreachfiles
+
+function cleantex
+{
+  rm *.aux *.log *.gz *.fdb_latexmk *.fls
+}
+alias texclean=cleantex
