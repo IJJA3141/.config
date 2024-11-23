@@ -1,0 +1,59 @@
+:root {
+  --toolbarbutton-border-radius: 0px !important;
+  --border-radius-medium: 0px !important;
+  --border-radius-small: 0px !important;
+  --url-widht: 650px;
+  --margin: 20px;
+}
+
+/* hide stuff */
+#back-button,
+#forward-button,
+#sidebar-main {
+  display: none !important;
+}
+
+#navigator-toolbox,
+#urlbar-container,
+#sidebar-box,
+#sidebar,
+#urlbar-container {
+  margin: 0px !important;
+  padding: 0px !important;
+  border: none !important;
+}
+
+/* margin */
+body {
+  padding: var(--margin);
+  height: calc(100vh - var(--margin) * 2) !important;
+  width: calc(100vm - var(--margin)) !important;
+  background-color: rgba(0, 0, 0, 0) !important;
+}
+
+#nav-bar {
+  margin-bottom: var(--margin) !important;
+}
+
+#urlbar {
+  max-width: var(--url-widht) !important;
+  margin-left: calc((100% - var(--url-widht)) / 2) !important;
+}
+
+#sidebar-splitter {
+  max-width: 0px !important;
+  margin: 0px var(--margin) 0px 0px !important;
+}
+
+/* colors */
+/*
+ * todo 
+ */
+
+#navigator-toolbox{
+  background-color: rgba(0, 0, 0, 0) !important;
+}
+
+#main-window {
+  background-color: rgba(29, 32, 34, 0.60) !important;
+}
