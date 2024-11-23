@@ -10,9 +10,9 @@ if hyprctl monitors all | grep -q 'description: Dell Inc. DELL S2721DGF HQGJW83'
         hyprctl keyword monitor description: Dell Inc. DELL S2721DGF HQGJW83, 2560x1440@60, 0x0, 1
 
         eww close-all
-        eww open-many bar:primary --arg primary:screen=0 --arg primary:id=1 notifications
+        eww open-many notifications --arg height=1440 bar_left --arg height=1440 bar_right
     else
-        eww open bar --screen 1 --id 1
+        eww open-many notifications --arg height=1800 bar_left --arg height=1800 bar_right
     fi
 
     zsh ~/.config/scripts/eww-init.sh

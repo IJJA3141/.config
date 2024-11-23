@@ -13,6 +13,6 @@ fi
 
 zsh ~/.config/scripts/sound.sh
 
-for i in 4 5 1 2 3; do
+for i in 2 3 4 5 1 ; do
     hyprctl dispatch workspace $i
 done

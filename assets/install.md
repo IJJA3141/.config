@@ -82,6 +82,7 @@ mpv
 
 steam -> amdvlk, amdvlklib
 minecraft-launcher
+heroic-games-launcher-bin
 
 # cmd
 

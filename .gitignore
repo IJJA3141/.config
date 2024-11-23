@@ -4,12 +4,14 @@
 # Whitelist dirs
 !assets/
 !eww/
+!firefox/
 !hypr/
 !kitty/
 !luacheck/
 !nvim/
 !scripts/
 !ssh/
+!tex/
 !zsh/
 !読みたん/
 
