@@ -5,7 +5,7 @@ return {
 		config = function()
 			require("config.lspconfig")
 		end,
-		lazy = true,
+    lazy = false,
 		event = { "BufReadPre", "BufNewFile" },
 	},
 	{

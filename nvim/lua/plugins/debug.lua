@@ -1,7 +1,9 @@
 return {
 	{ -- debug
 		"mfussenegger/nvim-dap",
-		cmd = { "DapContinue", "DapNew", "DapToggleBreakpoint" },
+		ft = { "cpp", "java" },
+		-- cmd = { "DapContinue", "DapNew", "DapToggleBreakpoint" },
+		dependencies = { "jay-babu/mason-nvim-dap.nvim" },
 		config = function()
 			local dap = require("dap")
 
@@ -36,18 +38,28 @@ return {
 
 			vim.fn.sign_define(
 				"DapBreakpoint",
-				{ text = "", texthl = "GruvboxRed", linehl = "DapBreakpoint", numhl = "DapBreakpoint" }
+				{ text = "", texthl = "DiagnosticSignError", linehl = "", numhl = "" }
 			)
 
 			vim.fn.sign_define(
-				"DapStopped",
-				{ text = "➔", texthl = "GruvboxGreen", linehl = "DapBreakpoint", numhl = "DapBreakpoint" }
+				"DapBreakpointCondition",
+				{ text = "", texthl = "DiagnosticSignHint", linehl = "", numhl = "" }
 			)
 
+			vim.fn.sign_define(
+				"DapBreakpointRejected",
+				{ text = "", texthl = "DiagnosticSignWarn", linehl = "", numhl = "" }
+			)
+
+			vim.fn.sign_define("DapLogPoint", { text = "", texthl = "DiagnosticSignInfo", linehl = "", numhl = "" })
+
+			vim.fn.sign_define("DapStopped", {
+				text = "",
+				linehl = "debugPC",
+				numhl = "debugPC",
+			})
+
 			require("nvim-dap-virtual-text").setup()
-			if vim.bo.filetype == "java" then
-				require("jdtls.dap").setup_dap_main_class_configs()
-			end
 		end,
 	},
 	{

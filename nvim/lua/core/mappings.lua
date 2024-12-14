@@ -77,6 +77,22 @@ mappings.n = {
 		end,
 		"Scopes",
 	},
+	["<leader>dt"] = {
+		function()
+			require("dap").terminate()
+		end,
+		"Continue",
+	},
+	["<leader>du"] = {
+		function()
+			require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "), nil, nil)
+		end,
+	},
+  ["<leader>dl"] = {
+		function()
+			require("dap").set_breakpoint(nil, nil, vim.fn.input("Msg: "))
+		end,
+	},
 }
 
 mappings.i = {

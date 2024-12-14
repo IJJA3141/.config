@@ -19,7 +19,7 @@ return {
 				"pylsp",
 				"bashls",
 				"jdtls",
-        "texlab",
+				"texlab",
 			},
 		},
 	},
@@ -43,7 +43,6 @@ return {
 	},
 	{ -- dap
 		"jay-babu/mason-nvim-dap.nvim",
-		event = { "BufReadPre", "BufNewFile" },
 		opts = {
 			ensure_installed = { "cppdbg", "javadbg" },
 			automatic_installation = true,

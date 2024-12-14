@@ -9,4 +9,12 @@ config["init_options"] = {
 	},
 }
 
+config["settings"] = {
+	java = {
+		format = {
+			settings = { url = "~/.config/nvim/miscellaneous/javaStyle.xml" },
+		},
+	},
+}
+
 require("jdtls").start_or_attach(config)

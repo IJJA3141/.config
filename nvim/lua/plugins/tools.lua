@@ -69,6 +69,6 @@ return {
 			"echasnovski/mini.pick", -- optional
 		},
 		config = true,
-		cmd = { "Neogit", "Git" },
+		cmd = { "Neogit" },
 	},
 }
