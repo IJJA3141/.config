@@ -23,6 +23,7 @@ setup.keybinds = {
 		key = "g",
 	},
 	{ func = "Lazy", description = "Lazy", icon = "󰒲", key = "l" },
+	{ func = "Neogit", description = "Neogit", icon = "", key = "n" },
 	{ func = "e $MYVIMRC", description = "Config", icon = "", key = "c" },
 	{ func = "qa", description = "Quit", icon = "", key = "q" },
 }
