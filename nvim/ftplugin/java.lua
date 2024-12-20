@@ -18,3 +18,4 @@ config["settings"] = {
 }
 
 require("jdtls").start_or_attach(config)
+require("core.functions").setMappings(require("core.mappings").ft.java)

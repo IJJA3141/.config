@@ -1,17 +1,10 @@
 local M = {}
 
 M.mappings = {}
-M.lspmappings = {}
-M.dapmappings = {}
-
-M.setMappings = function(keysbinds, opts)
-	for mode, binds in pairs(keysbinds) do
-		for keys, func in pairs(binds) do
-			opts.desc = func[2]
-			vim.keymap.set(mode, keys, func[1], opts)
-		end
-	end
-end
+M.lsp = {}
+M.dap = {}
+M.ft = {}
+M.ft.java = {}
 
 M.mappings.n = {
 	-- switch between windows
@@ -31,15 +24,7 @@ M.mappings.n = {
 	["<leader>sh"] = { "<cmd> split <cr>", "Horizontal split" },
 
 	-- transparentie
-	["<leader>tt"] = {
-		function()
-			if vim.g.colors_name == "gruvbox" then
-				require("gruvbox").config.transparent_mode = not require("gruvbox").config.transparent_mode
-				vim.cmd("colorscheme gruvbox")
-			end
-		end,
-		"Toggle transparency",
-	},
+	["<leader>tt"] = { function() require("core.functions").toggle_background() end, "Toggle transparency", },
 
 	-- oil
 	["<leader>e"] = { "<cmd> Oil --float <cr>", "Oil on water" },
@@ -63,7 +48,7 @@ M.mappings.i = {
 	["<A-j>"] = { "<cmd> move +1 <cr>", "Move line down" },
 }
 
-M.lspmappings.n = {
+M.lsp.n = {
 	-- Moves
 	["<leader>gD"] = { vim.lsp.buf.declaration, "Lsp declaration" },
 	["<leader>gd"] = { vim.lsp.buf.definition, "Lsp definition" },
@@ -79,72 +64,27 @@ M.lspmappings.n = {
 	-- Actions
 	["<leader>la"] = { vim.lsp.buf.code_action, "Lsp code action" },
 	["<leader>lr"] = { vim.lsp.buf.rename, "Lsp rename" },
-	["<leader>lf"] = {
-		function()
-			vim.lsp.buf.format({ async = true })
-		end,
-		"Lsp format",
-	},
+	["<leader>lf"] = { function() vim.lsp.buf.format({ async = true }) end, "Lsp format", },
 }
 
-M.lspmappings.i = {
+M.lsp.i = {
 	--["<C-i>"] = { vim.lsp.buf.completion, "" }, ?
 }
 
-M.dapmappings.n = {
-	["<leader>dc"] = {
-		function()
-			require("dap").continue()
-		end,
-		"Continue",
-	},
-	["<leader>db"] = {
-		function()
-			require("dap").toggle_breakpoint()
-		end,
-		"Breakpoint",
-	},
-	["<leader>ds"] = {
-		function()
-			require("dap").step_over()
-		end,
-		"Step over",
-	},
-	["<leader>de"] = {
-		function()
-			require("dap").step_into()
-		end,
-		"Step into",
-	},
-	["<leader>do"] = {
-		function()
-			require("dap").step_out()
-		end,
-		"Step out",
-	},
-	["<leader>dv"] = {
-		function()
-			local widgets = require("dap.ui.widgets")
-			widgets.centered_float(widgets.scopes)
-		end,
-		"Scopes",
-	},
-	["<leader>dt"] = {
-		function()
-			require("dap").terminate()
-		end,
-		"Continue",
-	},
-	["<leader>du"] = {
-		function()
-			require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "), nil, nil)
-		end,
-	},
-	["<leader>dl"] = {
-		function()
-			require("dap").set_breakpoint(nil, nil, vim.fn.input("Msg: "))
-		end,
-	},
+M.dap.n = {
+	["<leader>dc"] = { function() require("dap").continue() end,"Continue", },
+  ["<leader>db"] = { function() require("dap").toggle_breakpoint() end, "Breakpoint", },
+  ["<leader>ds"] = { function() require("dap").step_over() end, "Step over", },
+  ["<leader>de"] = { function() require("dap").step_into() end, "Step into", },
+  ["<leader>do"] = { function() require("dap").step_out() end, "Step out", },
+  ["<leader>dv"] = { function() local widgets = require("dap.ui.widgets") widgets.centered_float(widgets.scopes) end, "Scopes", },
+  ["<leader>dt"] = { function() require("dap").terminate() end, "Continue", },
+  ["<leader>du"] = { function() require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "), nil, nil) end, },
+  ["<leader>dl"] = { function() require("dap").set_breakpoint(nil, nil, vim.fn.input("Msg: ")) end, }
+}
+
+M.ft.java.n = {
+  ["<leader>jd"] = { function() require("core.functions").generate_javadoc() end, }
 }
 
 -- Use LspAttach autocommand to only map the following keys
@@ -159,7 +99,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		-- See `:help vim.lsp.*` for documentation on any of the below functions
 		local opts = { buffer = ev.buf }
 
-		for mode, binds in pairs(M.lspmappings) do
+		for mode, binds in pairs(M.lsp) do
 			for keys, func in pairs(binds) do
 				opts.desc = func[2]
 				vim.keymap.set(mode, keys, func[1], opts)
@@ -168,6 +108,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 	end,
 })
 
-M.setMappings(M.mappings, {})
+require("core.functions").setMappings(M.mappings)
 
 return M

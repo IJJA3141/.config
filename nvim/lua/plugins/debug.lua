@@ -62,9 +62,7 @@ return {
 			dap.defaults.fallback.terminal_win_cmd = "horizontal belowright 15split"
 
 			require("nvim-dap-virtual-text").setup()
-
-			local map = require("core.mappings")
-			map.setMappings(map.dapmappings, { buffer = vim.api.nvim_get_current_buf() })
+			require("core.functions").setMappings(require("core.mappings").dap)
 		end,
 	},
 	{
