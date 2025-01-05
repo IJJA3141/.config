@@ -2,14 +2,48 @@
   --toolbarbutton-border-radius: 0px !important;
   --border-radius-medium: 0px !important;
   --border-radius-small: 0px !important;
-  --url-widht: 650px;
   --margin: 20px;
+
+  --gruvbox-1: #282828;
+  --gruvbox-2: #cc241d;
+  --gruvbox-3: #98971a;
+  --gruvbox-4: #d79921;
+  --gruvbox-5: #458588;
+  --gruvbox-6: #b16286;
+  --gruvbox-7: #689d6a;
+  --gruvbox-8: #a89984;
+  --gruvbox-9: #928374;
+  --gruvbox-10: #fb4934;
+  --gruvbox-11: #b8bb26;
+  --gruvbox-12: #fabd2f;
+  --gruvbox-13: #83a598;
+  --gruvbox-14: #d3869b;
+  --gruvbox-15: #8ec07c;
+  --gruvbox-16: #ebdbb2;
+
+  --gruvbox-bg-0_h: #1d2021;
+  --gruvbox-bg-0: #282828;
+  --gruvbox-bg-1: #3c3836;
+  --gruvbox-bg-2: #504945;
+  --gruvbox-bg-3: #665c54;
+  --gruvbox-gray: #928374;
+  --gruvbox-orange-1: #d65d0e;
+  --gruvbox-bg-0_s: #32302f;
+  --gruvbox-fg-4: #a89984;
+  --gruvbox-fg-3: #bdae93;
+  --gruvbox-fg-2: #d5c4a1;
+  --gruvbox-fg-1: #ebdbb2;
+  --gruvbox-fg-0: #fbf1c7;
+  --gruvbox-orange-2: #fe8019;
+
+  --color-accent-primary: var(--gruvbox-4) !important;
 }
 
 /* hide stuff */
 #back-button,
 #forward-button,
-#sidebar-main {
+#sidebar-main,
+.findbar-closebutton.tabbable.close-icon {
   display: none !important;
 }
 
@@ -33,11 +67,16 @@ body {
 
 #nav-bar {
   margin-bottom: var(--margin) !important;
+  background-color: var(--gruvbox-bg-2) !important;
+  box-shadow: var(--content-area-shadow);
 }
 
 #urlbar {
-  max-width: var(--url-widht) !important;
-  margin-left: calc((100% - var(--url-widht)) / 2) !important;
+  max-width: 725px !important;
+  /*margin-left: 730px !important;*/
+  margin-left: calc(50% - 375px) !important;
+  padding-left: 5px !important;
+  padding-right: 5px !important;
 }
 
 #sidebar-splitter {
@@ -45,15 +84,44 @@ body {
   margin: 0px var(--margin) 0px 0px !important;
 }
 
-/* colors */
+#navigator-toolbox,
+#tabbrowser-tabpanels {
+  background-color: transparent !important;
+}
+
 /*
- * todo 
+outline: 0.01px solid var(--chrome-content-separator-color);
+box-shadow: var(--content-area-shadow);
  */
 
-#navigator-toolbox{
-  background-color: rgba(0, 0, 0, 0) !important;
+#tabbrowser-tabbox {
+  outline: none !important;
+  box-shadow: none !important;
 }
 
 #main-window {
-  background-color: rgba(29, 32, 34, 0.60) !important;
+  background-color: rgba(40, 40, 40, 0.6) !important;
+}
+
+findbar {
+  padding: 0 !important;
+  margin-top: var(--margin) !important;
+  height: 32px !important;
+  box-shadow: var(--content-area-shadow) !important;
+}
+
+.findbar-textbox,
+.findbar-container {
+  padding: 0 !important;
+  margin: 0 !important;
+  border-radius: var(--border-radius-medium) !important;
+  height: auto !important;
+}
+
+.browserStack {
+  box-shadow: var(--content-area-shadow) !important;
+}
+
+.findbar-container{
+  background-color: var(--gruvbox-bg-2) !important;
 }
