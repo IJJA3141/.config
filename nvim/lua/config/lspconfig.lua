@@ -1,3 +1,4 @@
+require("lspconfig").glslls.setup({})
 local lsp = require("lspconfig")
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -11,6 +12,7 @@ local servers = {
 	"bashls",
 	"ts_ls",
 	"texlab",
+	"gopls",
 }
 
 -- default

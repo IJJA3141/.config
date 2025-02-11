@@ -1,7 +1,7 @@
 return {
 	{ -- debug
 		"mfussenegger/nvim-dap",
-		ft = { "cpp", "java" },
+		ft = { "cpp", "java", "go" },
 		-- cmd = { "DapContinue", "DapNew", "DapToggleBreakpoint" },
 		dependencies = { "jay-babu/mason-nvim-dap.nvim" },
 		config = function()

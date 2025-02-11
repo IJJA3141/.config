@@ -20,6 +20,7 @@ return {
 				"bashls",
 				"jdtls",
 				"texlab",
+				"gopls",
 			},
 		},
 	},
@@ -44,7 +45,7 @@ return {
 	{ -- dap
 		"jay-babu/mason-nvim-dap.nvim",
 		opts = {
-			ensure_installed = { "cppdbg", "javadbg" },
+			ensure_installed = { "cppdbg", "javadbg", "delve" },
 			automatic_installation = true,
 		},
 	},

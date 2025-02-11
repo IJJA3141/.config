@@ -5,6 +5,7 @@ M.lsp = {}
 M.dap = {}
 M.ft = {}
 M.ft.java = {}
+M.ft.go = {}
 
 M.mappings.n = {
 	-- switch between windows
@@ -78,13 +79,17 @@ M.dap.n = {
   ["<leader>de"] = { function() require("dap").step_into() end, "Step into", },
   ["<leader>do"] = { function() require("dap").step_out() end, "Step out", },
   ["<leader>dv"] = { function() local widgets = require("dap.ui.widgets") widgets.centered_float(widgets.scopes) end, "Scopes", },
-  ["<leader>dt"] = { function() require("dap").terminate() end, "Continue", },
+  ["<leader>dk"] = { function() require("dap").terminate() end, "Terminate", },
   ["<leader>du"] = { function() require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "), nil, nil) end, },
   ["<leader>dl"] = { function() require("dap").set_breakpoint(nil, nil, vim.fn.input("Msg: ")) end, }
 }
 
 M.ft.java.n = {
   ["<leader>jd"] = { function() require("core.functions").generate_javadoc() end, }
+}
+
+M.ft.go.n = {
+  ["<leader>dt"] = { function() require('dap-go').debug_test() end, }
 }
 
 -- Use LspAttach autocommand to only map the following keys

@@ -5,7 +5,7 @@ return {
 		config = function()
 			require("config.lspconfig")
 		end,
-    lazy = false,
+		lazy = false,
 		event = { "BufReadPre", "BufNewFile" },
 	},
 	{
@@ -68,6 +68,7 @@ return {
 					"vim",
 					"vimdoc",
 					"yuck",
+					"go",
 				},
 			})
 		end,
@@ -76,4 +77,5 @@ return {
 	-- miscellaneous
 	{ "elkowar/yuck.vim", ft = { "yuck" } }, -- eww
 	{ "mfussenegger/nvim-jdtls", dependencies = { "nvim-dap" }, ft = { "java" } }, -- java
+	{ "leoluz/nvim-dap-go", dependencies = { "nvim-dap" }, ft = { "go" } }, -- go
 }
