@@ -52,6 +52,7 @@ return {
 					"gitignore",
 					"html",
 					"hyprlang",
+          "java",
 					"javascript",
 					"jq",
 					"jsdoc",

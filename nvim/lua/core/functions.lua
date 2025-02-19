@@ -37,6 +37,8 @@ M.generate_javadoc = function()
 		end
 
 		while not line:find("%)") do
+			vim.print("test")
+
 			y = y + 1
 			str = str .. line
 			line = vim.api.nvim_buf_get_lines(0, y, y + 1, false)[1]
@@ -66,7 +68,13 @@ M.generate_javadoc = function()
 				start_index = start_index + 1
 			end
 
-			end_index = str:find(" ", start_index) - 1
+      -- fix
+			end_index = str:find(" ", start_index)
+			if end_index == nil then
+				return
+			end
+
+			end_index = end_index - 1
 			if not end_index then
 				return
 			end
