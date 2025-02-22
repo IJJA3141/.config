@@ -19,56 +19,18 @@ M.setMappings = function(keysbinds, opts)
 end
 
 M.generate_javadoc = function()
-	--- @class token
-	--- @field type string | nil
-	--- @field var string | nil
-
-	--- @return string | nil
-	local function get_header()
-		--- @type integer
-		local y = vim.api.nvim_win_get_cursor(0)[1] - 1
-		--- @type string
-		local line = vim.api.nvim_buf_get_lines(0, y, y + 1, true)[1]
-		--- @type string
-		local str = ""
-
-		if not line:find("%(") then
-			return
-		end
-
-		while not line:find("%)") do
-			vim.print("test")
-
-			y = y + 1
-			str = str .. line
-			line = vim.api.nvim_buf_get_lines(0, y, y + 1, false)[1]
-			if not line then
-				return
-			end
-		end
-
-		return str .. line
-	end
-
-	--- @param str string
-	--- @return token[] | nil
 	local function tokenize(str)
-		--- @type token[]
 		local tokens = {}
-		---@type integer
 		local index = 1
-		--- @type integer
 		local start_index = 1
-		--- @type integer | nil
 		local end_index
 
-		-- safe guard
-		while index < 15 do
+		while index < 15 do -- safe guard
 			while str:sub(start_index, start_index) == " " do
 				start_index = start_index + 1
 			end
 
-      -- fix
+			-- fix
 			end_index = str:find(" ", start_index)
 			if end_index == nil then
 				return
@@ -106,41 +68,202 @@ M.generate_javadoc = function()
 		return tokens
 	end
 
-	--- @type integer
+	local function get_return_type(line)
+		local is_key_word = false
+		local key_words = {
+			"",
+      "record",
+			"abstract",
+			"default",
+			"final",
+			"native",
+			"private",
+			"public",
+			"protected",
+			"static",
+			"synchronized",
+			"void",
+		}
+
+		local start_ptr = 1
+		while line:sub(start_ptr, start_ptr) == " " do
+			start_ptr = start_ptr + 1
+		end
+
+		local end_ptr = line:find(" ", start_ptr)
+
+		while end_ptr do
+			is_key_word = false
+			local str = line:sub(start_ptr, end_ptr - 1)
+
+			for _, key_word in ipairs(key_words) do
+				if str == key_word then
+					is_key_word = true
+					break
+				end
+			end
+
+			if not is_key_word then
+				return str
+			end
+
+			start_ptr = end_ptr + 1
+			while line:sub(start_ptr, start_ptr) == " " do
+				start_ptr = start_ptr + 1
+			end
+
+			end_ptr = line:find(" ", start_ptr + 1)
+		end
+
+		local str = line:sub(start_ptr)
+		is_key_word = false
+
+		for _, key_word in ipairs(key_words) do
+			if str == key_word then
+				is_key_word = true
+				break
+			end
+		end
+
+		if not is_key_word then
+			return str
+		end
+
+		return nil
+	end
+
+	local key_words = { "class", "interface", "enum" } -- record is treated like a funciton
+	local prompt = {}
+	local index = 0
+
+	prompt.authors = { "Estella Alex (398261)" }
+	prompt.is_method = true
+	prompt.is_typed = true
+	prompt.padding = ""
+	prompt.throws = {}
+	prompt.tokens = {}
+
+	-- ┌── x
+	-- │
+	-- y
 	local y = vim.api.nvim_win_get_cursor(0)[1] - 1
-	---@type string
-	local padding = ""
-	--- @type string
-	local line = vim.api.nvim_get_current_line()
+	local current_line = vim.api.nvim_buf_get_lines(0, y, y + 1, true)[1]
 
-	while line:sub(#padding + 1, #padding + 1) == " " do
-		padding = padding .. " "
+	while current_line:sub(#prompt.padding + 1, #prompt.padding + 1) == " " do
+		prompt.padding = prompt.padding .. " "
 	end
 
-	line = get_header() or ""
-
-	--- @type string[]
-	local str = { padding .. "/**" }
-	--- @type token[] | nil
-	local tokens
-	local size = 1
-
-	if #line ~= 0 then
-		tokens = tokenize(line:sub(line:find("%(") + 1, line:find("%)") - 1))
-	end
-
-	if tokens then
-		for _, token in pairs(tokens) do
-			size = size + 1
-			str[size] = padding .. " * @param " .. token.var .. "(" .. token.type .. "): "
+	for _, key_word in ipairs(key_words) do
+		if current_line:find(key_word) then
+			prompt.is_method = false
+			break
 		end
 	end
 
-	str[size + 1] = padding .. " */"
+	if prompt.is_method then
+		while not current_line:find("{") and not current_line:find(";") do
+			if index > 10 then
+				return
+			end -- safe guard
+
+			index = index + 1
+			current_line = current_line .. vim.api.nvim_buf_get_lines(0, y + index, y + index + 1, false)[1]
+		end
+
+		local start_ptr = current_line:find("%(")
+		local end_ptr = current_line:find("%)")
+
+		if not start_ptr or not end_ptr or start_ptr > end_ptr then
+			return
+		end -- mal formed parametter
+
+		local type_ptr = start_ptr - 1
+		while current_line:sub(type_ptr, type_ptr) ~= " " do
+			type_ptr = type_ptr - 1
+		end
+
+		prompt.return_type = get_return_type(current_line:sub(1, type_ptr))
+		prompt.tokens = tokenize(current_line:sub(start_ptr + 1, end_ptr - 1)) or {}
+
+		start_ptr = select(2, current_line:find("throws"))
+
+		if start_ptr then
+			start_ptr = start_ptr + 2
+
+			while current_line:sub(start_ptr, start_ptr + 1) == " " do
+				start_ptr = start_ptr + 1
+			end
+
+			end_ptr = current_line:find(",", start_ptr)
+			while end_ptr do
+				table.insert(prompt.throws, current_line:sub(start_ptr, end_ptr - 1))
+
+				start_ptr = end_ptr + 2
+				end_ptr = current_line:find(",", start_ptr)
+			end
+
+			table.insert(
+				prompt.throws,
+				(current_line:sub(start_ptr, (current_line:find("{") or current_line:find(";")) - 2))
+			)
+		end
+	end
+
+	local str = { prompt.padding .. "/**", prompt.padding .. " * " }
+	index = #str + 1
+
+	if #prompt.authors > 0 then
+		str[index] = prompt.padding .. " * "
+		index = index + 1
+
+		for _, author in ipairs(prompt.authors) do
+			str[index] = prompt.padding .. " * @author " .. author
+			index = index + 1
+		end
+	end
+
+	if prompt.is_method then
+		if #prompt.tokens > 0 then
+			str[index] = prompt.padding .. " *"
+			index = index + 1
+
+			for _, token in ipairs(prompt.tokens) do
+				str[index] = prompt.padding .. " * @param " .. token.var
+				if prompt.is_typed then
+					str[index] = str[index] .. "(" .. token.type .. ")"
+				end
+				str[index] = str[index] .. ": "
+
+				index = index + 1
+			end
+		end
+
+		if #prompt.throws > 0 then
+			str[index] = prompt.padding .. " *"
+			index = index + 1
+
+			for _, throw in ipairs(prompt.throws) do
+				str[index] = prompt.padding .. " * @throws " .. throw .. ": "
+				index = index + 1
+			end
+		end
+
+		if prompt.return_type then
+			str[index] = prompt.padding .. " *"
+			index = index + 1
+			str[index] = prompt.padding .. " * @return "
+			if prompt.is_typed then
+				str[index] = str[index] .. "(" .. prompt.return_type .. "): "
+				index = index + 1
+			end
+		end
+	end
+
+	str[index] = prompt.padding .. " */"
 
 	vim.api.nvim_buf_set_lines(0, y, y, false, str)
 	vim.cmd("startinsert")
-	vim.api.nvim_win_set_cursor(0, { y + 2, #str[size] })
+	vim.api.nvim_win_set_cursor(0, { y + 2, #str[2] })
 end
 
 return M
