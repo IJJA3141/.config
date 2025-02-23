@@ -85,7 +85,9 @@ M.dap.n = {
 }
 
 M.ft.java.n = {
-  ["<leader>jd"] = { function() require("core.functions").generate_javadoc() end, }
+  ["<leader>jd"] = { function() require("core.functions").generate_javadoc() end, },
+  ["<leader>jt"] = { function() require("jdtls").test_nearest_method() end, },
+  ["<leader>jT"] = { function() require("jdtls").test_class() end, }
 }
 
 M.ft.go.n = {
