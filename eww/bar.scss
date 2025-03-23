@@ -26,6 +26,7 @@
 .bar {
   padding: 10px;
   color: $fg4;
+  background-color: rgba(40, 40, 40, 0.4);
 }
 
 .metric progress,
@@ -58,6 +59,6 @@
   }
 }
 
-.workspace-used{
+.workspace-used {
   color: $bg4;
 }

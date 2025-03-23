@@ -3,7 +3,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (deflisten notifications_listener :initial "" "python ~/.config/eww/notification.py")
-(defwidget notification [id app_name summary body icon]
+(defwidget notification [id app_name summary body icon actions]
   (button :class 'notif' :onclick "notify-send ' ' -a 'rm-msg' -r ${id}"
     (box :orientation 'h' :space-evenly false
       (image :path icon :image-height 200 :image-width 200 :visible {icon != ''} :hexpand false :vexpand false)
@@ -11,8 +11,14 @@
         (label :wrap true :class 'notif-app' :text app_name)
         (label :wrap true :class 'notif-summary' :text summary)
         (label :wrap true :class 'notif-body' :text body)
+        (literal :content '(box :orientation "vertical" ${actions})')
       )
     )
+  )
+)
+(defwidget action [notification_id action_key text]
+  (button :onclick "notify-send '${action_key}' -a 'rm-msg' -r ${notification_id}"
+    (label :text text)
   )
 )
 
