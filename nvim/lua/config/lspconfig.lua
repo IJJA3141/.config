@@ -13,11 +13,12 @@ local servers = {
 	"ts_ls",
 	"texlab",
 	"gopls",
+  -- "asm-lsp"
 }
 
 -- default
 for _, server in ipairs(servers) do
-	lsp[server].setup({
+  lsp[server].setup({
 		capabilities = capabilities,
 	})
 end
@@ -90,4 +91,12 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			client.server_capabilities.semanticTokensProvider = nil
 		end
 	end,
+})
+
+-- verilog
+lsp.verible.setup({
+  cmd = { 'verible-verilog-ls' },
+  root_dir = function (fname) return vim.fs.dirname(fname) end,
+  capabilities = capabilities,
+  format_on_save = true,
 })

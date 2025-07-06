@@ -3,11 +3,15 @@ return {
 		"ellisonleao/gruvbox.nvim",
 		name = "gruvbox",
 		lazy = false,
-		config = true,
 		opts = {
+			bold = false,
 			alpha = true,
 			terminal_colors = true,
 			transparent_mode = true,
+      overrides = {
+        StatusLine = { fg = "NONE", bg = "NONE" },
+        StatusLineNC = { fg = "NONE", bg = "NONE" },
+      },
 		},
 	},
 	{ -- Tokyonight

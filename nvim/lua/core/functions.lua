@@ -138,7 +138,7 @@ M.generate_javadoc = function()
 
 	prompt.authors = { "Estella Alex (398261)" }
 	prompt.is_method = true
-	prompt.is_typed = true
+	prompt.is_typed = false
 	prompt.padding = ""
 	prompt.throws = {}
 	prompt.tokens = {}
@@ -232,7 +232,7 @@ M.generate_javadoc = function()
 				if prompt.is_typed then
 					str[index] = str[index] .. "(" .. token.type .. ")"
 				end
-				str[index] = str[index] .. ": "
+				str[index] = str[index] .. " "
 
 				index = index + 1
 			end
@@ -243,7 +243,7 @@ M.generate_javadoc = function()
 			index = index + 1
 
 			for _, throw in ipairs(prompt.throws) do
-				str[index] = prompt.padding .. " * @throws " .. throw .. ": "
+				str[index] = prompt.padding .. " * @throws " .. throw .. " "
 				index = index + 1
 			end
 		end
@@ -252,8 +252,9 @@ M.generate_javadoc = function()
 			str[index] = prompt.padding .. " *"
 			index = index + 1
 			str[index] = prompt.padding .. " * @return "
+      index = index + 1
 			if prompt.is_typed then
-				str[index] = str[index] .. "(" .. prompt.return_type .. "): "
+				str[index] = str[index] .. "(" .. prompt.return_type .. ") "
 				index = index + 1
 			end
 		end

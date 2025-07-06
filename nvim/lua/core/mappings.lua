@@ -27,6 +27,9 @@ M.mappings.n = {
 	-- transparentie
 	["<leader>tt"] = { function() require("core.functions").toggle_background() end, "Toggle transparency", },
 
+  -- highlight
+  ["<leader>nh"] = { "<cmd> noh <cr>", "No highlight" },
+
 	-- oil
 	["<leader>e"] = { "<cmd> Oil --float <cr>", "Oil on water" },
 
@@ -35,41 +38,56 @@ M.mappings.n = {
 
 	-- telescope
 	["<leader>ff"] = { "<cmd> Telescope fd <cr>", "Telescope finder" },
-	["<leader>fg"] = { "<cmd> Telescope live_grep <cr>", "Telescope finder" },
+	["<leader>fg"] = { "<cmd> Telescope live_grep <cr>", "Telescope grep" },
+
+  -- gitsigns
+  ["<leader>ts"] = { "<cmd> Gitsigns toggle_signs <cr>", "Toggle gitsigns" }
 }
 
 M.mappings.i = {
 	-- move in insert mode
-	["<C-j>"] = { "<Down>", "Down" },
 	["<C-k>"] = { "<Up>", "Up" },
+	["<C-j>"] = { "<Down>", "Down" },
 	["<C-h>"] = { "<Left>", "Left" },
-	["<C-L>"] = { "<Right>", "Right" },
+	["<C-l>"] = { "<Right>", "Right" },
+  ["<C-n>"] = { "<cmd> noh <cr>", "No highlight" },
 
-	-- move line up and down ["<A-k>"] = { "<cmd> move -2 <cr>", "Move line up" },
+	-- move line up and down
+  ["<A-k>"] = { "<cmd> move -2 <cr>", "Move line up" },
 	["<A-j>"] = { "<cmd> move +1 <cr>", "Move line down" },
 }
 
 M.lsp.n = {
 	-- Moves
+	["<leader>gr"] = { "<cmd> Telescope lsp_references <cr>", "Lsp references" },
+	["<leader>gd"] = { "<cmd> Telescope lsp_definitions <cr>", "Lsp definition" },
 	["<leader>gD"] = { vim.lsp.buf.declaration, "Lsp declaration" },
-	["<leader>gd"] = { vim.lsp.buf.definition, "Lsp definition" },
-	["<leader>gi"] = { vim.lsp.buf.implementation, "Lsp implementatoin" },
-	["<leader>gr"] = { vim.lsp.buf.references, "Lsp references" },
+	["<leader>gi"] = { "<cmd> Telescope lsp_implementations <cr>", "Lsp implementations" },
+	["<leader>gT"] = { "<cmd> Telescope lsp_type_definition <cr>", "Lsp type definition" },
+
+  ["[d"] = { "<cmd> lua vim.diagnostic.jump({count = -1}) <cr>", "Go to previous diagnostic"},
+  ["]d"] = { "<cmd> lua vim.diagnostic.jump({count = 1}) <cr>", "Go to next diagnostic"},
 
 	-- Info
-	["<leader>lh"] = { vim.lsp.buf.hover, "Lsp hover" },
-	["<leader>le"] = { "<cmd>lua vim.diagnostic.open_float(nil, { focus = false }) <cr>" },
+	["<leader>le"] = { "<cmd> lua vim.diagnostic.open_float(nil, { focus = false }) <cr>", "Open diagnostic" },
+	["<leader>ld"] = { "<cmd> Telescope diagnostics bufnr=0 <cr>", "Open buffer diagnostic" },
+	["<leader>lD"] = { "<cmd> Telescope diagnostics <cr>", "Open all diagnostic" },
 	["<leader>ls"] = { vim.lsp.buf.signature_help, "Lsp signature help" },
-	["<leader>lt"] = { vim.lsp.buf.type_definition, "Lsp type definition" },
+	["<leader>lh"] = { vim.lsp.buf.hover, "Lsp hover" },
 
 	-- Actions
-	["<leader>la"] = { vim.lsp.buf.code_action, "Lsp code action" },
 	["<leader>lr"] = { vim.lsp.buf.rename, "Lsp rename" },
+	["<leader>la"] = { vim.lsp.buf.code_action, "Lsp code action" },
 	["<leader>lf"] = { function() vim.lsp.buf.format({ async = true }) end, "Lsp format", },
 }
 
 M.lsp.i = {
-	--["<C-i>"] = { vim.lsp.buf.completion, "" }, ?
+	["<S-Tab"] = { vim.lsp.buf.completion, "Lsp completion" },
+	["<S-Enter"] = { vim.lsp.buf.signature_help, "Lsp signature help" },
+}
+
+M.lsp.v = {
+	["<leader>lf"] = { function() vim.lsp.buf.format({ async = true }) end, "Lsp format", },
 }
 
 M.dap.n = {
@@ -85,13 +103,15 @@ M.dap.n = {
 }
 
 M.ft.java.n = {
-  ["<leader>jd"] = { function() require("core.functions").generate_javadoc() end, },
-  ["<leader>jt"] = { function() require("jdtls").test_nearest_method() end, },
-  ["<leader>jT"] = { function() require("jdtls").test_class() end, }
+  ["<leader>lgd"] = { function() require("core.functions").generate_javadoc() end, "Generate Java doc" },
+  ["<leader>lt"] = { function() require("jdtls").test_nearest_method() end, "Lsp run test method" },
+  ["<leader>lT"] = { function() require("jdtls").test_class() end, "Lsp run test class"},
+  ["<leader>lgt"] = { function() require("jdtls.tests").generate() end, "Lsp generate test"},
+  ["<leader>gt"] = { function() require("jdtls.tests").goto_subjects() end, "Lsp test"},
 }
 
 M.ft.go.n = {
-  ["<leader>dt"] = { function() require('dap-go').debug_test() end, }
+  ["<leader>lt"] = { function() require('dap-go').debug_test() end, "Lsp debug test"}
 }
 
 -- Use LspAttach autocommand to only map the following keys

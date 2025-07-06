@@ -3,7 +3,10 @@ return {
 		"mfussenegger/nvim-dap",
 		ft = { "cpp", "java", "go" },
 		-- cmd = { "DapContinue", "DapNew", "DapToggleBreakpoint" },
-		dependencies = { "jay-babu/mason-nvim-dap.nvim" },
+		dependencies = {
+			"jay-babu/mason-nvim-dap.nvim",
+			"igorlfs/nvim-dap-view"
+		},
 		config = function()
 			local dap = require("dap")
 
@@ -15,21 +18,22 @@ return {
 
 			dap.configurations.cpp = {
 				{
-					name = "Launch debug",
+					name = "debug",
 					type = "cppdbg",
 					request = "launch",
 					program = function()
-						return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/out/Debug/", "file")
+						return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/bin/Debug/", "file")
 					end,
 					cwd = "${workspaceFolder}",
 					stopAtEntry = true,
 				},
 				{
-					name = "Launch release",
+					name = "test",
 					type = "cppdbg",
 					request = "launch",
 					program = function()
-						return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/out/Release/", "file")
+            io.popen("cd " .. vim.fn.getcwd() .. "/bin/Debug/test && make")
+						return vim.fn.getcwd() .. "/bin/Debug/test/unit_tests"
 					end,
 					cwd = "${workspaceFolder}",
 					stopAtEntry = true,
@@ -53,13 +57,10 @@ return {
 
 			vim.fn.sign_define("DapLogPoint", { text = "", texthl = "DiagnosticSignInfo", linehl = "", numhl = "" })
 
-			vim.fn.sign_define("DapStopped", {
-				text = "",
-				linehl = "debugPC",
-				numhl = "debugPC",
-			})
+			vim.fn.sign_define("DapStopped", { text = "", linehl = "debugPC", numhl = "debugPC", })
 
-			dap.defaults.fallback.terminal_win_cmd = "horizontal belowright 15split"
+			-- makes java bug
+			-- dap.defaults.fallback.terminal_win_cmd = "horizontal belowright 15split"
 
 			require("nvim-dap-virtual-text").setup()
 			require("core.functions").setMappings(require("core.mappings").dap)
@@ -67,5 +68,27 @@ return {
 	},
 	{
 		"theHamsta/nvim-dap-virtual-text",
+	},
+	{
+		"igorlfs/nvim-dap-view",
+		opts = {
+			winbar = {
+				show = true,
+				sections = { "watches", "exceptions", "breakpoints", "threads", "repl" },
+				-- Must be one of the sections declared above
+				default_section = "watches",
+			},
+			windows = {
+				height = 12,
+				terminal = {
+					-- 'left'|'right': Terminal position in layout
+					position = "left",
+					-- List of debug adapters for which the terminal should be ALWAYS hidden
+					hide = {},
+					-- Hide the terminal when starting a new session
+					start_hidden = false,
+				},
+			},
+		},
 	},
 }

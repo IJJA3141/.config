@@ -8,14 +8,14 @@ return {
 		lazy = false,
 		event = { "BufReadPre", "BufNewFile" },
 	},
-	{
-		"jose-elias-alvarez/null-ls.nvim",
-		config = function()
-			require("config.null-ls")
-		end,
-		lazy = true,
-		event = { "BufReadPre", "BufNewFile" },
-	},
+	-- {
+	-- 	"jose-elias-alvarez/null-ls.nvim",
+	-- 	config = function()
+	-- 		require("config.null-ls")
+	-- 	end,
+	-- 	lazy = true,
+	-- 	event = { "BufReadPre", "BufNewFile" },
+	-- },
 
 	-- suggestions
 	{
@@ -40,7 +40,7 @@ return {
 			require("nvim-treesitter.configs").setup({
 				highlight = {
 					enable = true,
-					disable = { "cpp", "sh", "shell", "help", "scss" },
+					disable = { "sh", "shell", "help", "scss" }, --"cpp",
 					use_languagetree = true,
 				},
 
@@ -52,7 +52,7 @@ return {
 					"gitignore",
 					"html",
 					"hyprlang",
-          "java",
+					"java",
 					"javascript",
 					"jq",
 					"jsdoc",
@@ -70,6 +70,7 @@ return {
 					"vimdoc",
 					"yuck",
 					"go",
+					"verilog",
 				},
 			})
 		end,
