@@ -2,6 +2,9 @@ export ZDOTDIR="/home/alexe/.config/zsh"
 
 typeset -U PATH path
 
+# Add mason bin to path
+export PATH="$PATH:/home/alexe/.local/share/nvim/mason/bin/"
+
 # Zsh
 export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
 export SUDO_PROMPT=":"

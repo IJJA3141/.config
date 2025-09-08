@@ -1,4 +1,9 @@
 vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
+-- hide cmd line or mode
+-- vim.o.cmdheight = 0
+vim.opt.showmode = false
 
 -- line number
 vim.opt.relativenumber = false
@@ -35,3 +40,18 @@ vim.filetype.add({
 		[".*/hypr/.*%.conf"] = "hyprlang",
 	},
 })
+
+vim.diagnostic.config({
+  -- virtual_lines = true,
+  virtual_text = true,
+  underline = true,
+  update_in_insert = true,
+  severity_sort = true,
+  -- float = {
+  --   border = "rounded",
+  --   source = true,
+  -- },
+})
+
+
+vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
