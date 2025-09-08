@@ -6,7 +6,7 @@
 #   echo '(icon :class_name "red" :icon "󰤭")'
 # fi
 
-if iwctl station wlan0 show | grep -q "connected"; then
+if iwctl station wlan0 show | grep -q " connected"; then
     echo '(icon :icon "󰤨")'
 else
     echo '(icon :class_name "red" :icon "󰤭")'

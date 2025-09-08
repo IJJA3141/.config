@@ -84,6 +84,7 @@ body {
   margin: 0px var(--margin) 0px 0px !important;
 }
 
+#browser,
 #navigator-toolbox,
 #tabbrowser-tabpanels {
   background-color: transparent !important;
@@ -122,6 +123,6 @@ findbar {
   box-shadow: var(--content-area-shadow) !important;
 }
 
-.findbar-container{
+.findbar-container {
   background-color: var(--gruvbox-bg-2) !important;
 }

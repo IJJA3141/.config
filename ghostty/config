@@ -1,0 +1,10 @@
+font-size           = 14
+font-family         = firaCode Nerd Font Mono
+font-family         = Relaxed Typing Mono JP
+
+background-opacity  = 0.6
+theme               = /usr/share/ghostty/themes/GruvboxDarkHard
+
+window-decoration   = false
+window-padding-x    = 8
+window-padding-y    = 8

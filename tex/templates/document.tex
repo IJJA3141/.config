@@ -1,0 +1,67 @@
+\documentclass{article}
+\usepackage[parfill]{parskip}
+\usepackage{geometry}
+\geometry{ a4paper, left=20mm, top=20mm, }
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+
+\usepackage[most]{tcolorbox}
+
+\ifx\gruvbox
+  \ifx\light
+    \definecolor{fg}{HTML}{3C3836}
+    \definecolor{bg0}{HTML}{fbf1c7}
+    \definecolor{bg0_s}{HTML}{f2e5bc}
+    \definecolor{bg1}{HTML}{ebdbb2}
+  \else
+    \definecolor{fg}{HTML}{fbf1c7} % ebdbb2
+    \definecolor{bg0}{HTML}{282828}
+    \definecolor{bg0_s}{HTML}{32302F}
+    \definecolor{bg1}{HTML}{3C3836}
+  \fi
+\else
+  \definecolor{fg}{HTML}{000000}
+  \definecolor{bg0}{HTML}{ffffff}
+  \definecolor{bg0_s}{HTML}{e6e6e6}
+  \definecolor{bg1}{HTML}{cccccc}
+\fi
+
+\pagecolor{bg0}
+\color{fg}
+
+\newtcolorbox{h1}{
+      enhanced,
+      breakable,
+      arc=0pt,
+      top=10pt,
+      bottom=10pt,
+      left=10pt,
+      right=10pt,
+      boxrule=0pt,
+      colback=bg0_s,
+      borderline north = {0.75pt}{0pt}{fg},
+      fontupper=\color{fg},
+}
+
+\newtcolorbox{h2}{
+      enhanced,
+      breakable,
+      arc=0pt,
+      outer arc=0pt,
+      top=10pt,
+      bottom=10pt,
+      left=10pt,
+      right=10pt,
+      boxrule=0pt,
+      colback=bg1,
+      borderline north = {0.75pt}{0pt}{fg},
+      fontupper=\color{fg},
+}
+
+\author{Estella Alex}
+\date{}
+
+\endinput

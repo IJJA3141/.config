@@ -22,3 +22,6 @@ source ~/.config/zsh/keybinds.zsh
 #XDG_PUBLICSHARE_DIR="$HOME/tmp/Public"
 #XDG_TEMPLATES_DIR="$HOME/tmp/Templates"
 #XDG_VIDEOS_DIR="$HOME/assets/videos"
+
+# Created by `pipx` on 2025-05-16 13:51:40
+export PATH="$PATH:/home/alexe/.local/bin"

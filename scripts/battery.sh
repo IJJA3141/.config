@@ -40,7 +40,7 @@ if [ -f $file ] && [ "$state" = "Charging" ]; then
     rm /tmp/battery
 fi
 
-if [ "$level" -lt 6 ]; then
+if [ "$level" -lt 6 ] && ! [ "$state" = "Charging" ]; then
     notify-send "fuck you"
     notify-send "3..."
     sleep 1
