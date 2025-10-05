@@ -17,9 +17,9 @@ return {
         "clangd",
         "neocmake",
         "jdtls",
+        "verible",
+        "gopls"
       },
-
-      -- automatic_enable = { exclude = { "jdtls" } }
     },
   },
   {
@@ -30,6 +30,7 @@ return {
         "codelldb",
         "javatest",
         "javadbg",
+        "delve",
       }
     },
   }

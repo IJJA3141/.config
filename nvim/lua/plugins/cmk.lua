@@ -1,5 +1,6 @@
 return {
   "IJJA3141/nvim-cmk",
+  dependencies = { "m00qek/baleia.nvim" },
 
   ---@module 'nvim-cmk'
   ---@type cmk.opts
@@ -7,12 +8,14 @@ return {
     win_config = {
       anchor = "NW",
       col = -1
-    }
+    },
+    baleia = true,
   },
 
   ft = { "cpp", "cmake" },
+  config = function(_, opts)
+    require('nvim-cmk').setup(opts)
 
-  config = function()
     local keys = {
       n = {
         ["<leader>cg"] = { "<cmd>CMakeGenerate<cr>", "Cmk generate" },

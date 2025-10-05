@@ -34,7 +34,10 @@ vim.opt.spelllang = { "en", "fr" }
 
 vim.opt.clipboard = "unnamedplus"
 vim.filetype.add({
-	extension = { rasi = "rasi" },
+	extension = {
+    rasi = "rasi",
+    ipynb = "ipynb",
+  },
 	pattern = {
 		[".*/kitty/*.conf"] = "bash",
 		[".*/hypr/.*%.conf"] = "hyprlang",
@@ -44,9 +47,11 @@ vim.filetype.add({
 vim.diagnostic.config({
   -- virtual_lines = true,
   virtual_text = true,
-  underline = true,
-  update_in_insert = true,
-  severity_sort = true,
+
+  -- underline = true,
+  -- update_in_insert = true,
+  -- severity_sort = true,
+
   -- float = {
   --   border = "rounded",
   --   source = true,

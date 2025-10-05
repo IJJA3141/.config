@@ -12,6 +12,7 @@ export HISTFILE="$ZDOTDIR/.zhistory"    # History filepath
 
 # Default app
 export EDITOR="nvim"
+export MANPAGER="nvim +Man!"
 export VISUAL="nvim"
 export BROWSER="firefox-developer-edition"
 export TERMINAL="kitty"

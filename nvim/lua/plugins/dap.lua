@@ -1,10 +1,10 @@
 local keys = {
   n = {
-    ["<Down>"] = { function() require("dap").step_over() end, "Step over", },
-    ["<S-Down>"] = { function() require("dap").continue() end, "Continue", },
-    ["<CR>"] = { function() require("dap").step_into() end, "Step into", },
-    ["<Esc>"] = { function() require("dap").step_out() end, "Step out", },
-    ["<S-w>"] = { "<cmd>DapViewWatch<cr>", "Watch" },
+    -- ["<Down>"] = { function() require("dap").step_over() end, "Step over", },
+    -- ["<S-Down>"] = { function() require("dap").continue() end, "Continue", },
+    -- ["<CR>"] = { function() require("dap").step_into() end, "Step into", },
+    -- ["<Esc>"] = { function() require("dap").step_out() end, "Step out", },
+    -- ["<S-w>"] = { "<cmd>DapViewWatch<cr>", "Watch" },
   }
 }
 
@@ -22,6 +22,8 @@ return {
     cmd = { "Dap" },
     keys = {
       { "<leader>dc", function() require("dap").continue() end,          "n", desc = "Continue" },
+      { "<leader>ds", function() require("dap").step_over() end,         "n", desc = "Step over", },
+      { "<leader>de", function() require("dap").step_into() end,         "n", desc = "Step into", },
       { "<leader>db", function() require("dap").toggle_breakpoint() end, "n", desc = "Set breakpoint", },
       { "<leader>dk", function() require("dap").terminate() end,         "n", desc = "Terminate", },
       {
@@ -55,6 +57,26 @@ return {
         },
       }
 
+      dap.configurations.scala = {
+        {
+          type = "scala",
+          request = "launch",
+          name = "RunOrTest",
+          metals = {
+            runType = "runOrTestFile",
+            --args = { "firstArg", "secondArg", "thirdArg" }, -- here just as an example
+          },
+        },
+        {
+          type = "scala",
+          request = "launch",
+          name = "Test Target",
+          metals = {
+            runType = "testTarget",
+          },
+        },
+      }
+
       vim.fn.sign_define(
         "DapBreakpoint",
         { text = "", texthl = "DiagnosticSignError", linehl = "", numhl = "" }
@@ -82,11 +104,21 @@ return {
 
       require("core.functions").set_mappings(require("core.mappings").dap)
 
-      dap.listeners.before["event_initialized"]["mappings"] = function()
+      vim.api.nvim_create_user_command("DapSetMappings", function()
         require("core.functions").set_mappings(keys)
+      end, {})
+
+      vim.api.nvim_create_user_command("DapUnSetMappings", function()
+        require("core.functions").set_mappings(keys)
+      end, {})
+
+      dap.listeners.before["vent_initialize"]["mappings"] = function()
+        print("settings dap mappings")
+        require("core.functions").del_mappings(keys)
       end
 
       dap.listeners.before["event_terminated"]["mappings"] = function()
+        print("unsettings dap mappings")
         require("core.functions").del_mappings(keys)
       end
     end

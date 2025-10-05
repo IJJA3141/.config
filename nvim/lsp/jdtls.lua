@@ -97,5 +97,3 @@ vim.lsp.config('jdtls', {
     }, { buffer = bufnr })
   end
 })
-
-print("test")

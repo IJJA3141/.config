@@ -32,7 +32,7 @@ return {
     keymap = {
       preset = "none",
 
-      ["<S-enter>"] = { "select_next" },
+      ["<S-enter>"] = { "select_next", "fallback" },
       ["<C-enter>"] = { "select_prev" },
       ["<S-tab>"] = { "accept" },
       ['<C-space>'] = { "show", },

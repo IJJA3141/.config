@@ -42,7 +42,7 @@ M.lsp.n = {
 }
 
 M.lsp.v = {
-  ["<leader>f"] = { function() vim.lsp.buf.format({ async = true }) end, "Format selection" }
+  ["<leader>lf"] = { function() vim.lsp.buf.format({ async = true }) end, "Format selection" }
 }
 
 vim.api.nvim_create_autocmd('LspAttach', {

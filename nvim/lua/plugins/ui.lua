@@ -5,7 +5,7 @@ return {
     "IJJA3141/color-board.nvim",
     dependencies = { "m00qek/baleia.nvim" },
 
-    event = "VimEnter",
+    lazy = false,
     ---@module "color-board"
     ---@type color-board.config
     opts = {
@@ -81,9 +81,9 @@ return {
         { icon = "", key = "q", description = "Quit", func = "qa" },
       },
     },
-    init = function()
-      vim.opt.laststatus = 0
-    end,
+    -- init = function()
+    --   vim.opt.laststatus = 0
+    -- end,
   },
   {
     "folke/which-key.nvim",
