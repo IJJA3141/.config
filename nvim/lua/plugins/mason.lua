@@ -1,39 +1,36 @@
 return {
-	{
-		"williamboman/mason.nvim",
-    dependencies = {
-      "williamboman/mason-lspconfig.nvim",
-		  "jay-babu/mason-nvim-dap.nvim",
+  {
+    "mason-org/mason.nvim",
+    cmd = { "Mason" },
+    opts = {}
+  },
+  {
+    "mason-org/mason-lspconfig.nvim",
+    dependencies = { "mason-org/mason.nvim", "neovim/nvim-lspconfig", },
+
+    event = { "BufReadPre", "BufNewFile" },
+    ---@module "mason-lspconfig"
+    ---@type MasonLspconfigSettings
+    opts = {
+      ensure_installed = {
+        "lua_ls",
+        "clangd",
+        "neocmake",
+        "jdtls",
+      },
+
+      -- automatic_enable = { exclude = { "jdtls" } }
     },
-    lazy = false,
-    config = function()
-      require("mason").setup()
-      require("mason-lspconfig").setup({
-        automatic_installation = true,
-        ensure_installed = {
-          "lua_ls",
-          "cmake",
-          "clangd",
-          "html",
-          "cssls",
-          "jsonls",
-          "pylsp",
-          "bashls",
-          "jdtls",
-          "texlab",
-          "gopls",
-          "verible",
-        },
-      })
-      require("mason-nvim-dap").setup({
-        automatic_installation = true,
-        ensure_installed = {
-          "cppdbg",
-          "javatest",
-          "javadbg",
-          "delve",
-        },
-      })
-    end,
-	},
+  },
+  {
+    "jay-babu/mason-nvim-dap.nvim",
+    dependencies = { "williamboman/mason.nvim", "mfussenegger/nvim-dap", },
+    opts = {
+      ensure_installed = {
+        "codelldb",
+        "javatest",
+        "javadbg",
+      }
+    },
+  }
 }

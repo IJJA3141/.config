@@ -1,0 +1,101 @@
+local home = vim.env.HOME
+local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
+local workspace_dir = home .. "/.cache/jdtls-workspace/" .. project_name
+local mason_path = vim.fn.stdpath('data') .. "/mason"
+local jdtls = require 'jdtls'
+
+local bundles = {
+  vim.fn.glob(mason_path .. "/share/java-debug-adapter/com.microsoft.java.debug.plugin-*.jar", true)
+}
+
+vim.list_extend(bundles, vim.split(vim.fn.glob(mason_path .. "/share/java-test/*.jar", true), "\n"))
+
+
+vim.lsp.config('jdtls', {
+  root_dir = vim.fs.root(0, { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle" }),
+  name = "jdtls",
+
+  cmd = {
+    "jdtls",
+
+    "-Declipse.application=org.eclipse.jdt.ls.core.id1",
+    "-Dosgi.bundles.defaultStartLevel=4",
+    "-Declipse.product=org.eclipse.jdt.ls.core.product",
+    "-Dlog.protocol=true",
+    "-Dlog.level=ALL",
+    "-Xmx4g", -- ram usage
+    "--add-modules=ALL-SYSTEM",
+    "--add-opens", "java.base/java.util=ALL-UNNAMED",
+    "--add-opens", "java.base/java.lang=ALL-UNNAMED",
+
+    "-configuration", mason_path .. "/packages/jdtls/config_linux",
+    "-jar", mason_path .. "/packages/jdtls/plugins/org.eclipse.equinox.launcher_*.jar",
+    "-data", workspace_dir,
+  },
+
+  settings = {
+    java = {
+      home = "/usr/lib/jvm/java-24-openjdk",
+
+      eclipse = { downloadSources = true, },
+      maven = { downloadSources = true, },
+      implementationsCodeLens = { enabled = true, },
+      referencesCodeLens = { enabled = true, },
+      references = { includeDecompiledSources = true, },
+      signatureHelp = { enabled = true },
+
+      sources = {
+        organizeImports = {
+          starThreshold = 9999,
+          staticStarThreshold = 9999,
+        },
+      },
+      codeGeneration = {
+        toString = { template = "${object.className}{${member.name()}=${member.value}, ${otherMembers}}", },
+        useBlocks = true,
+      },
+      configuration = {
+        updateBuildConfiguration = "interactive",
+        runtimes = {
+          {
+            name = "JavaSE-11",
+            path = "/usr/lib/jvm/java-11-openjdk",
+          },
+          {
+            name = "JavaSE-17",
+            path = "/usr/lib/jvm/java-17-openjdk",
+          },
+          {
+            name = "JavaSE-24",
+            path = "/usr/lib/jvm/java-24-openjdk",
+          },
+        },
+      },
+    }
+  },
+
+  init_options = {
+    bundles = bundles,
+    extendedClientCapabilities = jdtls.extendedClientCapabilities,
+  },
+
+  on_attach = function(client, bufnr)
+    require 'core.functions'.set_mappings({
+      n = {
+        ["<leader>lt"] = { jdtls.test_nearest_method, "Test nearest method" },
+        ["<leader>lT"] = { jdtls.test_class, "Test class" },
+        -- ["<leader>lo"] = { jdtls.organize_imports, "" },
+        -- ["<leader>le"] = { jdtls.extract_variable, "" },
+        -- ["<leader>lc"] = { jdtls.extract_constant, "" },
+        -- ["<leader>lm"] = { jdtls.extract_method, "" },
+      },
+      -- v = {
+      --   ["<leader>le"] = { function() jdtls.extract_variable({ visual = true }) end, "" },
+      --   ["<leader>lc"] = { function() jdtls.extract_constant({ visual = true }) end, "" },
+      --   ["<leader>lm"] = { function() jdtls.extract_method({ visual = true }) end, "" },
+      -- },
+    }, { buffer = bufnr })
+  end
+})
+
+print("test")

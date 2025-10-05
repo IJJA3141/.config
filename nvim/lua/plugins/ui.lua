@@ -1,180 +1,166 @@
+local config = vim.fn.stdpath("config")
+
 return {
-	{
-		"IJJA3141/ColorBoard.nvim",
-		dependencies = { "m00qek/baleia.nvim" },
-		event = "VimEnter",
-		config = function()
-			require("core.dashboard")
-		end,
-		init = function()
-			vim.opt.laststatus = 0
-		end,
-	},
-	{
-		"folke/which-key.nvim",
-		dependencies = { "echasnovski/mini.icons", "nvim-tree/nvim-web-devicons" },
-		event = "VeryLazy",
-	},
-	{
-		"shortcuts/no-neck-pain.nvim",
-		cmd = { "NoNeckPain" },
-		opts = {
-			minSideBufferWidth = 35,
-			width = 120,
-		},
-	},
-	{
-		"norcalli/nvim-colorizer.lua",
-		event = { "BufReadPre", "BufNewFile" },
-		config = function()
-			require("colorizer").setup({ "*" })
-		end,
-	},
-	{
-		"echasnovski/mini.indentscope",
-		event = "BufRead",
-		opts = {
-			symbol = "|",
-			options = { try_as_border = true },
-		},
-		init = function()
-			vim.api.nvim_create_autocmd("FileType", {
-				pattern = {
-					"help",
-					"alpha",
-					"oil",
-					"lazy",
-					"mason",
-					"dashboard",
-				},
-				callback = function()
-					vim.b.miniindentscope_disable = true
-				end,
-			})
-		end,
-	},
-	{
-		"lewis6991/gitsigns.nvim",
-		event = "BufRead",
-		opts = {
-signs = {
-    add          = { text = '┃' },
-    change       = { text = '┃' },
-    delete       = { text = '_' },
-    topdelete    = { text = '‾' },
-    changedelete = { text = '~' },
-    untracked    = { text = '┆' },
-  },
-  signs_staged = {
-    add          = { text = '┃' },
-    change       = { text = '┃' },
-    delete       = { text = '_' },
-    topdelete    = { text = '‾' }, changedelete = { text = '~' },
-    untracked    = { text = '┆' },
-  },
-  signs_staged_enable = true,
-  signcolumn = true,  -- Toggle with `:Gitsigns toggle_signs`
-  numhl      = false, -- Toggle with `:Gitsigns toggle_numhl`
-  linehl     = false, -- Toggle with `:Gitsigns toggle_linehl`
-  word_diff  = false, -- Toggle with `:Gitsigns toggle_word_diff`
-  watch_gitdir = {
-    follow_files = true
-  },
-  auto_attach = true,
-  attach_to_untracked = false,
-  current_line_blame = false, -- Toggle with `:Gitsigns toggle_current_line_blame`
-  current_line_blame_opts = {
-    virt_text = true,
-    virt_text_pos = 'eol', -- 'eol' | 'overlay' | 'right_align'
-    delay = 1000,
-    ignore_whitespace = false,
-    virt_text_priority = 100,
-    use_focus = true,
-  },
-  current_line_blame_formatter = '<author>, <author_time:%R> - <summary>',
-  sign_priority = 6,
-  update_debounce = 100,
-  status_formatter = nil, -- Use default
-  max_file_length = 40000, -- Disable if file is longer than this (in lines)
-  preview_config = {
-    -- Options passed to nvim_open_win
-    border = 'single',
-    style = 'minimal',
-    relative = 'cursor',
-    row = 0,
-    col = 1
-  },
+  {
+    "IJJA3141/color-board.nvim",
+    dependencies = { "m00qek/baleia.nvim" },
+
+    event = "VimEnter",
+    ---@module "color-board"
+    ---@type color-board.config
+    opts = {
+      dashboards = {
+        -- pbmmv
+        ["Elsa Doroty amazed"] = {
+          path = config .. "/lua/core/assets/pbmmv/Elsa_Dorothy_amazed",
+          width = 48,
+          height = 40,
+          colored = true,
+        },
+
+        ["Elsa Doroty embarassed"] = {
+          path = config .. "/lua/core/assets/pbmmv/Elsa_Dorothy_embarrassed",
+          width = 53,
+          height = 40,
+          colored = true,
+        },
+
+        ["Elsa Doroty put"] = {
+          path = config .. "/lua/core/assets/pbmmv/Elsa_Dorothy_put",
+          width = 63,
+          height = 42,
+          colored = true,
+        },
+
+        -- Can't defy the lonely gril
+        ["守永 和奏"] = {
+          path = config .. "/lua/core/assets/can_t_defy_the_lonely_girl/Wakana_Morinaga",
+          width = 70,
+          height = 36,
+          colored = false,
+        },
+
+        -- hana ni harashi
+        ["Kumako"] = {
+          path = config .. "/lua/core/assets/hana_ni_arashi/Kumako",
+          width = 65,
+          height = 37,
+          colored = false,
+        },
+
+        ["藤宮 千鳥"] = {
+          path = config .. "/lua/core/assets/hana_ni_arashi/Fujimiya_Chidori",
+          width = 70,
+          height = 33,
+          colored = false,
+        },
+
+        ["Huh?"] = {
+          path = config .. "/lua/core/assets/hana_ni_arashi/Huh?",
+          width = 200,
+          height = 35,
+          colored = false,
+        },
+
+        -- How do I get together with my childhood friend?
+        ["生駒 未波"] = {
+          path = config .. "/lua/core/assets/how_do_i_get_together_with_my_childhood_friend/Minami_Ikoma",
+          width = 130,
+          height = 40,
+          colored = false,
+        }
+      },
+
+      keymaps = {
+        { icon = "", key = "l", description = "Lazy", func = "Lazy" },
+        { icon = "", key = "n", description = "Neogit", func = "Neogit" },
+        { icon = "󰉓", key = "e", description = "Oil", func = "Oil" },
+        { icon = "", key = "f", description = "Find file", func = "Telescope find_files" },
+        { icon = "", key = "g", description = "Grep file", func = "Telescope live_grep" },
+        { icon = "", key = "c", description = "Open config", func = "e $MYVIMRC" },
+        { icon = "", key = "q", description = "Quit", func = "qa" },
+      },
     },
-	},
-	{
-		"nvim-lualine/lualine.nvim",
-		dependencies = { "nvim-tree/nvim-web-devicons" },
-		event = "BufRead",
-		opts = {
+    init = function()
+      vim.opt.laststatus = 0
+    end,
+  },
+  {
+    "folke/which-key.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+
+    event = { "BufReadPre", "BufNewFile" },
+  },
+  {
+    "lewis6991/gitsigns.nvim",
+
+    event = { "BufReadPre", "BufNewFile" },
+    keys = { { "<leader>gs", "<cmd> Gitsigns toggle_signs <cr>", desc = "Toggle gitsigns" }, },
+
+    opts = {}
+  },
+  {
+    "echasnovski/mini.indentscope",
+
+    event = { "BufReadPre", "BufNewFile" },
+
+    opts = {
+      symbol = "|",
+      options = { try_as_border = false, },
+    },
+    init = function()
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = {
+          "help",
+          "alpha",
+          "oil",
+          "lazy",
+          "mason",
+          "dashboard",
+        },
+
+        callback = function()
+          vim.b.miniindentscope_disable = true
+        end,
+      })
+    end,
+  },
+  {
+    "nvim-lualine/lualine.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+
+    event = "BufRead",
+
+    opts = {
       options = {
-            theme = function ()
-              local colors = require("gruvbox").palette
-              return {
-                normal = {
-                  a = { bg = "NONE", fg = colors.light4, gui = "bold" },
-                  c = { bg = "NONE", fg = colors.light4 },
-                },
-                insert = {
-                  a = { bg = "None", fg = colors.bright_blue, gui = "bold" },
-                  b = { bg = "None", fg = colors.light4 },
-                  c = { bg = "None", fg = colors.light4 },
-                },
-                visual = {
-                  a = { bg = "None", fg = colors.bright_yellow, gui = "bold" },
-                  b = { bg = "None", fg = colors.light4 },
-                  c = { bg = "None", fg = colors.light4 },
-                },
-                replace = {
-                  a = { bg = "None", fg = colors.bright_red, gui = "bold" },
-                  b = { bg = "None", fg = colors.light4 },
-                  c = { bg = "None", fg = colors.light4 },
-                },
-                command = {
-                  a = { bg = "None", fg = colors.bright_green, gui = "bold" },
-                  b = { bg = "None", fg = colors.light4 },
-                  c = { bg = "None", fg = colors.light4 },
-                },
-                inactive = {
-                  a = { bg = "None", fg = colors.light4, gui = "bold" },
-                  b = { bg = "None", fg = colors.light4 },
-                  c = { bg = "None", fg = colors.light4 },
-                },
-              }
-            end,
-            -- globalstatus = true,
-            section_separators = "",
-            component_separators = "",
-            disabled_filetypes = { statusline = { "dashboard", "lazy" } },
-				    refresh = { statusline = 100, },
-          },
+        theme = require('core.functions').theme,
+        component_separators = "",
+        globalstatus = true,
+        section_separators = "",
+        disabled_filetypes = { statusline = { "dashboard", "lazy" } },
+        refresh = { statusline = 100, },
+      },
       sections = {
-        lualine_a = { "mode" },
+        lualine_a = { "mode", "branch", "diff" },
         lualine_b = {},
-        lualine_c = { "branch",
-                      { "diff", source = function()
-                         local gitsigns = vim.b.gitsigns_status_dict
-                         if gitsigns then return {
-                           added = gitsigns.added,
-                           modified = gitsigns.changed,
-                           removed = gitsigns.removed, }
-                         end
-                       end,
-                       colored = true,
-                       always_visible = false, },
-                      "%=",
-                      {"filename",symbols = { modified = '', readonly = "" } },
-                      { "diagnostics", sources = { "nvim_diagnostic" },
-                                       sections = { "error", "warn", "info", "hint" },
-                                       colored = true, }
-                    },
-        lualine_x = { "encoding", "filetype" },
-        lualine_y = {},
-        lualine_z = {},
+        lualine_c = { "%=" },
+
+        lualine_x = {
+          { "filename", symbols = { modified = '', readonly = "" } },
+          {
+            "diagnostics",
+            sources = { "nvim_diagnostic" },
+            sections = { "error", "warn", "info", "hint" },
+            colored = true,
+          }
+        },
+
+        lualine_y = { "%=" },
+        lualine_z = {
+          { 'lsp_status', icon = '', symbols = { done = '', }, },
+          "filetype",
+          "encoding"
+        },
       },
     },
   },
