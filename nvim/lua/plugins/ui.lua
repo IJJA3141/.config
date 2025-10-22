@@ -76,7 +76,7 @@ return {
         { icon = "", key = "n", description = "Neogit", func = "Neogit" },
         { icon = "󰉓", key = "e", description = "Oil", func = "Oil" },
         { icon = "", key = "f", description = "Find file", func = "Telescope find_files" },
-        { icon = "", key = "g", description = "Grep file", func = "Telescope live_grep" },
+        { icon = "", key = "/", description = "Grep file", func = "Telescope live_grep" },
         { icon = "", key = "c", description = "Open config", func = "e $MYVIMRC" },
         { icon = "", key = "q", description = "Quit", func = "qa" },
       },
@@ -143,19 +143,13 @@ return {
       sections = {
         lualine_a = { "mode", "branch", "diff" },
         lualine_b = {},
-        lualine_c = { "%=" },
-
-        lualine_x = {
+        lualine_c = {
+          "%=",
           { "filename", symbols = { modified = '', readonly = "" } },
-          {
-            "diagnostics",
-            sources = { "nvim_diagnostic" },
-            sections = { "error", "warn", "info", "hint" },
-            colored = true,
-          }
+          { "diagnostics", sources = { "nvim_diagnostic" }, sections = { "error", "warn", "info", "hint" }, colored = true, }
         },
-
-        lualine_y = { "%=" },
+        lualine_x = {},
+        lualine_y = {},
         lualine_z = {
           { 'lsp_status', icon = '', symbols = { done = '', }, },
           "filetype",

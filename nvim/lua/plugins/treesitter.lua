@@ -19,6 +19,8 @@ return {
 
         "java",
         "scala",
+
+        "markdown",
       })
 
       -- auto-update
