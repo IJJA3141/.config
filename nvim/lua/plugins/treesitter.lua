@@ -21,6 +21,8 @@ return {
         "scala",
 
         "markdown",
+
+        "systemverilog",
       })
 
       -- auto-update

@@ -1,7 +1,7 @@
 # File system
 alias rm="rm -i"
-alias ls="ls --color=auto"
-alias lsa="ls -vahl --color=auto --group-directories-first"
+alias ls="ls --color=auto --hyperlink=auto"
+alias lsa="ls -vahl --color=auto --group-directories-first --hyperlink=auto"
 
 # Zip
 alias lz="unzip -l"
@@ -63,9 +63,18 @@ function queen
   wl-copy "$arr[index]"
 }
 
+function rngswww
+{
+  wallpapers_path="$HOME/.config/assets/wallpapers/"
+  wallpaper_file=$(ls $wallpapers_path | sort -R | tail -1)
+  awww img "$wallpapers_path$wallpaper_file"
+  echo "wallpaper::$wallpaper_file"
+}
+
 # Functions Alias
 alias forfiles=foreachfiles
 alias texclean=cleantex
 alias gl=gitlog
 alias lc=asciisize
 alias slayqueen=queen
+alias rwww=rngswww

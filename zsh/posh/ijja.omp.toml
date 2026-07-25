@@ -1,0 +1,73 @@
+
+async = true
+
+[[blocks]]
+alignment = "left"
+type = "prompt"
+
+  [[blocks.segments]]
+  template = ":: {{ .Shell }} :: <blue>{{ .Path }}</>"
+  type = "path"
+
+    [blocks.segments.options]
+    style = "full"
+
+      [blocks.segments.options.mapped_locations]
+      # "~/.config"             = "<magenta></></><blue>"
+      "~/assets"              = "<magenta></></><blue>"
+      "~/prog"                = "<blue></></><blue>"
+      "~/downloads"           = "<cyan></></><blue>"
+      "~/documents"           = "<blue></></><blue>"
+      # "~/documents/jp"        = "<#BC002D,#FFFFFF>  </></><blue>"
+      "~/documents/epfl"      = "<#EC1F25>EPFL</></><blue>"
+      "~/documents/bookshelf" = "<magenta></></><blue>"
+
+  [[blocks.segments]]
+  template = " :: {{ .HEAD }} "
+  type = "git"
+
+    [blocks.segments.options]
+    fetch_status = true
+    branch_icon = ""
+
+  [[blocks.segments]]
+  template = "<green>+{{ .Working.Added }}</> <cyan>~{{ .Working.Modified }}</> <red>-{{ .Working.Deleted }}</> <yellow>?{{ .Working.Untracked }}</> <magenta>x{{ .Working.Unmerged }}</>"
+  type = "git"
+  style = "powerline"
+
+    [blocks.segments.options]
+    fetch_status = true
+
+
+
+[[blocks]]
+alignment = "right"
+type = "prompt"
+
+  [[blocks.segments]]
+  type = "status"
+  template = "{{ if .Error }}<red>{{else}}<green>{{ end }}{{ .Code }}</> "
+
+    [blocks.segments.options]
+    always_enabled = true
+
+  [[blocks.segments]]
+  template = ":: {{ .FormattedMs }} ::"
+  type = "executiontime"
+
+    [blocks.segments.options]
+    always_enabled = true
+
+
+
+[[blocks]]
+newline = true
+alignment = "left"
+type = "prompt"
+
+  [[blocks.segments]]
+  template = " "
+  # template = "瓦 "
+  # template = ":: "
+  # template = "綴 "
+  type = "text"

@@ -4,4 +4,5 @@ require("core.options")
 require("core.lazy")
 require("core.mappings")
 
-vim.cmd.colorscheme("gruvbox")
+-- vim.cmd.colorscheme("gruvbox")
+vim.cmd.colorscheme("kanagawa")

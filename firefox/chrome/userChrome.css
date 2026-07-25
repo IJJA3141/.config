@@ -1,12 +1,23 @@
-/* ----------------------------------------------------
- *                      shape
- * ---------------------------------------------------- */
-
 :root {
-  --radius: 0px;
-  --padding: 10px;
+  --radius: 5px;
+  /* --padding: 10px; */
+  --padding: 5px;
+
   --splitter-width: 3px;
-  --gb: #00000000;
+  --bg: #28282899;
+  --max-url-width: 600px;
+
+  --toolbox-bgcolor-inactive: var(--toolbox-bgcolor) !important;
+  --sidebar-background-color: var(--toolbox-bgcolor-inactive) !important;
+  --sidebar-text-color: var(--lwt-text-color) !important;
+  --sidebar-border-color: var(--toolbar-field-border-color) !important;
+
+  --tabs-navbar-separator-color: ThreeDShadow;
+  --tabs-navbar-separator-style: solid;
+
+  --short-notification-background: #0250bb;
+  --short-notification-gradient: #9059ff;
+  --warning-icon-bgcolor: light-dark(#ffa436, #ffbd4f);
 }
 
 #sidebar-launcher-splitter,
@@ -41,9 +52,15 @@
 }
 
 #browser,
+.browserContainer,
 #main-window ,
 #tabbrowser-tabpanels {
   background: none !important;
+}
+
+.browserContainer{
+  outline: none !important;
+  box-shadow: none !important;
 }
 
 findbar {
@@ -60,4 +77,22 @@ findbar,
 #navigator-toolbox,
 #sidebar{
   border-radius: var(--radius) !important; 
+}
+
+#urlbar-container {
+  max-width: var(--max-url-width) !important;
+  margin-left: calc(50% - var(--max-url-width) / 2) !important;
+}
+
+toolbarspring {
+  max-width: none !important;
+  width: 100% !important;
+}
+
+#fxa-toolbar-menu-button {
+  padding-left: 8px !important
+}
+
+#PanelUI-menu-button {
+  padding-left: 0px !important
 }

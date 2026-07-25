@@ -1,5 +1,7 @@
 include current-theme.conf
 
+notify_on_cmd_finish  invisible 10.0 command notify-send "job finished with status: %s" %c
+
 font_family           FiraCode Nerd Font Mono
 bold_font	            auto
 italic_font		        auto
@@ -9,4 +11,7 @@ enable_audio_bell	    false
 
 font_size		          14
 window_padding_width  8
-background_opacity    0.15
+background_opacity    0.6
+
+## nvim background issue
+# background            #282827

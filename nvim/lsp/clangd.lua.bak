@@ -147,3 +147,42 @@ vim.lsp.config('clangd', {
     client.server_capabilities.semanticTokensProvider = nil
   end
 })
+
+print("test2")
+
+return {
+  cmd = {
+    "clangd",
+    "--clang-tidy",
+    "--clang-tidy-checks=*",
+    "--query-driver=/usr/bin/**/clang-*,/bin/clang,/bin/clang++,/usr/bin/gcc,/usr/bin/g++",
+    "--all-scopes-completion",
+    "--cross-file-rename",
+    "--completion-style=detailed",
+    "--header-insertion-decorators",
+    "--header-insertion=iwyu",
+  },
+
+  on_attach = function(client, bufnr)
+    local mappings = {}
+
+    print("test")
+
+    mappings.n = {
+      ["<leader>ld"] = { gendoc, "Generate documentation" },
+      ["ms"] = {
+        function()
+          client:request("textDocument/switchSourceHeader",
+            vim.lsp.util.make_text_document_params(bufnr),
+            callback,
+            bufnr)
+        end,
+        "Switch source header"
+      },
+    }
+
+    require 'core.functions'.set_mappings(mappings, { buffer = bufnr })
+
+    client.server_capabilities.semanticTokensProvider = nil
+  end
+}

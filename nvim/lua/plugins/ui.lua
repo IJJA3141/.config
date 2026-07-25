@@ -74,16 +74,17 @@ return {
       keymaps = {
         { icon = "", key = "l", description = "Lazy", func = "Lazy" },
         { icon = "", key = "n", description = "Neogit", func = "Neogit" },
+        { icon = "󰕛", key = "d", description = "Diffview", func = "Diffview" },
         { icon = "󰉓", key = "e", description = "Oil", func = "Oil" },
-        { icon = "", key = "f", description = "Find file", func = "Telescope find_files" },
-        { icon = "", key = "/", description = "Grep file", func = "Telescope live_grep" },
-        { icon = "", key = "c", description = "Open config", func = "e $MYVIMRC" },
+        { icon = "", key = "f", description = "Find.file", func = "Telescope find_files" },
+        { icon = "", key = "/", description = "Grep.file", func = "Telescope live_grep" },
+        { icon = "", key = "c", description = "Open.config", func = "e $MYVIMRC" },
         { icon = "", key = "q", description = "Quit", func = "qa" },
       },
     },
-    -- init = function()
-    --   vim.opt.laststatus = 0
-    -- end,
+    init = function()
+      vim.opt.laststatus = 0
+    end,
   },
   {
     "folke/which-key.nvim",
@@ -92,20 +93,16 @@ return {
     event = { "BufReadPre", "BufNewFile" },
   },
   {
-    "lewis6991/gitsigns.nvim",
-
-    event = { "BufReadPre", "BufNewFile" },
-    keys = { { "<leader>gs", "<cmd> Gitsigns toggle_signs <cr>", desc = "Toggle gitsigns" }, },
-
-    opts = {}
-  },
-  {
     "echasnovski/mini.indentscope",
 
     event = { "BufReadPre", "BufNewFile" },
 
     opts = {
-      symbol = "|",
+      -- symbol = "|",
+      symbol = "│",
+      -- symbol = "┃",
+      -- symbol = "║",
+      -- symbol = "┊",
       options = { try_as_border = false, },
     },
     init = function()
@@ -133,7 +130,9 @@ return {
 
     opts = {
       options = {
-        theme = require('core.functions').theme,
+        -- theme = require('core.functions').theme,
+        -- theme = "vscode",
+        theme = "auto",
         component_separators = "",
         globalstatus = true,
         section_separators = "",

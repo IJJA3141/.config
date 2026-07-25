@@ -2,14 +2,12 @@ local home = vim.env.HOME
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
 local workspace_dir = home .. "/.cache/jdtls-workspace/" .. project_name
 local mason_path = vim.fn.stdpath('data') .. "/mason"
-local jdtls = require 'jdtls'
 
 local bundles = {
   vim.fn.glob(mason_path .. "/share/java-debug-adapter/com.microsoft.java.debug.plugin-*.jar", true)
 }
 
 vim.list_extend(bundles, vim.split(vim.fn.glob(mason_path .. "/share/java-test/*.jar", true), "\n"))
-
 
 vim.lsp.config('jdtls', {
   root_dir = vim.fs.root(0, { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle" }),
@@ -76,23 +74,23 @@ vim.lsp.config('jdtls', {
 
   init_options = {
     bundles = bundles,
-    extendedClientCapabilities = jdtls.extendedClientCapabilities,
+    extendedClientCapabilities = require("jdtls").extendedClientCapabilities,
   },
 
   on_attach = function(client, bufnr)
     require 'core.functions'.set_mappings({
       n = {
-        ["<leader>lt"] = { jdtls.test_nearest_method, "Test nearest method" },
-        ["<leader>lT"] = { jdtls.test_class, "Test class" },
-        -- ["<leader>lo"] = { jdtls.organize_imports, "" },
-        -- ["<leader>le"] = { jdtls.extract_variable, "" },
-        -- ["<leader>lc"] = { jdtls.extract_constant, "" },
-        -- ["<leader>lm"] = { jdtls.extract_method, "" },
+        ["<leader>lt"] = { require("jdtls").test_nearest_method, "Test nearest method" },
+        ["<leader>lT"] = { require("jdtls").test_class, "Test class" },
+        -- ["<leader>lo"] = { require("jdtls").organize_imports, "" },
+        -- ["<leader>le"] = { require("jdtls").extract_variable, "" },
+        -- ["<leader>lc"] = { require("jdtls").extract_constant, "" },
+        -- ["<leader>lm"] = { require("jdtls").extract_method, "" },
       },
       -- v = {
-      --   ["<leader>le"] = { function() jdtls.extract_variable({ visual = true }) end, "" },
-      --   ["<leader>lc"] = { function() jdtls.extract_constant({ visual = true }) end, "" },
-      --   ["<leader>lm"] = { function() jdtls.extract_method({ visual = true }) end, "" },
+      --   ["<leader>le"] = { function() require("jdtls").extract_variable({ visual = true }) end, "" },
+      --   ["<leader>lc"] = { function() require("jdtls").extract_constant({ visual = true }) end, "" },
+      --   ["<leader>lm"] = { function() require("jdtls").extract_method({ visual = true }) end, "" },
       -- },
     }, { buffer = bufnr })
   end

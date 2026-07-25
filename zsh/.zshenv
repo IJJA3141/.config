@@ -7,16 +7,18 @@ export PATH="$PATH:/home/alexe/.local/share/nvim/mason/bin/"
 
 # Zsh
 export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
-export SUDO_PROMPT=":"
+# export SUDO_PROMPT="::[sudo]"
+export SUDO_PROMPT=":: sudo "
 export HISTFILE="$ZDOTDIR/.zhistory"    # History filepath
 
 # Default app
-export EDITOR="nvim"
+# export EDITOR="nvim"
+export EDITOR="kitten edit-in-kitty"
 export MANPAGER="nvim +Man!"
 export VISUAL="nvim"
 export BROWSER="firefox-developer-edition"
 export TERMINAL="kitty"
-export FILEBROWSER="ranger"
+export FILEBROWSER="yazi"
 
 # Qt-gtk
 export QT_STYLE_OVERRIDE="Adwaita-Dark"

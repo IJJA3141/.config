@@ -35,7 +35,7 @@ return {
       ["<S-enter>"] = { "select_next", "fallback" },
       ["<C-enter>"] = { "select_prev" },
       ["<S-tab>"] = { "accept" },
-      ['<C-space>'] = { "show", },
+      ['<C-backspace>'] = { "show", },
     },
   },
 

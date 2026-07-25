@@ -25,6 +25,9 @@ M.mappings.n = {
 
   -- config
   ["<leader>o"] = { "<cmd> source <cr>", "Reload config" },
+
+  -- manpage
+  ["M"] = { "<cmd> Man <cr>" },
 }
 
 require("core.functions").set_mappings(M.mappings)

@@ -18,9 +18,9 @@ vim.opt.autoindent = true
 vim.opt_global.foldlevel = 2
 
 -- fold
-vim.opt.foldlevel = 20
 vim.opt.foldmethod = "expr"
-vim.opt.foldexpr = vim.treesitter.foldexpr()
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.opt.foldlevel = 99 -- no fold on open
 
 -- style
 vim.opt.termguicolors = true
@@ -34,14 +34,14 @@ vim.opt.spelllang = { "en", "fr" }
 
 vim.opt.clipboard = "unnamedplus"
 vim.filetype.add({
-	extension = {
+  extension = {
     rasi = "rasi",
     ipynb = "ipynb",
   },
-	pattern = {
-		[".*/kitty/*.conf"] = "bash",
-		[".*/hypr/.*%.conf"] = "hyprlang",
-	},
+  pattern = {
+    [".*/kitty/*.conf"] = "bash",
+    [".*/hypr/.*%.conf"] = "hyprlang",
+  },
 })
 
 vim.diagnostic.config({
@@ -58,5 +58,5 @@ vim.diagnostic.config({
   -- },
 })
 
+require('vim._core.ui2').enable()
 
-vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'

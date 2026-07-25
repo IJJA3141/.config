@@ -4,6 +4,9 @@ function M.toggle_trans()
   if vim.g.colors_name == "gruvbox" then
     require "gruvbox".config.transparent_mode = not require "gruvbox".config.transparent_mode
     vim.cmd("colorscheme gruvbox")
+  elseif vim.g.colors_name == "kanagawa" then
+    require "kanagawa".config.transparent = not require "kanagawa".config.transparent
+    vim.cmd("colorscheme kanagawa")
   end
 end
 

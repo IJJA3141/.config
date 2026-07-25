@@ -1,0 +1,106 @@
+/* #bookmarksPanel { */
+/*   background: red !important; */
+/* } */
+/**/
+/* root--sidebar-background-color */
+
+/* :root { */
+/*   --sidebar-background-color: red; */
+/* } */
+
+
+
+
+
+
+
+
+
+/*===============[PDF]===============*/
+:root {
+  --radius: 5px;
+  --padding: 10px;
+
+  --bg1: 0;
+  --bg2: 0;
+
+  --fg1: 0;
+  --fg2: 0;
+
+  --font: 0;
+  --highlight: 0;
+}
+
+:root{
+  --sidebar-width:200px;
+  --sidebar-transition-duration:200ms;
+  --sidebar-transition-timing-function:ease;
+
+  --toolbar-height:32px;
+  --toolbar-horizontal-padding:1px;
+  --toolbar-vertical-padding:2px;
+  --icon-size:16px;
+
+  --toolbar-icon-opacity:0.7;
+  --doorhanger-icon-opacity:0.9;
+  --doorhanger-height:8px;
+
+  --main-color: #ff0000 !important;
+  --body-bg-color:light-dark(rgb(212 212 215), rgb(42 42 46));
+  --progressBar-color:light-dark(rgb(10 132 255), rgb(0 96 223));
+  --progressBar-bg-color:light-dark(rgb(221 221 222), rgb(40 40 43));
+  --progressBar-blend-color:light-dark(rgb(116 177 239), rgb(20 68 133));
+  --scrollbar-color:light-dark(auto, rgb(121 121 123));
+  --scrollbar-bg-color:light-dark(auto, rgb(35 35 39));
+  --toolbar-icon-bg-color:light-dark(rgb(0 0 0), rgb(255 255 255));
+  --toolbar-icon-hover-bg-color:light-dark(rgb(0 0 0), rgb(255 255 255));
+
+  --sidebar-narrow-bg-color:light-dark(
+    rgb(212 212 215 / 0.9),
+    rgb(42 42 46 / 0.9)
+  );
+  --sidebar-toolbar-bg-color:light-dark(rgb(245 246 247), rgb(50 50 52));
+  --toolbar-bg-color:light-dark(rgb(249 249 250), rgb(56 56 61));
+  --toolbar-border-color:light-dark(rgb(184 184 184), rgb(12 12 13));
+  --toolbar-box-shadow:0 1px 0 var(--toolbar-border-color);
+  --toolbar-border-bottom:none;
+  --toolbarSidebar-box-shadow:inset calc(-1px * var(--dir-factor)) 0 0 rgb(0 0 0 / 0.25), 0 1px 0 rgb(0 0 0 / 0.15), 0 0 1px rgb(0 0 0 / 0.1);
+  --toolbarSidebar-border-bottom:none;
+  --button-hover-color:color-mix(in srgb, currentColor 17%, transparent);
+  --toggled-btn-color:light-dark(rgb(0 0 0), rgb(255 255 255));
+  --toggled-btn-bg-color:rgb(0 0 0 / 0.3);
+  --toggled-hover-active-btn-color:rgb(0 0 0 / 0.4);
+  --toggled-hover-btn-outline:none;
+  --dropdown-btn-bg-color:light-dark(rgb(215 215 219), rgb(74 74 79));
+  --dropdown-btn-border:none;
+  --separator-color:rgb(0 0 0 / 0.3);
+  --field-color:light-dark(rgb(6 6 6), rgb(250 250 250));
+  --field-bg-color:light-dark(rgb(255 255 255), rgb(64 64 68));
+  --field-border-color:light-dark(rgb(187 187 188), rgb(115 115 115));
+  --treeitem-color:light-dark(rgb(0 0 0 / 0.8), rgb(255 255 255 / 0.8));
+  --treeitem-bg-color:light-dark(rgb(0 0 0 / 0.15), rgb(255 255 255 / 0.15));
+  --treeitem-hover-color:light-dark(rgb(0 0 0 / 0.9), rgb(255 255 255 / 0.9));
+  --treeitem-selected-color:light-dark(
+    rgb(0 0 0 / 0.9),
+    rgb(255 255 255 / 0.9)
+  );
+  --treeitem-selected-bg-color:light-dark(
+    rgb(0 0 0 / 0.25),
+    rgb(255 255 255 / 0.25)
+  );
+  --thumbnail-hover-color:light-dark(rgb(0 0 0 / 0.1), rgb(255 255 255 / 0.1));
+  --thumbnail-selected-color:light-dark(
+    rgb(0 0 0 / 0.2),
+    rgb(255 255 255 / 0.2)
+  );
+  --doorhanger-bg-color:light-dark(rgb(255 255 255), #42414d);
+  --doorhanger-border-color:light-dark(rgb(12 12 13 / 0.2), rgb(39 39 43));
+  --doorhanger-hover-color:light-dark(rgb(12 12 13), rgb(249 249 250));
+  --doorhanger-separator-color:light-dark(rgb(222 222 222), rgb(92 92 97));
+  --dialog-button-border:none;
+  --dialog-button-bg-color:light-dark(rgb(12 12 13 / 0.1), rgb(92 92 97));
+  --dialog-button-hover-bg-color:light-dark(
+    rgb(12 12 13 / 0.3),
+    rgb(115 115 115)
+  );
+}

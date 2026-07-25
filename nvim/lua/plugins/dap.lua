@@ -24,6 +24,7 @@ return {
       { "<leader>dc", function() require("dap").continue() end,          "n", desc = "Continue" },
       { "<leader>ds", function() require("dap").step_over() end,         "n", desc = "Step over", },
       { "<leader>de", function() require("dap").step_into() end,         "n", desc = "Step into", },
+      { "<leader>do", function() require("dap").step_out() end,          "n", desc = "Step out", },
       { "<leader>db", function() require("dap").toggle_breakpoint() end, "n", desc = "Set breakpoint", },
       { "<leader>dk", function() require("dap").terminate() end,         "n", desc = "Terminate", },
       {
@@ -34,6 +35,24 @@ return {
         "n",
         desc = "Set conditional breakpoint"
       },
+      {
+        "<leader>dr", function()
+        local dap = require("dap")
+        local args = vim.split(vim.fn.input("Args: "), " ")
+
+        dap.run({
+          name = "Launch file",
+          type = "codelldb",
+          request = "launch",
+          program = function()
+            return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/bin/', 'file')
+          end,
+          cwd = '${workspaceFolder}',
+          stopOnEntry = false,
+          args = args,
+        })
+      end
+      }
     },
 
     config = function()
@@ -45,6 +64,19 @@ return {
       }
 
       dap.configurations.cpp = {
+        {
+          name = "Launch file",
+          type = "codelldb",
+          request = "launch",
+          program = function()
+            return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/bin/', 'file')
+          end,
+          cwd = '${workspaceFolder}',
+          stopOnEntry = false,
+        },
+      }
+
+      dap.configurations.c = {
         {
           name = "Launch file",
           type = "codelldb",
