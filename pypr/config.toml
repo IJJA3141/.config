@@ -1,0 +1,10 @@
+[pyprland]
+plugins = ["scratchpads"]
+
+[scratchpads.term]
+animation = "fromTop"
+command = "kitty --title scratchpad"
+size = "1500px 940px"
+margin = 20
+lazy = true
+unfocus = "hide"

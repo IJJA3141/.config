@@ -7,6 +7,7 @@
 !firefox/
 !ghostty/
 !hypr/
+!pypr/
 !kitty/
 !luacheck/
 !nvim/
